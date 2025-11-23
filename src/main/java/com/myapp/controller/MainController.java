@@ -13,6 +13,6 @@ public class MainController {
 
     @FXML
     public void handleClick() {
-        label.setText("Salam " + user.getName() + "!");
+        label.setText("Salam " + user.getName() + "!!!!");
     }
 }
