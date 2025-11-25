@@ -43,7 +43,7 @@
                 <version>0.0.8</version>
                 <configuration>
                     <!-- بدّلها بالـ package + class ديال MainApp ديالك -->
-                    <mainClass>com.myapp.MainApp</mainClass>
+                    <mainClass>com.myapp.TerracimApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,4 +1,4 @@
-package com.myapp; // ولا اللي عندك انت
+package com.myapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainApp extends Application {
+public class TerracimApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -16,7 +16,7 @@ public class MainApp extends Application {
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("My JavaFX App");
+        stage.setTitle("Terracim");
         stage.show();
     }
 

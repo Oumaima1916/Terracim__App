@@ -4,13 +4,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<VBox alignment="CENTER" spacing="20"
+<VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
+      alignment="CENTER"
+      spacing="20"
       fx:controller="com.myapp.controller.MainController">
 
-    <Label text="Welcome to Terracim" style="-fx-font-size: 24px;"/>
-
-    <Button text="Login" onAction="#goToLogin"/>
-    <Button text="Register" onAction="#goToRegister"/>
+    <children>
+        <Label text="Welcome to Terracim"
+               style="-fx-font-size: 24px;"/>
+        <Button text="Login" onAction="#goToLogin"/>
+    </children>
 
 </VBox>
