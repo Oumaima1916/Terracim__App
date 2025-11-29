@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="">
+
+    <!-- Main background container -->
+    <center>
+        <StackPane styleClass="root-bg">
+
+            <!-- Main blue card container -->
+            <BorderPane maxWidth="1000"
+                        maxHeight="550"
+                        prefWidth="950"
+                        prefHeight="520"
+                        styleClass="hero-card">
+
+                <!-- NAVIGATION BAR -->
+                <top>
+                    <HBox spacing="40"
+                          alignment="CENTER_LEFT"
+                          styleClass="navbar">
+
+                        <!-- Left menu items -->
+                        <Label text="Home" styleClass="nav-item"/>
+                        <Label text="À propos" styleClass="nav-item"/>
+                        <Label text="Contact" styleClass="nav-item"/>
+
+                        <!-- Spacer to push Login/Register to the right -->
+                        <Pane HBox.hgrow="ALWAYS"/>
+
+                        <!-- Right menu item -->
+                        <Label text="Login / Register"
+                               styleClass="nav-item"/>
+                    </HBox>
+                </top>
+
+                <!-- MAIN CONTENT AREA -->
+                <center>
+                    <HBox spacing="40" styleClass="hero-content">
+
+                        <!-- LEFT SECTION : text and features -->
+                        <VBox spacing="25" prefWidth="520">
+
+                            <!-- Main title -->
+                            <Label text="Bâtissez en confiance,\navec l’expertise TERRACIM"
+                                   wrapText="true"
+                                   styleClass="hero-title"/>
+
+                            <!-- Primary call-to-action button -->
+                            <Button text="Commencer avec nous"
+                                    styleClass="primary-btn"/>
+
+                            <!-- FEATURE CARDS SECTION -->
+                            <HBox spacing="20">
+
+                                <!-- Feature Card 1 -->
+                                <VBox spacing="10" styleClass="feature-card">
+                                    <Label text="🚜" styleClass="feature-icon"/>
+                                    <Label text="Expertise locale"
+                                           styleClass="feature-title"/>
+                                    <Label text="Savoir-faire marocain authentique."
+                                           wrapText="true"
+                                           styleClass="feature-text"/>
+                                </VBox>
+
+                                <!-- Feature Card 2 -->
+                                <VBox spacing="10" styleClass="feature-card">
+                                    <Label text="💡" styleClass="feature-icon"/>
+                                    <Label text="Innovation continue"
+                                           styleClass="feature-title"/>
+                                    <Label text="Technologies modernes et durables."
+                                           wrapText="true"
+                                           styleClass="feature-text"/>
+                                </VBox>
+
+                                <!-- Feature Card 3 -->
+                                <VBox spacing="10" styleClass="feature-card">
+                                    <Label text="🤝" styleClass="feature-icon"/>
+                                    <Label text="Confiance et transparence"
+                                           styleClass="feature-title"/>
+                                    <Label text="Engagement clair et honnête."
+                                           wrapText="true"
+                                           styleClass="feature-text"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <!-- RIGHT SECTION : image -->
+                        <StackPane prefWidth="380" prefHeight="380">
+                            <ImageView fitWidth="380"
+                                       fitHeight="380"
+                                       preserveRatio="true"
+                                       pickOnBounds="true">
+
+                                <!-- Image source path -->
+                                <image>
+                                    <Image url="@images/bg.png"/>
+                                </image>
+                            </ImageView>
+                        </StackPane>
+                    </HBox>
+                </center>
+
+            </BorderPane>
+        </StackPane>
+    </center>
+</BorderPane>

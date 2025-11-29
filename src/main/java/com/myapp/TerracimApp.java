@@ -10,17 +10,23 @@ public class TerracimApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         Parent root = FXMLLoader.load(
-                getClass().getResource("/main_view.fxml")
+                getClass().getResource("/views/main_view.fxml")
         );
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1100, 650);
+
+        scene.getStylesheets().add(
+                getClass().getResource("/views/style.css").toExternalForm()
+        );
+
+        stage.setTitle("TERRACIM");
         stage.setScene(scene);
-        stage.setTitle("Terracim");
         stage.show();
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-r
+}

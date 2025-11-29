@@ -1,0 +1,63 @@
+.root-bg {
+    -fx-background-color: linear-gradient(to bottom, #007fa6, #008fb5);
+    -fx-alignment: center;
+    -fx-padding: 20;
+}
+
+.hero-card {
+    -fx-background-color: #0086ae;
+    -fx-background-radius: 30;
+    -fx-padding: 25;
+}
+
+.navbar {
+    -fx-padding: 10 30 10 30;
+}
+
+.nav-item {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: "System";
+}
+
+.hero-content {
+    -fx-padding: 20 30 30 30;
+}
+
+.hero-title {
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.primary-btn {
+    -fx-background-color: white;
+    -fx-text-fill: #0086ae;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.feature-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 15;
+    -fx-pref-width: 170;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 10, 0, 0, 4);
+}
+
+.feature-icon {
+    -fx-font-size: 26px;
+}
+
+.feature-title {
+    -fx-text-fill: #0086ae;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.feature-text {
+    -fx-text-fill: #555555;
+    -fx-font-size: 11px;
+}
