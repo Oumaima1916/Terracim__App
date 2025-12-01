@@ -10,40 +10,37 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class MainController {
+public class AboutController {
 
     @FXML
     private void handleHome(ActionEvent event) {
-        System.out.println("Navigation vers Home");
-        // Déjà sur home, pas besoin de recharger
+        loadPage(event, "/views/main/home.fxml", "Accueil");
     }
 
     @FXML
     private void handleAbout(ActionEvent event) {
-        System.out.println("Navigation vers À propos");
-        loadPage(event, "/views/main/about.fxml", "À propos");
+        System.out.println("Déjà sur la page À propos");
     }
 
     @FXML
     private void handleContact(ActionEvent event) {
-        System.out.println("Navigation vers Contact");
         loadPage(event, "/views/main/contact.fxml", "Contact");
     }
 
     @FXML
     private void handleLogin(ActionEvent event) {
-        System.out.println("Ouverture Login");
         showInfo("Authentification", "Page de connexion en cours de développement...\n\nProchainement disponible!");
     }
 
     @FXML
     private void handleGetStarted(ActionEvent event) {
-        System.out.println("Commencer avec TERRACIM");
         showInfo("Bienvenue chez TERRACIM",
-                "Merci de votre intérêt!\n\n" +
-                        "Notre équipe va vous contacter prochainement pour démarrer votre projet.\n\n" +
-                        "📞 Contact: +212 XXX XXX XXX\n" +
-                        "📧 Email: contact@terracim.ma");
+                "Merci de votre intérêt pour nos services!\n\n" +
+                        "Avec plus de 15 ans d'expérience et 200+ projets réalisés,\n" +
+                        "nous sommes prêts à concrétiser votre projet.\n\n" +
+                        "📞 Contactez-nous: +212 5XX XX XX XX\n" +
+                        "📧 Email: contact@terracim.ma\n" +
+                        "📍 Adresse: Agadir, Maroc");
     }
 
     /**
