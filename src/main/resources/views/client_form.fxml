@@ -8,75 +8,69 @@
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.myapp.controller.ClientFormController">
 
-    <children>
-        <StackPane alignment="CENTER">
-            <!-- الكارت الزرقاء الكبرى -->
-            <StackPane maxWidth="900"
-                       maxHeight="450"
-                       prefWidth="800"
-                       prefHeight="430"
-                       styleClass="form-container">
+    <StackPane maxWidth="900"
+               maxHeight="450"
+               prefWidth="800"
+               prefHeight="430"
+               styleClass="form-container">
 
-                <!-- الكارت البيضاء لي فالداخل -->
-                <VBox spacing="24"
-                      alignment="TOP_CENTER"
-                      styleClass="form-inner">
+        <VBox spacing="24"
+              alignment="TOP_CENTER"
+              styleClass="form-inner">
 
-                    <!-- العنوان -->
-                    <Label text="Êtes-vous un nouveau client ?"
-                           styleClass="form-title"
-                           alignment="CENTER"/>
+            <!-- Retour -->
+            <HBox alignment="TOP_LEFT">
+                <Button text="← Retour"
+                        styleClass="form-back"
+                        onAction="#goBack"/>
+            </HBox>
 
-                    <!-- GRID ديال لحقول -->
-                    <GridPane hgap="20" vgap="16">
-                        <columnConstraints>
-                            <ColumnConstraints percentWidth="50"/>
-                            <ColumnConstraints percentWidth="50"/>
-                        </columnConstraints>
+            <Label text="Êtes-vous un nouveau client ?"
+                   styleClass="form-title"
+                   alignment="CENTER"/>
 
-                        <!-- 1) Nom complet -->
-                        <TextField GridPane.columnIndex="0" GridPane.rowIndex="0"
-                                   fx:id="fullNameField"
-                                   promptText="Nom complet"
-                                   styleClass="form-field"/>
+            <GridPane hgap="20" vgap="16">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
 
-                        <!-- 2) Région du chantier -->
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"
-                                   fx:id="regionField"
-                                   promptText="Région du chantier"
-                                   styleClass="form-field"/>
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="0"
+                           fx:id="fullNameField"
+                           promptText="Nom complet"
+                           styleClass="form-field"/>
 
-                        <!-- 3) Adresse e-mail -->
-                        <TextField GridPane.columnIndex="0" GridPane.rowIndex="1"
-                                   fx:id="emailField"
-                                   promptText="Adresse e-mail"
-                                   styleClass="form-field"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"
+                           fx:id="regionField"
+                           promptText="Région du chantier"
+                           styleClass="form-field"/>
 
-                        <!-- 4) Description du projet -->
-                        <TextArea GridPane.columnIndex="1" GridPane.rowIndex="1"
-                                  fx:id="projectDescArea"
-                                  promptText="Description du projet"
-                                  prefRowCount="4"
-                                  wrapText="true"
-                                  styleClass="form-textarea"/>
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="1"
+                           fx:id="emailField"
+                           promptText="Adresse e-mail"
+                           styleClass="form-field"/>
 
-                        <!-- 5) Numéro de téléphone -->
-                        <TextField GridPane.columnIndex="0" GridPane.rowIndex="2"
-                                   fx:id="phoneField"
-                                   promptText="Numéro de téléphone"
-                                   styleClass="form-field"/>
-                    </GridPane>
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="2"
+                           fx:id="phoneField"
+                           promptText="Numéro de téléphone"
+                           styleClass="form-field"/>
 
-                    <!-- الزر في الوسط -->
-                    <HBox alignment="CENTER">
-                        <Button text="Envoyer"
-                                styleClass="form-submit"
-                                onAction="#handleSubmit"/>
-                    </HBox>
+                <TextArea  GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"
+                           GridPane.rowSpan="2"
+                           fx:id="projectDescArea"
+                           promptText="Description du projet"
+                           wrapText="true"
+                           prefRowCount="6"
+                           styleClass="form-textarea"/>
+            </GridPane>
 
-                </VBox> <!-- /form-inner -->
+            <HBox alignment="CENTER">
+                <Button text="Envoyer"
+                        styleClass="form-submit"
+                        onAction="#handleSubmit"/>
+            </HBox>
+        </VBox>
 
-            </StackPane> <!-- /form-container -->
-        </StackPane>
-    </children>
+    </StackPane>
 </StackPane>

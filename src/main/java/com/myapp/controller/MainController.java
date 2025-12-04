@@ -6,46 +6,36 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
 public class MainController {
 
-    // جاي من main_view.fxml : <StackPane fx:id="rootStack" ...>
     @FXML
-    private StackPane rootStack;
+    private StackPane rootStack;   // فيه hero-bg
 
     @FXML
-    private void goToLogin(ActionEvent event) {
-        System.out.println("Login button clicked!");
+    private VBox homeContent;      // المحتوى ديال الهوم
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Terracim");
-        alert.setHeaderText(null);
-        alert.setContentText("Login button works!");
-        alert.show();
+    @FXML
+    private void initialize() {
+        // نتأكدو أن الهوم هو اللي معروض أول مرة
+        rootStack.getChildren().setAll(homeContent);
     }
 
-    @FXML
-    private void goToRegister(ActionEvent event) {
-        System.out.println("Register button clicked!");
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Terracim");
-        alert.setHeaderText(null);
-        alert.setContentText("Register button works!");
-        alert.show();
-    }
-
-    // هادي كتتعيط ملي تضغط على "Commencer avec nous"
     @FXML
     private void showForm(ActionEvent event) {
         try {
-            Parent form = FXMLLoader.load(
+            FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/views/client_form.fxml")
             );
+            Parent form = loader.load();
 
-            // نبدّلو الكونتنت ديال rootStack بالفورم
+            // نعطي الفورم reference باش يقدر يرجع للهوم
+            ClientFormController c = loader.getController();
+            c.setMainController(this);
+
             rootStack.getChildren().setAll(form);
 
         } catch (IOException e) {
@@ -57,4 +47,10 @@ public class MainController {
             alert.show();
         }
     }
+
+    public void showHome() {
+        rootStack.getChildren().setAll(homeContent);
+    }
+
+    // Login / Register باقيين كما بغيتيهم
 }

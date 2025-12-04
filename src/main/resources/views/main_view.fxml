@@ -11,12 +11,16 @@
             fx:controller="com.myapp.controller.MainController">
 
     <center>
-        <StackPane fx:id="rootStack" prefHeight="600">
+        <!-- هاد StackPane هو لي فيه الـ bg -->
+        <StackPane fx:id="rootStack"
+                   styleClass="hero-bg"
+                   prefHeight="600">
 
-            <!-- CONTENT OVER BACKGROUND -->
-            <VBox alignment="TOP_LEFT" spacing="40">
+            <!-- هاد VBox هو محتوى الهوم، غادي نحتاجوه باش نرجعو ليه -->
+            <VBox fx:id="homeContent"
+                  alignment="TOP_LEFT"
+                  spacing="40">
                 <padding>
-                    <!-- margin from window borders -->
                     <Insets top="40" right="60" bottom="40" left="60"/>
                 </padding>
 
@@ -47,14 +51,12 @@
 
                     <!-- Card 1 -->
                     <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
-
                         <ImageView fitWidth="45" fitHeight="45" preserveRatio="true">
                             <image>
                                 <Image url="@images/crane.png"/>
                             </image>
                         </ImageView>
 
-                        <!-- title on 2 lines -->
                         <VBox spacing="0">
                             <Label text="Expertise" styleClass="card-title" />
                             <Label text="locale"    styleClass="card-title" />
@@ -67,14 +69,12 @@
 
                     <!-- Card 2 -->
                     <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
-
                         <ImageView fitWidth="45" fitHeight="45" preserveRatio="true">
                             <image>
                                 <Image url="@images/lightbulb.png"/>
                             </image>
                         </ImageView>
 
-                        <!-- title on 2 lines -->
                         <VBox spacing="0">
                             <Label text="Innovation" styleClass="card-title" />
                             <Label text="continue"   styleClass="card-title" />
@@ -87,14 +87,12 @@
 
                     <!-- Card 3 -->
                     <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
-
                         <ImageView fitWidth="45" fitHeight="42" preserveRatio="true">
                             <image>
                                 <Image url="@images/shakinghands.png"/>
                             </image>
                         </ImageView>
 
-                        <!-- title on 2 lines -->
                         <VBox spacing="0">
                             <Label text="Confiance et"  styleClass="card-title" />
                             <Label text="transparence" styleClass="card-title" />
@@ -105,9 +103,9 @@
                                styleClass="card-desc"/>
                     </VBox>
 
-                </HBox> <!-- /HBox cards -->
+                </HBox>
 
-            </VBox> <!-- /VBox content -->
+            </VBox> <!-- /homeContent -->
 
         </StackPane>
     </center>
