@@ -10,7 +10,7 @@
    NAVBAR
    ========================================================= */
 .menu-item {
-    /* utilisé pour les Labels ET Buttons dans la navbar */
+    /* utiliser pour les Labels ET Buttons dans la navbar */
     -fx-text-fill: white;
     -fx-font-size: 19px;
     -fx-font-weight: 600;

@@ -113,7 +113,7 @@
 
                 </HBox>
 
-            </VBox> <!-- /homeContent -->
+            </VBox> <!-- /HomeContent -->
 
         </StackPane>
     </center>

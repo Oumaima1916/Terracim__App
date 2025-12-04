@@ -6,10 +6,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-/**
- * Contrôleur de l’écran Login.
- * Gère : retour, validation, tentative de connexion (mock).
- */
 public class LoginController {
 
     // Champs du formulaire

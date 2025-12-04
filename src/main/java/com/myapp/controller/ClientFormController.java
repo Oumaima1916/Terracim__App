@@ -47,7 +47,7 @@ public class ClientFormController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Merci !");
         alert.setHeaderText(null);
-        alert.setContentText("Votre demande a été envoyée avec succès !");
+        alert.setContentText("Votre demande a été envoyée avec succès !!");
         alert.show();
 
         fullNameField.clear();

@@ -18,7 +18,7 @@
               alignment="TOP_CENTER"
               styleClass="form-inner">
 
-            <!-- Retour -->
+            <!-- RETOUR -->
             <HBox alignment="TOP_LEFT">
                 <Button text="← Retour"
                         styleClass="form-back"

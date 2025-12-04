@@ -18,19 +18,18 @@
               alignment="TOP_CENTER"
               styleClass="form-inner">
 
-            <!-- زر الرجوع -->
             <HBox alignment="TOP_LEFT">
                 <Button text="← Retour"
                         styleClass="form-back"
                         onAction="#goBack"/>
             </HBox>
 
-            <!-- العنوان -->
+
             <Label text="Accédez à votre espace personnel"
                    styleClass="form-title"
                    alignment="CENTER"/>
 
-            <!-- الحقول -->
+
             <VBox spacing="16" maxWidth="420">
 
                 <TextField fx:id="emailField"
@@ -44,7 +43,7 @@
                                VBox.vgrow="NEVER"/>
             </VBox>
 
-            <!-- الزر -->
+
             <HBox alignment="CENTER">
                 <Button text="Se connecter"
                         styleClass="form-submit"

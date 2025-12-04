@@ -72,7 +72,7 @@ public class RegisterController {
             return;
         }
 
-        // Ici tu pourras ajouter la logique réelle : enregistrement BD / API…
+        //tu pourras ajouter la logique réelle : enregistrement BD / API…
         System.out.println("Nouvel utilisateur :");
         System.out.println("Nom   : " + fullName);
         System.out.println("Email : " + email);
