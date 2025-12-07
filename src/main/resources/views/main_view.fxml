@@ -32,10 +32,7 @@
 
                     <Pane HBox.hgrow="ALWAYS"/>
 
-                    <!-- Login et Register séparés -->
-                    <Button text="S'inscrire"
-                            styleClass="menu-item"
-                            onAction="#goToRegister"/>
+                    <!-- Login  -->
 
                     <Button text="Se connecter"
                             styleClass="menu-item"

@@ -84,33 +84,6 @@ public class MainController {
     }
 
     @FXML
-    private void goToRegister(ActionEvent event) {
-        showRegister(event);
-    }
-
-    /* =======================
-       Register
-       ======================= */
-
-    @FXML
-    public void showRegister(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/views/register.fxml")
-            );
-            Parent registerRoot = loader.load();
-
-            RegisterController controller = loader.getController();
-            controller.setMainController(this);
-
-            rootStack.getChildren().setAll(registerRoot);
-
-        } catch (IOException e) {
-            showError("Impossible d'ouvrir l'écran d'inscription", e);
-        }
-    }
-
-    @FXML
     private void goToLogin(ActionEvent event) {
         showLogin(event);
     }
