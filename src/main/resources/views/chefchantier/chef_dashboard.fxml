@@ -58,7 +58,11 @@
             <HBox spacing="15" alignment="CENTER_LEFT">
                 <Label text="Les projets en cours" styleClass="dash-main-title"/>
                 <Pane HBox.hgrow="ALWAYS"/>
-                <Button text="Ajouter un projet" styleClass="dash-add-btn"/>
+
+                <!-- هــنــا زدت onAction -->
+                <Button text="Ajouter un projet"
+                        styleClass="dash-add-btn"
+                        onAction="#openAddProject"/>
             </HBox>
 
             <!-- GRID DES PROJETS -->
