@@ -8,154 +8,111 @@
 <BorderPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.myapp.controller.ChefDashboardController">
+
+    <!-- Feuille de style spécifique au dashboard chef -->
     <stylesheets>
         <URL value="@chef_dashboard.css"/>
     </stylesheets>
 
-    <!-- Barre du haut -->
+    <!-- NAVBAR -->
     <top>
-        <HBox spacing="40" alignment="CENTER_LEFT"
-              styleClass="dash-topbar">
+        <HBox spacing="40" alignment="CENTER_LEFT" styleClass="dash-topbar">
             <padding>
-                <Insets top="20" right="40" bottom="20" left="40"/>
+                <Insets top="15" right="40" bottom="15" left="40"/>
             </padding>
 
-            <Label text="Accueil"    styleClass="dash-menu-item dash-menu-active"/>
-            <Label text="Tâches"     styleClass="dash-menu-item"/>
-            <Label text="Matériaux"  styleClass="dash-menu-item"/>
-            <Label text="Équipe"     styleClass="dash-menu-item"/>
+            <!-- menu -->
+            <Label text="Accueil"    styleClass="dash-menu-item"/>
+            <Label text="Messages"   styleClass="dash-menu-item"/>
+            <Label text="Paramètres" styleClass="dash-menu-item"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
-            <!-- Icônes / profil -->
+            <!-- notif + profile -->
             <Label text="🔔" styleClass="dash-icon"/>
+            <Label text="👤" styleClass="dash-icon"/>
+            <!-- ola ila bghiti initials:
             <Label text="YC" styleClass="dash-avatar"/>
+            -->
         </HBox>
     </top>
 
-    <!-- Contenu principal -->
+    <!-- CONTENU PRINCIPAL -->
     <center>
-        <HBox spacing="30">
+        <VBox spacing="25">
             <padding>
-                <Insets top="20" right="40" bottom="30" left="40"/>
+                <Insets top="20" left="40" right="40" bottom="30"/>
             </padding>
 
-            <!-- Colonne gauche : chantier -->
-            <VBox spacing="20" HBox.hgrow="ALWAYS" maxWidth="420"
-                  styleClass="dash-main-card">
+            <!-- Titre + bouton -->
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Tous les projets en cours" styleClass="dash-main-title"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Ajouter un projet" styleClass="dash-add-btn"/>
+            </HBox>
 
-                <VBox spacing="4">
-                    <Label text="Chantier Lycée Al Wifaq" styleClass="dash-project-title"/>
-                    <Label text="Chef de chantier – Youssef M."
-                           styleClass="dash-project-subtitle"/>
-                </VBox>
-
-                <HBox spacing="18" alignment="CENTER_LEFT">
-                    <StackPane styleClass="dash-progress-circle">
-                        <Label text="40%" styleClass="dash-progress-label"/>
-                    </StackPane>
-
-                    <Label wrapText="true" maxWidth="260"
-                           text="Ce chantier comprend la construction de nouveaux bâtiments scolaires et d’espaces sportifs, avec une livraison prévue en juin 2026."
-                           styleClass="dash-project-text"/>
-                </HBox>
-
-                <HBox spacing="14">
-                    <Region styleClass="dash-mini-photo"/>
-                    <Region styleClass="dash-mini-photo"/>
-                    <Region styleClass="dash-mini-photo"/>
-                </HBox>
-
-                <Button text="Voir toutes les photos"
-                        styleClass="dash-secondary-btn"/>
-            </VBox>
-
-            <!-- Colonne droite : cartes -->
-            <GridPane hgap="20" vgap="20" HBox.hgrow="ALWAYS">
-
+            <!-- GRID DES PROJETS -->
+            <GridPane hgap="25" vgap="25">
                 <columnConstraints>
                     <ColumnConstraints percentWidth="50"/>
                     <ColumnConstraints percentWidth="50"/>
                 </columnConstraints>
 
-                <!-- Derniers rapports -->
-                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0"
-                      spacing="10" styleClass="dash-card">
-                    <Label text="Derniers rapports de chantier"
-                           styleClass="dash-card-title"/>
+                <!-- PROJECT CARD 1 -->
+                <VBox spacing="8" styleClass="project-card"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
 
-                    <VBox spacing="6">
-                        <Label text="• Rapport journalier – 12 déc"
-                               styleClass="dash-card-line"/>
-                        <Label text="• Rapport sécurité – 11 déc"
-                               styleClass="dash-card-line"/>
-                        <Label text="• Rapport bétonnage – 10 déc"
-                               styleClass="dash-card-line"/>
-                    </VBox>
+                    <Label text="Résidence Atlas" styleClass="project-title"/>
 
-                    <Button text="Voir tous les rapports"
-                            styleClass="dash-small-btn"/>
+                    <Label text="Client : Société Atlas" styleClass="project-meta"/>
+                    <Label text="📍 Casablanca, Maroc" styleClass="project-meta"/>
+                    <Label wrapText="true"
+                           text="Immeuble résidentiel R+5 en cours de réalisation."
+                           styleClass="project-desc"/>
                 </VBox>
 
-                <!-- Tâches -->
-                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0"
-                      spacing="10" styleClass="dash-card">
-                    <Label text="Tâches à venir"
-                           styleClass="dash-card-title"/>
+                <!-- PROJECT CARD 2 -->
+                <VBox spacing="8" styleClass="project-card"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
 
-                    <VBox spacing="6">
-                        <Label text="• Pose des armatures – Bloc B"
-                               styleClass="dash-card-line"/>
-                        <Label text="• Coffrage des poteaux – Bloc A"
-                               styleClass="dash-card-line"/>
-                        <Label text="• Réception livraison acier"
-                               styleClass="dash-card-line"/>
-                    </VBox>
+                    <Label text="Immeuble Bahia" styleClass="project-title"/>
 
-                    <Button text="Voir le détail des tâches"
-                            styleClass="dash-small-btn"/>
+                    <Label text="Client : Groupe Bahia" styleClass="project-meta"/>
+                    <Label text="📍 Rabat, Maroc" styleClass="project-meta"/>
+                    <Label wrapText="true"
+                           text="Projet livré et réceptionné par le client."
+                           styleClass="project-desc"/>
                 </VBox>
 
-                <!-- Matériaux -->
-                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1"
-                      spacing="10" styleClass="dash-card">
-                    <Label text="Matériaux à surveiller"
-                           styleClass="dash-card-title"/>
+                <!-- PROJECT CARD 3 -->
+                <VBox spacing="8" styleClass="project-card"
+                      GridPane.columnIndex="0" GridPane.rowIndex="1">
 
-                    <VBox spacing="6">
-                        <Label text="• Acier HA12 – stock bas"
-                               styleClass="dash-card-line alert"/>
-                        <Label text="• Ciment – livraison prévue demain"
-                               styleClass="dash-card-line"/>
-                        <Label text="• Bois de coffrage – OK"
-                               styleClass="dash-card-line ok"/>
-                    </VBox>
+                    <Label text="Villa Nord" styleClass="project-title"/>
 
-                    <Button text="Gérer les matériaux"
-                            styleClass="dash-small-btn"/>
+                    <Label text="Client : M. El Amrani" styleClass="project-meta"/>
+                    <Label text="📍 Tanger, Maroc" styleClass="project-meta"/>
+                    <Label wrapText="true"
+                           text="Chantier arrêté pour raisons administratives."
+                           styleClass="project-desc"/>
                 </VBox>
 
-                <!-- Sécurité & météo -->
-                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1"
-                      spacing="10" styleClass="dash-card">
-                    <Label text="Sécurité &amp; météo"
-                           styleClass="dash-card-title"/>
+                <!-- PROJECT CARD 4 -->
+                <VBox spacing="8" styleClass="project-card"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1">
 
-                    <VBox spacing="6">
-                        <Label text="• Aucun incident signalé aujourd’hui"
-                               styleClass="dash-card-line ok"/>
-                        <Label text="• Vent modéré prévu cet après-midi"
-                               styleClass="dash-card-line"/>
-                        <Label text="• Vérifier fixation des échafaudages"
-                               styleClass="dash-card-line alert"/>
-                    </VBox>
+                    <Label text="Lotissement Oasis" styleClass="project-title"/>
 
-                    <Button text="Consulter les alertes"
-                            styleClass="dash-small-btn"/>
+                    <Label text="Client : Société Oasis" styleClass="project-meta"/>
+                    <Label text="📍 Marrakech, Maroc" styleClass="project-meta"/>
+                    <Label wrapText="true"
+                           text="En attente de validation finale du maître d’ouvrage."
+                           styleClass="project-desc"/>
                 </VBox>
 
             </GridPane>
-        </HBox>
+
+        </VBox>
     </center>
 
 </BorderPane>

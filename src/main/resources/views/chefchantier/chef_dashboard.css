@@ -1,156 +1,96 @@
-/* Font + reset léger */
+/* Police globale */
 .root {
     -fx-font-family: "Segoe UI", Arial, system-ui;
+    -fx-font-size: 15px;
+    -fx-background-color: transparent;
 }
 
-/* -------- TOP BAR -------- */
-
+/* TOPBAR */
 .dash-topbar {
     -fx-background-color: transparent;
 }
 
+/* Navbar – kolhom white, nafs taille */
 .dash-menu-item {
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
     -fx-font-weight: 600;
-    -fx-opacity: 0.7;
+    -fx-opacity: 1;
 }
 
 .dash-menu-item:hover {
-    -fx-opacity: 1.0;
-    -fx-cursor: hand;
-}
-
-.dash-menu-active {
-    -fx-opacity: 1.0;
     -fx-underline: true;
-}
-
-.dash-icon {
-    -fx-text-fill: white;
-    -fx-font-size: 18px;
-}
-
-.dash-avatar {
-    -fx-background-color: white;
-    -fx-text-fill: #0082AC;
-    -fx-font-weight: 700;
-    -fx-padding: 6 12;
-    -fx-background-radius: 999px;
-    -fx-border-radius: 999px;
-}
-
-/* -------- COLONNE GAUCHE (chantier) -------- */
-
-.dash-main-card {
-    -fx-background-color: rgba(255,255,255,0.15);
-    -fx-background-radius: 22;
-    -fx-padding: 24 26 24 26;
-}
-
-.dash-project-title {
-    -fx-text-fill: white;
-    -fx-font-size: 22px;
-    -fx-font-weight: 800;
-}
-
-.dash-project-subtitle {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-opacity: 0.85;
-}
-
-.dash-project-text {
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-    -fx-opacity: 0.95;
-}
-
-/* cercle 40% (fake) */
-.dash-progress-circle {
-    -fx-min-width: 110;
-    -fx-min-height: 110;
-    -fx-max-width: 110;
-    -fx-max-height: 110;
-
-    -fx-background-color: transparent;
-    -fx-border-color: white;
-    -fx-border-width: 6;
-    -fx-border-radius: 999px;
-    -fx-background-radius: 999px;
-
-    -fx-alignment: center;
-}
-
-.dash-progress-label {
-    -fx-text-fill: white;
-    -fx-font-size: 26px;
-    -fx-font-weight: 800;
-}
-
-/* mini photos */
-.dash-mini-photo {
-    -fx-pref-width: 90;
-    -fx-pref-height: 70;
-    -fx-background-radius: 16;
-    -fx-background-color: rgba(255,255,255,0.8);
-}
-
-/* bouton "Voir toutes les photos" */
-.dash-secondary-btn {
-    -fx-background-color: white;
-    -fx-text-fill: #0082AC;
-    -fx-font-weight: 700;
-    -fx-background-radius: 999px;
-    -fx-padding: 8 24;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 2);
     -fx-cursor: hand;
 }
 
-.dash-secondary-btn:hover {
-    -fx-background-color: #f4fbff;
+/* Icons notif + profile */
+.dash-icon {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 22px;
+    -fx-padding: 0 6 0 6;
 }
 
-/* -------- CARTES DE DROITE -------- */
-
-.dash-card {
-    -fx-background-color: white;
-    -fx-background-radius: 18;
-    -fx-padding: 18 20 18 20;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 10, 0, 0, 3);
-}
-
-.dash-card-title {
+/* Avatar optionnel (initiales) */
+.dash-avatar {
     -fx-text-fill: #0082AC;
+    -fx-background-color: white;
     -fx-font-weight: 700;
+    -fx-padding: 6 10;
+    -fx-background-radius: 999px;
+}
+
+/* Titre principal */
+.dash-main-title {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+}
+
+/* Bouton "Ajouter un projet" */
+.dash-add-btn {
+    -fx-background-color: white;
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999px;
+    -fx-padding: 8 22;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 10, 0, 0, 3);
+    -fx-cursor: hand;
+}
+
+.dash-add-btn:hover {
+    -fx-background-color: #f3fbff;
+}
+
+/* Cartes projets */
+.project-card {
+    -fx-background-color: rgba(255,255,255,0.98);
+    -fx-background-radius: 18;
+    -fx-padding: 24 26 26 26;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 14, 0, 0, 4);
+}
+
+.project-card:hover {
+    -fx-translate-y: -4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.22), 18, 0, 0, 6);
+    -fx-cursor: hand;
+}
+
+/* Titre de projet */
+.project-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 21px;
+    -fx-font-weight: 700;
+}
+
+/* Description */
+.project-desc {
+    -fx-text-fill: #4b6b7c;
     -fx-font-size: 15px;
 }
 
-.dash-card-line {
-    -fx-text-fill: #0082AC;
-    -fx-font-size: 13px;
-}
-
-/* états (OK / alerte) */
-.dash-card-line.ok {
-    -fx-text-fill: #1FA364;
-}
-
-.dash-card-line.alert {
-    -fx-text-fill: #D64242;
-}
-
-/* petit bouton dans les cartes */
-.dash-small-btn {
-    -fx-background-color: #0082AC;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-    -fx-font-weight: 600;
-    -fx-background-radius: 999px;
-    -fx-padding: 6 18;
-    -fx-cursor: hand;
-}
-
-.dash-small-btn:hover {
-    -fx-background-color: #0097c7;
+/* Meta: client + localisation */
+.project-meta {
+    -fx-text-fill: #667b8a;
+    -fx-font-size: 15px;
 }
