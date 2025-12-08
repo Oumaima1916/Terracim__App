@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.ChefParametresController"
+            style="-fx-background-color: #0082AC;">
+
+    <!-- CSS dyal chef chantier (nafsschi li 3andek) -->
+    <stylesheets>
+        <URL value="@chef_chantier.css"/>
+    </stylesheets>
+
+    <!-- ====================== TOPBAR ====================== -->
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="35" styleClass="chef-topbar">
+            <padding>
+                <Insets top="18" right="40" bottom="18" left="40"/>
+            </padding>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <!-- notification -->
+            <ImageView fitWidth="30" fitHeight="30" preserveRatio="true" styleClass="topbar-icon">
+                <image>
+                    <Image url="@../images/notification.png"/>
+                </image>
+            </ImageView>
+        </HBox>
+    </top>
+
+    <!-- ================= CONTENU PRINCIPAL ================= -->
+    <center>
+        <HBox spacing="50" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="40" right="60" bottom="40" left="50"/>
+            </padding>
+
+            <!-- SIDEBAR -->
+            <VBox spacing="28" styleClass="chef-side-menu">
+                <Label text="Accueil"    styleClass="chef-side-item"/>
+                <Label text="Messages"   styleClass="chef-side-item"/>
+                <Label text="Paramètres" styleClass="chef-side-item"/>
+            </VBox>
+
+            <!-- WRAPPER PARAMETRES -->
+            <VBox spacing="30" styleClass="settings-wrapper" HBox.hgrow="ALWAYS">
+
+                <!-- titre + sous-titre -->
+                <VBox spacing="6">
+                    <Label text="Paramètres du compte" styleClass="settings-title"/>
+                    <Label text="Gérez vos informations, préférences et notifications."
+                           styleClass="settings-subtitle"/>
+                </VBox>
+
+                <!-- 2 colonnes : gauche + droite -->
+                <HBox spacing="26" HBox.hgrow="ALWAYS">
+
+                    <!-- ==== COLONNE GAUCHE : infos perso ==== -->
+                    <VBox spacing="18" styleClass="settings-card" HBox.hgrow="ALWAYS">
+                        <Label text="Informations personnelles" styleClass="settings-card-title"/>
+
+                        <!-- Nom complet -->
+                        <VBox spacing="4">
+                            <Label text="Nom complet :" styleClass="settings-label"/>
+                            <TextField fx:id="fullNameField"
+                                       text="Youssef El Amrani"
+                                       editable="false"
+                                       styleClass="settings-input"/>
+                        </VBox>
+
+                        <!-- Email -->
+                        <VBox spacing="4">
+                            <Label text="Email :" styleClass="settings-label"/>
+                            <TextField fx:id="emailField"
+                                       text="y.elamrani@terracim.com"
+                                       editable="false"
+                                       styleClass="settings-input"/>
+                        </VBox>
+
+                        <!-- Téléphone -->
+                        <VBox spacing="4">
+                            <Label text="Téléphone :" styleClass="settings-label"/>
+                            <TextField fx:id="phoneField"
+                                       text="+212 6 78 45 32 10"
+                                       editable="false"
+                                       styleClass="settings-input"/>
+                        </VBox>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <Button fx:id="modifierInfosButton"
+                                    text="Modifier"
+                                    styleClass="settings-btn-primary"
+                                    onAction="#onModifierInfos"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- ==== COLONNE DROITE : préférences ==== -->
+                    <VBox spacing="18" styleClass="settings-card" HBox.hgrow="ALWAYS">
+
+                        <Label text="Préférences du compte" styleClass="settings-card-title"/>
+
+                        <!-- Langue -->
+                        <VBox spacing="4">
+                            <Label text="Langue :" styleClass="settings-label"/>
+                            <ComboBox fx:id="langueCombo"
+                                      styleClass="settings-combo"/>
+                        </VBox>
+
+                        <!-- Thème -->
+                        <VBox spacing="4">
+                            <Label text="Thème :" styleClass="settings-label"/>
+                            <HBox spacing="18" alignment="CENTER_LEFT">
+                                <RadioButton fx:id="themeClairRadio"
+                                             text="Clair"
+                                             selected="true"
+                                             styleClass="settings-radio"
+                                             onAction="#onThemeChange"/>
+                                <RadioButton fx:id="themeSombreRadio"
+                                             text="Sombre"
+                                             styleClass="settings-radio"
+                                             onAction="#onThemeChange"/>
+                            </HBox>
+                        </VBox>
+
+                        <!-- Notifications ON/OFF -->
+                        <VBox spacing="4">
+                            <Label text="Notifications :" styleClass="settings-label"/>
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Activé" styleClass="settings-mini-label"/>
+                                <CheckBox fx:id="notificationsCheck"
+                                          selected="true"
+                                          styleClass="settings-switch"/>
+                            </HBox>
+                        </VBox>
+
+                        <!-- Notifications de sécurité -->
+                        <VBox spacing="6">
+                            <Label text="Notifications de sécurité"
+                                   styleClass="settings-section-title"/>
+
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Recevoir les mises à jour de projet"
+                                       styleClass="settings-mini-label"/>
+                                <CheckBox fx:id="majProjetCheck"
+                                          selected="true"
+                                          styleClass="settings-switch"/>
+                            </HBox>
+
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Alertes de paiement"
+                                       styleClass="settings-mini-label"/>
+                                <CheckBox fx:id="alertesPaiementCheck"
+                                          selected="true"
+                                          styleClass="settings-switch"/>
+                            </HBox>
+                        </VBox>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <padding>
+                                <Insets top="10" right="0" bottom="0" left="0"/>
+                            </padding>
+
+                            <Button fx:id="deconnexionButton"
+                                    text="Déconnexion"
+                                    styleClass="settings-btn-danger"
+                                    onAction="#onDeconnexion"/>
+                        </HBox>
+
+
+                    </VBox>
+                </HBox>
+
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

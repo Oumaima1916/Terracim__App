@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.myapp.controller.LoginController">
+
+    <StackPane maxWidth="900"
+               maxHeight="450"
+               prefWidth="780"
+               prefHeight="380"
+               styleClass="form-container">
+
+        <VBox spacing="32"
+              alignment="TOP_CENTER"
+              styleClass="form-inner">
+
+            <HBox alignment="TOP_LEFT">
+                <Button text="← Retour"
+                        styleClass="form-back"
+                        onAction="#goBack"/>
+            </HBox>
+
+            <!-- TITRE -->
+            <Label text="Accédez à votre espace personnel"
+                   styleClass="form-title"
+                   alignment="CENTER"/>
+
+
+            <VBox spacing="16" maxWidth="420">
+
+                <TextField fx:id="emailField"
+                           promptText="Adresse e-mail"
+                           styleClass="form-field"
+                           VBox.vgrow="NEVER"/>
+
+                <PasswordField fx:id="passwordField"
+                               promptText="Mot de passe"
+                               styleClass="form-field"
+                               VBox.vgrow="NEVER"/>
+            </VBox>
+
+
+            <HBox alignment="CENTER">
+                <Button text="Se connecter"
+                        styleClass="form-submit"
+                        onAction="#handleLogin"/>
+            </HBox>
+
+        </VBox>
+
+    </StackPane>
+</StackPane>

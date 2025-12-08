@@ -1,0 +1,252 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+.root {
+    -fx-font-family: "Segoe UI", Arial, system-ui;
+    -fx-font-size: 14px;
+    -fx-background-color: transparent;
+}
+
+/* =========================================================
+   TOPBAR DASHBOARD
+   ========================================================= */
+.dash-topbar {
+    -fx-background-color: transparent;
+}
+
+.dash-menu-item {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+}
+
+.dash-menu-item:hover {
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+/* titre principal dashboard */
+.dash-main-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+}
+
+/* bouton "Ajouter un projet" */
+.dash-add-btn {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999px;
+    -fx-padding: 8 22;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 8, 0.2, 0, 2);
+}
+
+.dash-add-btn:hover {
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.65), 30, 0.5, 0, 0);
+    -fx-translate-y: -2;
+}
+
+/* cartes projets dashboard */
+.project-card {
+    -fx-background-color: rgba(255,255,255,0.98);
+    -fx-background-radius: 18;
+    -fx-padding: 24 26 26 26;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 10, 0.2, 0, 2);
+}
+
+.project-card:hover {
+    -fx-translate-y: -4;
+    -fx-cursor: hand;
+    -fx-effect:
+        dropshadow(gaussian, rgba(255,255,255,0.35), 20, 0.4, 0, 0),
+        dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0.2, 0, 3);
+}
+
+.project-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 21px;
+    -fx-font-weight: 700;
+}
+
+.project-desc {
+    -fx-text-fill: #4b6b7c;
+    -fx-font-size: 15px;
+}
+
+.project-meta {
+    -fx-text-fill: #667b8a;
+    -fx-font-size: 15px;
+}
+
+/* =========================================================
+   TOPBAR (profil / paramètres)
+   ========================================================= */
+.chef-topbar {
+    -fx-background-color: transparent;
+}
+
+.topbar-icon {
+    -fx-cursor: hand;
+    -fx-opacity: 0.95;
+}
+
+.topbar-icon:hover {
+    -fx-opacity: 1;
+}
+
+/* =========================================================
+   SIDEBAR COMMUNE (profil + paramètres)
+   ========================================================= */
+.chef-side-menu {
+    -fx-background-color: #ffffff;
+    -fx-padding: 40 32 40 32;
+    -fx-background-radius: 24;
+    -fx-min-width: 230;
+    -fx-spacing: 26;
+}
+
+.chef-side-item {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+}
+
+.chef-side-item:hover {
+    -fx-opacity: 0.8;
+    -fx-cursor: hand;
+}
+
+/* =========================================================
+   PARAMÈTRES – wrapper général
+   ========================================================= */
+.settings-wrapper {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 26;
+    -fx-padding: 28 32 32 32;
+    -fx-spacing: 22;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 12, 0, 0, 3);
+
+    /* باش تبان حدّ الشاشة بحال الماكيت */
+    -fx-min-width: 950;
+    -fx-max-width: 1250;
+}
+
+/* titres */
+.settings-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+}
+
+.settings-subtitle {
+    -fx-text-fill: #00A5D1;
+    -fx-font-size: 14px;
+}
+
+/* =========================================================
+   PARAMÈTRES – cartes داخلية
+   ========================================================= */
+.settings-card {
+    -fx-background-color: #fff7f1;
+    -fx-background-radius: 22;
+    -fx-padding: 24 30 26 30;   /* padding akbar */
+    -fx-spacing: 16;            /* spacing akbar */
+}
+
+/* titres */
+.settings-card-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+}
+
+/* labels */
+.settings-label {
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;        /* kbarna lfont */
+}
+
+.settings-mini-label {
+    -fx-text-fill: #666666;
+    -fx-font-size: 13px;
+}
+
+.settings-section-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
+
+/* =========================================================
+   INPUTS / COMBOBOX
+   ========================================================= */
+.settings-input,
+.settings-combo {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+
+    -fx-font-size: 14px;        /* kbarna ktaba f champs */
+
+    -fx-background-radius: 999px;
+    -fx-border-radius: 999px;
+
+    -fx-border-color: #0082AC;
+    -fx-border-width: 1;
+    -fx-padding: 7 14;
+}
+
+/* focus = border chiwiya barchaa, bla hadak glow l3adi */
+.settings-input:focused,
+.settings-combo:focused {
+    -fx-border-color: #00A5D1;
+    -fx-effect: none;           /* hna hiyedna l “eaiba” (dropshadow) */
+}
+
+/* =========================================================
+   RADIO / CHECKBOX
+   ========================================================= */
+.settings-radio {
+    -fx-text-fill: #444444;
+    -fx-font-size: 14px;
+}
+
+.settings-switch {
+    -fx-padding: 3 6 3 6;
+}
+
+/* =========================================================
+   BOUTONS PARAMÈTRES
+   ========================================================= */
+.settings-btn-primary {
+    -fx-background-color: #0082AC;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 16;  /* radius n9is shwiya */
+    -fx-padding: 8 22;
+    -fx-cursor: hand;
+}
+
+.settings-btn-primary:hover {
+    -fx-background-color: #006b8c;
+}
+
+.settings-btn-danger {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #E03B3B;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-border-color: #E03B3B;
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+    -fx-background-radius: 16;
+    -fx-padding: 8 24;
+    -fx-cursor: hand;
+}
+
+.settings-btn-danger:hover {
+    -fx-background-color: #ffecec;
+}

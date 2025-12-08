@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.myapp.controller.ClientFormController">
+
+    <StackPane maxWidth="900"
+               maxHeight="450"
+               prefWidth="800"
+               prefHeight="430"
+               styleClass="form-container">
+
+        <VBox spacing="24"
+              alignment="TOP_CENTER"
+              styleClass="form-inner">
+
+            <!-- RETOUR -->
+            <HBox alignment="TOP_LEFT">
+                <Button text="← Retour"
+                        styleClass="form-back"
+                        onAction="#goBack"/>
+            </HBox>
+
+            <Label text="Êtes-vous un nouveau client ?"
+                   styleClass="form-title"
+                   alignment="CENTER"/>
+
+            <GridPane hgap="20" vgap="16">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="0"
+                           fx:id="fullNameField"
+                           promptText="Nom complet"
+                           styleClass="form-field"/>
+
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"
+                           fx:id="regionField"
+                           promptText="Région du chantier"
+                           styleClass="form-field"/>
+
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="1"
+                           fx:id="emailField"
+                           promptText="Adresse e-mail"
+                           styleClass="form-field"/>
+
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="2"
+                           fx:id="phoneField"
+                           promptText="Numéro de téléphone"
+                           styleClass="form-field"/>
+
+                <TextArea  GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"
+                           GridPane.rowSpan="2"
+                           fx:id="projectDescArea"
+                           promptText="Description du projet"
+                           wrapText="true"
+                           prefRowCount="6"
+                           styleClass="form-textarea"/>
+            </GridPane>
+
+            <HBox alignment="CENTER">
+                <Button text="Envoyer"
+                        styleClass="form-submit"
+                        onAction="#handleSubmit"/>
+            </HBox>
+        </VBox>
+
+    </StackPane>
+</StackPane>

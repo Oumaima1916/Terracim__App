@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.AddProjectController"
+            fx:id="root"
+            prefWidth="900" prefHeight="600"
+            styleClass="add-wrapper">
+
+    <children>
+        <!-- الكارت البيضاء الكبيرة فالنص -->
+        <VBox spacing="24"
+              AnchorPane.leftAnchor="120"
+              AnchorPane.rightAnchor="120"
+              AnchorPane.topAnchor="60"
+              AnchorPane.bottomAnchor="60"
+              styleClass="add-card">
+
+            <children>
+
+                <!-- سطر: زر Retour + العنوان فالوسط -->
+                <HBox spacing="16" alignment="CENTER_LEFT">
+                    <children>
+                        <!-- زر retour -->
+                        <Button text="← Retour"
+                                onAction="#handleBack"
+                                styleClass="add-btn-secondary"/>
+
+                        <Pane HBox.hgrow="ALWAYS"/>
+
+                        <!-- العنوان الرئيسي -->
+                        <Label text="Êtes-vous un nouveau client ?"
+                               styleClass="add-title"/>
+                        <Pane prefWidth="40"/>
+                    </children>
+                </HBox>
+
+                <!-- الفورم جوج كولونات -->
+                <GridPane hgap="20" vgap="16">
+                    <padding>
+                        <Insets top="10"/>
+                    </padding>
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+
+                    <children>
+
+                        <!-- Nom complet -->
+                        <VBox spacing="4"
+                              GridPane.rowIndex="0" GridPane.columnIndex="0">
+                            <children>
+                                <Label text="Nom complet" styleClass="add-label"/>
+                                <TextField fx:id="nomCompletField"
+                                           promptText="Nom complet"
+                                           styleClass="add-input"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Région du chantier -->
+                        <VBox spacing="4"
+                              GridPane.rowIndex="0" GridPane.columnIndex="1">
+                            <children>
+                                <Label text="Région du chantier" styleClass="add-label"/>
+                                <TextField fx:id="regionField"
+                                           promptText="Région du chantier"
+                                           styleClass="add-input"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Adresse e-mail -->
+                        <VBox spacing="4"
+                              GridPane.rowIndex="1" GridPane.columnIndex="0">
+                            <children>
+                                <Label text="Adresse e-mail" styleClass="add-label"/>
+                                <TextField fx:id="emailField"
+                                           promptText="Adresse e-mail"
+                                           styleClass="add-input"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Description du projet -->
+                        <VBox spacing="4"
+                              GridPane.rowIndex="1" GridPane.columnIndex="1"
+                              GridPane.rowSpan="2">
+                            <children>
+                                <Label text="Description du projet" styleClass="add-label"/>
+                                <TextArea fx:id="descriptionField"
+                                          promptText="Description du projet"
+                                          prefRowCount="4"
+                                          styleClass="add-input"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Numéro de téléphone -->
+                        <VBox spacing="4"
+                              GridPane.rowIndex="2" GridPane.columnIndex="0">
+                            <children>
+                                <Label text="Numéro de téléphone" styleClass="add-label"/>
+                                <TextField fx:id="telephoneField"
+                                           promptText="Numéro de téléphone"
+                                           styleClass="add-input"/>
+                            </children>
+                        </VBox>
+
+                    </children>
+                </GridPane>
+
+                <!-- زر Envoyer فالنص تحت الفورم -->
+                <HBox alignment="CENTER">
+           //ddd         <children>
+                        <Button text="Envoyer"
+                                onAction="#handleSubmit"
+                                styleClass="add-btn-primary"/>
+                    </children>
+                </HBox>
+
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.MainController">
+
+    <center>
+        <!-- Conteneur avec le background -->
+        <StackPane fx:id="rootStack"
+                   styleClass="hero-bg"
+                   prefHeight="600">
+
+            <!-- Contenu de la page d'accueil -->
+            <VBox fx:id="homeContent"
+                  alignment="TOP_LEFT"
+                  spacing="40">
+                <padding>
+                    <Insets top="40" right="60" bottom="40" left="60"/>
+                </padding>
+
+                <!-- NAVBAR -->
+                <HBox spacing="30">
+                    <Label text="Acceuil"        styleClass="menu-item"/>
+                    <Label text="À propos"    styleClass="menu-item"/>
+                    <Label text="Contact"     styleClass="menu-item"/>
+
+                    <Pane HBox.hgrow="ALWAYS"/>
+
+                    <!-- Login  -->
+
+                    <Button text="Se connecter"
+                            styleClass="menu-item"
+                            onAction="#goToLogin"/>
+                </HBox>
+
+                <!-- TITRES + BUTTON -->
+                <VBox spacing="15">
+                    <Label text="Bâtissez en confiance,"
+                           styleClass="title"/>
+                    <Label text="avec l’expertise TERRACIM"
+                           styleClass="title"/>
+
+                    <Button text="Commencer avec nous"
+                            styleClass="cta"
+                            onAction="#showForm"/>
+                </VBox>
+
+                <!-- CARDS -->
+                <HBox spacing="20">
+
+                    <!-- Card 1 -->
+                    <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
+                        <ImageView fitWidth="45" fitHeight="45" preserveRatio="true">
+                            <image>
+                                <Image url="@images/crane.png"/>
+                            </image>
+                        </ImageView>
+
+                        <VBox spacing="0">
+                            <Label text="Expertise" styleClass="card-title" />
+                            <Label text="locale"    styleClass="card-title" />
+                        </VBox>
+
+                        <Label text="Savoir-faire marocain authentique."
+                               wrapText="true"
+                               styleClass="card-desc"/>
+                    </VBox>
+
+                    <!-- Card 2 -->
+                    <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
+                        <ImageView fitWidth="45" fitHeight="45" preserveRatio="true">
+                            <image>
+                                <Image url="@images/lightbulb.png"/>
+                            </image>
+                        </ImageView>
+
+                        <VBox spacing="0">
+                            <Label text="Innovation" styleClass="card-title" />
+                            <Label text="continue"   styleClass="card-title" />
+                        </VBox>
+
+                        <Label text="Technologies modernes et durables."
+                               wrapText="true"
+                               styleClass="card-desc"/>
+                    </VBox>
+
+                    <!-- Card 3 -->
+                    <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
+                        <ImageView fitWidth="45" fitHeight="42" preserveRatio="true">
+                            <image>
+                                <Image url="@images/shakinghands.png"/>
+                            </image>
+                        </ImageView>
+
+                        <VBox spacing="0">
+                            <Label text="Confiance et"  styleClass="card-title" />
+                            <Label text="transparence" styleClass="card-title" />
+                        </VBox>
+
+                        <Label text="Engagement clair et honnête."
+                               wrapText="true"
+                               styleClass="card-desc"/>
+                    </VBox>
+
+                </HBox>
+
+            </VBox> <!-- /HomeContent -->
+
+        </StackPane>
+    </center>
+</BorderPane>
