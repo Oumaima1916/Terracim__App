@@ -1,16 +1,20 @@
-/* Police globale */
+/* =========================================================
+   POLICE GLOBALE
+   ========================================================= */
 .root {
     -fx-font-family: "Segoe UI", Arial, system-ui;
     -fx-font-size: 15px;
     -fx-background-color: transparent;
 }
 
-/* TOPBAR */
+/* =========================================================
+   TOPBAR
+   ========================================================= */
 .dash-topbar {
     -fx-background-color: transparent;
 }
 
-/* Navbar – kolhom white, nafs taille */
+/* Navbar items */
 .dash-menu-item {
     -fx-text-fill: #ffffff;
     -fx-font-size: 18px;
@@ -30,7 +34,7 @@
     -fx-padding: 0 6 0 6;
 }
 
-/* Avatar optionnel (initiales) */
+/* Avatar */
 .dash-avatar {
     -fx-text-fill: #0082AC;
     -fx-background-color: white;
@@ -39,14 +43,18 @@
     -fx-background-radius: 999px;
 }
 
-/* Titre principal */
+/* =========================================================
+   TITRE PRINCIPAL
+   ========================================================= */
 .dash-main-title {
     -fx-text-fill: white;
     -fx-font-size: 28px;
     -fx-font-weight: 800;
 }
 
-/* Bouton "Ajouter un projet" */
+/* =========================================================
+   BOUTON "AJOUTER UN PROJET" + GLOW DOUX
+   ========================================================= */
 .dash-add-btn {
     -fx-background-color: white;
     -fx-text-fill: #0082AC;
@@ -54,26 +62,41 @@
     -fx-font-weight: 700;
     -fx-background-radius: 999px;
     -fx-padding: 8 22;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 10, 0, 0, 3);
     -fx-cursor: hand;
+
+    /* shadow خفيف فالحالة العادية */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 8, 0.2, 0, 2);
 }
 
 .dash-add-btn:hover {
-    -fx-background-color: #f3fbff;
+    -fx-background-color: #ffffff;
+
+    /* Glow دائري ناعم بدون border */
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.65), 30, 0.5, 0, 0);
+
+    -fx-translate-y: -2;
 }
 
-/* Cartes projets */
+/* =========================================================
+   CARTES PROJETS + HOVER
+   ========================================================= */
 .project-card {
     -fx-background-color: rgba(255,255,255,0.98);
     -fx-background-radius: 18;
+    -fx-background-insets: 0;
     -fx-padding: 24 26 26 26;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 14, 0, 0, 4);
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 10, 0.2, 0, 2);
 }
 
 .project-card:hover {
     -fx-translate-y: -4;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.22), 18, 0, 0, 6);
     -fx-cursor: hand;
+
+    /* glow خفيف جداً باش مايبانش مبالغ فيه */
+    -fx-effect:
+        dropshadow(gaussian, rgba(255,255,255,0.35), 20, 0.4, 0, 0),
+        dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0.2, 0, 3);
 }
 
 /* Titre de projet */
@@ -95,7 +118,9 @@
     -fx-font-size: 15px;
 }
 
-/* ===== TOPBAR PROFIL CHEF ===== */
+/* =========================================================
+   TOPBAR PROFIL CHEF
+   ========================================================= */
 .chef-topbar {
     -fx-background-color: transparent;
 }
@@ -109,7 +134,9 @@
     -fx-opacity: 1;
 }
 
-/* ===== SIDEBAR ===== */
+/* =========================================================
+   SIDEBAR CHEF
+   ========================================================= */
 .chef-side-menu {
     -fx-background-color: #ffffff;
     -fx-padding: 35 32 35 32;
@@ -133,7 +160,9 @@
     -fx-text-fill: #0082AC;
 }
 
-/* ===== CONTENU PROFIL ===== */
+/* =========================================================
+   CONTENU PROFIL CHEF
+   ========================================================= */
 .chef-profile-wrapper {
     -fx-background-color: #ffffff;
     -fx-background-radius: 24;
@@ -186,8 +215,6 @@
 }
 
 /* infos */
-.chef-info-row { }
-
 .chef-info-text {
     -fx-text-fill: #444444;
     -fx-font-size: 13px;
