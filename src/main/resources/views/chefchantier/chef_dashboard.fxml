@@ -53,7 +53,8 @@
                 <Pane HBox.hgrow="ALWAYS"/>
 
                 <!-- هــنــا زدت onAction -->
-                <Button text="Ajouter un projet"
+                <Button fx:id="addBtn"
+                        text="Ajouter un projet"
                         styleClass="dash-add-btn"
                         onAction="#openAddProject"/>
             </HBox>

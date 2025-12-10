@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.ChefMessagesController"
+            style="-fx-background-color: transparent;">
+
+    <stylesheets>
+        <URL value="@chef_chantier.css"/>
+        <!-- add messages specific css if needed -->
+    </stylesheets>
+
+    <!-- TOP (reuse your topbar if present) -->
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="dash-topbar">
+            <padding>
+                <Insets top="12" right="20" bottom="12" left="20"/>
+            </padding>
+            <Label text="Messages" styleClass="dash-main-title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <!-- optional notification icon -->
+            <ImageView fitWidth="22" fitHeight="22" pickOnBounds="true"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="16" padding="20">
+            <!-- LEFT: roles / conversations -->
+            <VBox spacing="10" prefWidth="220">
+                <Label text="Contacts / Espaces" styleClass="settings-card-title"/>
+                <ListView fx:id="contactsList" VBox.vgrow="ALWAYS"/>
+                <HBox spacing="8">
+                    <Button text="Nouveau" fx:id="newConvBtn" onAction="#onNewConversation"/>
+                </HBox>
+            </VBox>
+
+            <!-- MIDDLE: messages thread -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" styleClass="settings-card">
+                <Label fx:id="convTitle" text="Sélectionnez une conversation" styleClass="settings-card-title"/>
+                <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox fx:id="messagesBox" spacing="8" padding="8"/>
+                    </content>
+                </ScrollPane>
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <TextArea fx:id="messageInput" promptText="Écrire un message..." prefRowCount="2" HBox.hgrow="ALWAYS"/>
+                    <Button text="Envoyer" fx:id="sendBtn" onAction="#onSendMessage" styleClass="settings-btn-primary"/>
+                </HBox>
+            </VBox>
+
+            <!-- RIGHT: meta / participant list -->
+            <VBox spacing="10" prefWidth="260" styleClass="settings-card">
+                <Label text="Participants" styleClass="settings-card-title"/>
+                <ListView fx:id="participantsList" VBox.vgrow="ALWAYS"/>
+                <Label text="Actions" styleClass="settings-card-title"/>
+                <Button text="Archiver conversation" onAction="#onArchiveConversation"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

@@ -45,7 +45,6 @@ public class LoginController {
 
         // Authentification MOCK (à remplacer par vraie logique)
         boolean authOK = email.equals("chef@demo.com") && pwd.equals("123456");
-
         if (!authOK) {
             showAlert(Alert.AlertType.ERROR,
                     "Connexion",
