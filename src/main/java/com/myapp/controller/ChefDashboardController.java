@@ -41,6 +41,7 @@ public class ChefDashboardController {
     @FXML private VBox rootContainer;     // fx:id="rootContainer" (center VBox)
     @FXML private GridPane projectsGrid;  // fx:id="projectsGrid"  (where cards are added)
     @FXML private Button addBtn;          // fx:id="addBtn" (Add project button)
+    @FXML private javafx.scene.image.ImageView notifIcon;
 
     // saved center for restore after embedding the add-project form
     private javafx.scene.Node savedCenterNode = null;
@@ -60,6 +61,60 @@ public class ChefDashboardController {
             });
         }
     }
+
+    @FXML
+    private void goToHome(javafx.scene.input.MouseEvent e) {
+        if (mainController != null) mainController.showChefDashboard();
+    }
+
+
+    @FXML
+    private void onNotifIconClicked(javafx.scene.input.MouseEvent event) {
+        System.out.println("DEBUG: notif icon clicked");
+
+        // primary path: use mainController if injected
+        if (mainController != null) {
+            mainController.toggleNotifications();
+
+            // optional: add a sample notification
+            ChefNotificationController nc = mainController.getNotificationController();
+            if (nc != null) {
+                nc.addNotification("Nouvelle facture disponible", "Nouvelle facture disponible pour le chantier X.");
+                nc.addNotification("Nouveau message client", "Client Y: 'Pouvez-vous confirmer le RDV du 10/12 ?'");
+                nc.addNotification("Nouveau rapport", "Rapport chantier #42 a été ajouté.");
+            }
+        }
+
+        // fallback path: try to find the overlay in the scene (in case setMainController wasn't called)
+        try {
+            if (rootPane != null && rootPane.getScene() != null) {
+                javafx.scene.Parent sceneRoot = rootPane.getScene().getRoot();
+                javafx.scene.Node overlay = sceneRoot.lookup("#notificationOverlay");
+                if (overlay != null) {
+                    boolean visible = overlay.isVisible();
+                    overlay.setVisible(!visible);
+                    overlay.setManaged(!visible);
+                    System.out.println("DEBUG: toggled overlay via scene lookup -> nowVisible=" + !visible);
+
+                    // try also to add a sample notification if controller available
+                    // locate controller via lookup (not ideal but safe fallback)
+                    // if you stored controller reference in MainController that's better
+                    return;
+                } else {
+                    System.err.println("DEBUG: notificationOverlay not found in scene (fallback lookup)");
+                }
+            } else {
+                System.err.println("DEBUG: rootPane or scene null in onNotifIconClicked fallback");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        // last resort: show simple message
+        System.err.println("onNotifIconClicked: mainController missing and fallback failed.");
+    }
+
+
 
     /**
      * Open add_project.fxml embedded in the dashboard center (no new window).

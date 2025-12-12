@@ -25,14 +25,14 @@
             </padding>
 
             <!-- menu -->
-            <Label text="Accueil"    styleClass="dash-menu-item"/>
+            <Label text="Accueil"    styleClass="dash-menu-item" onMouseClicked="#goToHome"/>
             <Label text="Messages"   styleClass="dash-menu-item" onMouseClicked="#openMessages"/>
             <Label text="Paramètres" styleClass="dash-menu-item" onMouseClicked="#openParametres"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
             <!-- notif icon -->
-            <ImageView fitWidth="30" fitHeight="30">
+            <ImageView fx:id="notifIcon" onMouseClicked="#onNotifIconClicked" fitWidth="30" fitHeight="30">
                 <image>
                     <Image url="@../images/notification.png"/>
                 </image>

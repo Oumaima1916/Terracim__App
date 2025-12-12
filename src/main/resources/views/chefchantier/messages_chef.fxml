@@ -24,7 +24,7 @@
           VBox.vgrow="ALWAYS"
           styleClass="messages-layout">
 
-        <!-- COLONNE GAUCHE : conversations -->
+        <!-- COLONNE GAUCHE -->
         <VBox fx:id="convList"
               spacing="6"
               styleClass="messages-conv-list"

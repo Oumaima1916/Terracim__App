@@ -14,7 +14,6 @@
             styleClass="scroll-pane">
 
     <content>
-        <!-- Keep your original VBox as the content of the ScrollPane -->
         <VBox spacing="30" styleClass="settings-wrapper">
 
             <!-- title -->

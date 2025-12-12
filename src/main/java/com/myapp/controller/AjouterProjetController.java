@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 
 /**
  * Controller for add_project.fxml.
- * - supports being embedded in ChefDashboardController (setParentController)
- * - onEnregistrerClicked() calls parent.addProjectCard(...)
  */
 public class AjouterProjetController {
 
@@ -23,40 +21,27 @@ public class AjouterProjetController {
     @FXML private Button enregistrerButton;
     @FXML private Button retourButton;
 
-    // will be set by ChefDashboardController after FXMLLoader.load()
     private ChefDashboardController parentController;
 
     @FXML
     public void initialize() {
-        // populate état options safely
-        try {
-            if (etatCombo != null && etatCombo.getItems().isEmpty()) {
-                etatCombo.getItems().addAll("En cours", "Terminé", "En pause");
-            }
-        } catch (Exception ignored) {}
+        if (etatCombo != null) {
+            etatCombo.getItems().addAll("En cours", "Terminé", "En pause");
+        }
     }
 
-    /**
-     * Called by ChefDashboardController right after loader.load()
-     * so this form can call back parentController.addProjectCard(...)
-     */
     public void setParentController(ChefDashboardController parent) {
         this.parentController = parent;
     }
 
-    /**
-     * User clicked "Enregistrer".
-     * Build the needed strings and call parentController.addProjectCard(...)
-     */
     @FXML
     private void onEnregistrerClicked() {
-        String titre = safeText(nomProjetField);
-        String client = safeText(clientField);
-        String ville = safeText(villeField);
-        String adresse = safeText(adresseField);
-        String desc = safeText(descriptionArea);
+        String titre = nomProjetField != null ? nomProjetField.getText() : null;
+        String client = clientField != null ? clientField.getText() : null;
+        String ville = villeField != null ? villeField.getText() : null;
+        String adresse = adresseField != null ? adresseField.getText() : null;
+        String desc = descriptionArea != null ? descriptionArea.getText() : null;
 
-        // prefer "ville" in the location (you asked that city appear where state was)
         String location = "";
         if (ville != null && !ville.isBlank()) location = ville;
         if (adresse != null && !adresse.isBlank()) {
@@ -65,23 +50,29 @@ public class AjouterProjetController {
 
         if (parentController != null) {
             parentController.addProjectCard(titre, client, location, desc);
-            // addProjectCard restores center (as implemented in ChefDashboardController)
+
+            // also add a notification via mainController (optional)
+            if (parentController instanceof ChefDashboardController cd && cd != null) {
+                // parentController has reference to MainController via setMainController earlier,
+                // but we don't access it here directly. The chef dashboard can add notifications if needed.
+            }
+
         } else {
-            // fallback (useful for debugging if parent not set)
-            System.err.println("AjouterProjetController: parentController is null — projet non ajouté au dashboard");
-            System.out.println("Projet: " + titre);
-            System.out.println("Client: " + client);
-            System.out.println("Location: " + location);
-            System.out.println("Description: " + desc);
+            System.err.println("AjouterProjetController: parentController is null — cannot add project");
+            System.out.println("Projet = " + titre);
         }
 
-        // clear fields
-        clearForm();
+        // clear
+        if (nomProjetField != null) nomProjetField.clear();
+        if (clientField != null) clientField.clear();
+        if (villeField != null) villeField.clear();
+        if (adresseField != null) adresseField.clear();
+        if (etatCombo != null) etatCombo.getSelectionModel().clearSelection();
+        if (descriptionArea != null) descriptionArea.clear();
     }
 
     @FXML
     private void onRetourClicked() {
-        // if embedded, ask parent to restore; else (modal) close stage
         if (parentController != null) {
             parentController.restoreCenter();
             return;
@@ -89,24 +80,6 @@ public class AjouterProjetController {
         try {
             Stage stage = (Stage) retourButton.getScene().getWindow();
             stage.close();
-        } catch (Exception ignored) {}
-    }
-
-    /* ---------- helpers ---------- */
-    private String safeText(TextField tf) {
-        return tf == null ? null : tf.getText();
-    }
-    private String safeText(TextArea ta) {
-        return ta == null ? null : ta.getText();
-    }
-    private void clearForm() {
-        try {
-            if (nomProjetField != null) nomProjetField.clear();
-            if (clientField != null) clientField.clear();
-            if (villeField != null) villeField.clear();
-            if (adresseField != null) adresseField.clear();
-            if (etatCombo != null) etatCombo.getSelectionModel().clearSelection();
-            if (descriptionArea != null) descriptionArea.clear();
         } catch (Exception ignored) {}
     }
 }

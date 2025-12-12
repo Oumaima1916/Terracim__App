@@ -5,14 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
-/**
- * Controller for the "Paramètres" screen (Chef).
- * - Les champs utilisateur sont non-editable par défaut; bouton "Modifier" bascule en mode édition puis "Sauvegarder".
- * - Les champs de mot de passe (ancien / nouveau / confirmation) sont visibles directement.
- * - onChangePassword() valide ancien mot de passe, confirmation, longueur, etc.
- *
- * NOTE: currentPassword est mock (String). Remplacez par logique réelle (DB / service) en production.
- */
 public class ChefParametresController {
 
     @FXML private VBox rootContainer;
