@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.MessagesChefController"
+      spacing="20"
+      VBox.vgrow="ALWAYS"
+      styleClass="settings-wrapper">
+
+    <!-- Titre -->
+    <VBox spacing="4">
+        <Label text="Messages" styleClass="settings-title"/>
+        <Label text="Discutez avec votre secrétaire, directeur et clients."
+               styleClass="settings-subtitle"/>
+    </VBox>
+
+    <!-- Layout général des messages -->
+    <HBox spacing="0"
+          HBox.hgrow="ALWAYS"
+          VBox.vgrow="ALWAYS"
+          styleClass="messages-layout">
+
+        <!-- COLONNE GAUCHE : conversations -->
+        <VBox fx:id="convList"
+              spacing="6"
+              styleClass="messages-conv-list"
+              prefWidth="230"
+              VBox.vgrow="ALWAYS">
+
+            <Label text="Conversations" styleClass="messages-conv-title"/>
+
+            <Label fx:id="secretaireItem"
+                   text="Secrétaire"
+                   styleClass="messages-conv-item"
+                   onMouseClicked="#selectSecretaire"/>
+
+            <Label fx:id="directeurItem"
+                   text="Directeur"
+                   styleClass="messages-conv-item"
+                   onMouseClicked="#selectDirecteur"/>
+
+            <Label fx:id="clientItem"
+                   text="Client"
+                   styleClass="messages-conv-item"
+                   onMouseClicked="#selectClient"/>
+        </VBox>
+
+        <!-- COLONNE CENTRALE : conversation -->
+        <VBox spacing="10"
+              styleClass="messages-center"
+              HBox.hgrow="ALWAYS"
+              VBox.vgrow="ALWAYS">
+
+            <!-- header -->
+            <HBox spacing="5"
+                  alignment="CENTER_LEFT"
+                  styleClass="messages-header">
+
+                <Label fx:id="contactNameLabel"
+                       text=""
+                       styleClass="messages-header-name"/>
+
+                <Label fx:id="contactStatusLabel"
+                       text=""
+                       styleClass="messages-header-status"/>
+            </HBox>
+
+            <!-- messages (ScrollPane) -->
+            <ScrollPane fx:id="messagesScroll"
+                        fitToWidth="true"
+                        vbarPolicy="AS_NEEDED"
+                        hbarPolicy="NEVER"
+                        VBox.vgrow="ALWAYS"
+                        styleClass="messages-scroll">
+                <content>
+                    <VBox fx:id="messagesContainer"
+                          spacing="8"
+                          styleClass="messages-thread"
+                          prefWidth="600"
+                          VBox.vgrow="ALWAYS">
+
+                        <!-- centered placeholder shown when no messages -->
+                        <HBox fx:id="emptyPlaceholder"
+                              alignment="CENTER"
+                              VBox.vgrow="ALWAYS"
+                              style="-fx-padding: 40 10;">
+                            <Label text="Aucun message ici. Commencez la conversation en envoyant un message."
+                                   styleClass="messages-empty"/>
+                        </HBox>
+
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- barre d'envoi -->
+            <HBox spacing="10"
+                  alignment="CENTER_LEFT"
+                  styleClass="messages-input-bar">
+
+                <TextField fx:id="messageField"
+                           HBox.hgrow="ALWAYS"
+                           promptText="Écrivez un message..."
+                           styleClass="settings-input messages-input"/>
+
+                <Button text="Envoyer"
+                        onAction="#sendMessage"
+                        styleClass="messages-send-btn"/>
+            </HBox>
+        </VBox>
+
+    </HBox>
+
+</VBox>

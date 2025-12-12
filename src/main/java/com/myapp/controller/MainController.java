@@ -9,117 +9,89 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class MainController {
 
-    /* Conteneur principal (fond + contenu) */
-    @FXML
-    private StackPane rootStack;
+    @FXML private StackPane rootStack;
+    @FXML private VBox homeContent;
 
-    /* Contenu de la page d’accueil (navbar + hero + cards) */
-    @FXML
-    private VBox homeContent;
-
-    /* Affiché au démarrage : l’écran d’accueil */
     @FXML
     private void initialize() {
+        if (rootStack == null) {
+            System.err.println("MainController.initialize(): rootStack is null — check fx:id in main FXML");
+            return;
+        }
+        if (homeContent == null) {
+            System.err.println("MainController.initialize(): homeContent is null — check fx:id in main FXML");
+            return;
+        }
         rootStack.getChildren().setAll(homeContent);
     }
-
-    /* ======================
-       Accueil
-       ====================== */
 
     public void showHome() {
+        if (rootStack == null || homeContent == null) return;
         rootStack.getChildren().setAll(homeContent);
     }
-
-    /* =======================
-       Formulaire client
-       ======================= */
 
     @FXML
     private void showForm(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/views/client_form.fxml")
-            );
-            Parent form = loader.load();
-
-            ClientFormController controller = loader.getController();
-            controller.setMainController(this);
-
-            rootStack.getChildren().setAll(form);
-
-        } catch (IOException e) {
-            showError("Impossible d'ouvrir le formulaire client", e);
-        }
+        loadViewIntoStack("/views/client_form.fxml", "Impossible d'ouvrir le formulaire client");
     }
-
-    /* =======================
-       Login
-       ======================= */
 
     @FXML
     public void showLogin(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/views/login.fxml")
-            );
-            Parent loginRoot = loader.load();
-
-            LoginController controller = loader.getController();
-            controller.setMainController(this);
-
-            rootStack.getChildren().setAll(loginRoot);
-
-        } catch (IOException e) {
-            showError("Impossible d'ouvrir l'écran de connexion", e);
-        }
+        loadViewIntoStack("/views/login.fxml", "Impossible d'ouvrir l'écran de connexion");
     }
 
-    /* Permet d’appeler showLogin() sans ActionEvent (depuis RegisterController par ex.) */
-    public void showLogin() {
-        showLogin(null);
-    }
+    public void showLogin() { showLogin((ActionEvent) null); }
 
     @FXML
-    private void goToLogin(ActionEvent event) {
-        showLogin(event);
+    private void goToLogin(ActionEvent event) { showLogin(event); }
+
+    public void showChefDashboard() {
+        loadViewIntoStack("/views/chefchantier/chef_dashboard.fxml",
+                "Impossible d'ouvrir le tableau de bord du chef de chantier");
     }
 
-    /* =======================
-       Dashboard Chef de chantier
-       ======================= */
-
-    /** Appelé depuis LoginController après une connexion réussie */
-    public void showChefDashboard() {
+    private void loadViewIntoStack(String resourcePath, String errTitle) {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/views/chefchantier/chef_dashboard.fxml")
-            );
-            Parent dashboardRoot = loader.load();
+            URL resource = getClass().getResource(resourcePath);
+            if (resource == null) {
+                showError(errTitle, new IOException("FXML not found: " + resourcePath));
+                return;
+            }
 
-            ChefDashboardController controller = loader.getController();
-            controller.setMainController(this); // si tu veux pouvoir revenir/communiquer
+            FXMLLoader loader = new FXMLLoader(resource);
+            Parent node = loader.load();
 
-            rootStack.getChildren().setAll(dashboardRoot);
+            // If child controller has setMainController(MainController) call it (safe reflection)
+            Object childController = loader.getController();
+            if (childController != null) {
+                try {
+                    childController.getClass()
+                            .getMethod("setMainController", MainController.class)
+                            .invoke(childController, this);
+                } catch (NoSuchMethodException ignored) { }
+            }
 
-        } catch (IOException e) {
-            showError("Impossible d'ouvrir le tableau de bord du chef de chantier", e);
+            if (rootStack == null) {
+                showError("Erreur interne", new IllegalStateException("rootStack is null — main FXML fx:id missing"));
+                return;
+            }
+            rootStack.getChildren().setAll(node);
+
+        } catch (Exception e) {
+            showError(errTitle, e);
         }
     }
-
-    /* =======================
-       Utilitaire d’affichage d’erreur
-       ======================= */
 
     private void showError(String msg, Exception e) {
         e.printStackTrace();
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erreur");
         alert.setHeaderText(msg);
-        alert.setContentText(e.getMessage());
+        alert.setContentText(e == null ? "" : e.getMessage());
         alert.show();
     }
 }

@@ -9,6 +9,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="rootPane"
             fx:controller="com.myapp.controller.ChefDashboardController">
 
     <!-- Feuille de style spécifique au dashboard chef -->
@@ -25,7 +26,7 @@
 
             <!-- menu -->
             <Label text="Accueil"    styleClass="dash-menu-item"/>
-            <Label text="Messages"   styleClass="dash-menu-item"/>
+            <Label text="Messages"   styleClass="dash-menu-item" onMouseClicked="#openMessages"/>
             <Label text="Paramètres" styleClass="dash-menu-item" onMouseClicked="#openParametres"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
@@ -58,7 +59,7 @@
             </HBox>
 
             <!-- GRID DES PROJETS -->
-            <GridPane hgap="25" vgap="25">
+            <GridPane fx:id="projectsGrid" hgap="25" vgap="25">
                 <columnConstraints>
                     <ColumnConstraints percentWidth="50"/>
                     <ColumnConstraints percentWidth="50"/>
