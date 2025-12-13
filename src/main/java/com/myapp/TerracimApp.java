@@ -4,43 +4,41 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class TerracimApp extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) {
+        try {
+            // Charger la page d'accueil
+            Parent root = FXMLLoader.load(getClass().getResource("/views/main/home.fxml"));
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/views/main_view.fxml")
-        );
+            // Créer la scène
+            Scene scene = new Scene(root, 1280, 720);
 
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
+            // Configurer la fenêtre
+            primaryStage.setTitle("TERRACIM - Application");
 
-        scene.getStylesheets().add(
-                getClass().getResource("/views/style.css").toExternalForm()
-        );
+            // Ajouter l'icône (si tu as le logo)
+            try {
+                primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/images/logo_terracim.jpg")));
+            } catch (Exception e) {
+                System.out.println("Logo introuvable, passage sans icône");
+            }
 
-        String bgUrl = getClass().getResource("/views/images/bg.png").toExternalForm();
+            primaryStage.setScene(scene);
+            primaryStage.setResizable(true);
+            primaryStage.setMinWidth(1024);
+            primaryStage.setMinHeight(600);
+            primaryStage.show();
 
-        root.setStyle(
-                "-fx-background-image: url('" + bgUrl + "');" +
-                        "-fx-background-repeat: no-repeat;" +
-                        "-fx-background-position: right center;" +
-                        "-fx-background-size: cover;" +      // ila bghiti height only: "auto 100%"
-                        "-fx-padding: 40;"
-        );
-
-        stage.setTitle("TERRACIM");
-        stage.setMinWidth(900);
-        stage.setMinHeight(600);
-        stage.setWidth(1200);
-        stage.setHeight(720);
-        stage.setScene(scene);
-        stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Erreur lors du démarrage de l'application");
+        }
     }
-
 
     public static void main(String[] args) {
         launch(args);
