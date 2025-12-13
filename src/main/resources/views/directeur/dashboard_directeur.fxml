@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane fx:controller="com.myapp.controller.DashboardDirecteurController"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <HBox alignment="CENTER" style="-fx-padding: 15;">
+            <Label text="Espace Directeur"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" alignment="CENTER"
+              style="-fx-padding: 30;">
+
+            <Button text="Gérer les employés"
+                    fx:id="btnEmployees"
+                    style="-fx-min-width: 200px; -fx-min-height: 40px;" />
+
+            <Button text="Consulter les rapports"
+                    fx:id="btnRapports"
+                    style="-fx-min-width: 200px; -fx-min-height: 40px;" />
+
+            <Button text="Ajouter un chantier"
+                    fx:id="btnAddChantier"
+                    style="-fx-min-width: 200px; -fx-min-height: 40px;" />
+
+        </VBox>
+    </center>
+
+</BorderPane>

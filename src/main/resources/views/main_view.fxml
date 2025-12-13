@@ -48,7 +48,7 @@
 
                     <Button text="Commencer avec nous"
                             styleClass="cta"
-                            onAction="#showForm"/>
+                            onAction="#goToDirecteur"/>
                 </VBox>
 
                 <!-- CARDS -->
