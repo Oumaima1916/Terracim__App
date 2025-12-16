@@ -8,11 +8,14 @@
 <?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
-
+<?import java.net.URL?>
 <AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.myapp.controller.ChefNotificationController"
             prefWidth="360" prefHeight="600"
             style="-fx-background-color: transparent;">
+    <stylesheets>
+        <URL value="@chef_chantier.css"/>
+    </stylesheets>
     <!-- Titre -->
     <VBox fx:id="rootBox"
           AnchorPane.topAnchor="40.0"

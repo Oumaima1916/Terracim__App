@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.AddTaskController"
+            fitToWidth="true"
+            styleClass="scroll-pane">
+    <stylesheets>
+        <URL value="@chef_chantier.css"/>
+    </stylesheets>
+    <content>
+        <VBox spacing="40" styleClass="add-task-wrapper">
+
+            <stylesheets>
+                <URL value="@chef_chantier.css"/>
+            </stylesheets>
+
+            <VBox spacing="28" styleClass="add-task-card">
+
+                <HBox alignment="CENTER_LEFT">
+                    <Button text="← Retour"
+                            onAction="#onBack"
+                            styleClass="ajp-btn-retour"/>
+                </HBox>
+
+                <Label text="Nouvelle tâche" styleClass="add-task-title"/>
+
+                <TextField fx:id="taskNameField"
+                           promptText="Nom de la tâche"/>
+
+                <TextField fx:id="chefField"
+                           editable="false"/>
+
+                <HBox spacing="18">
+                    <TextField fx:id="budgetPrevuField"
+                               promptText="Budget prévu (DH)"/>
+                    <TextField fx:id="budgetUtiliseField"
+                               promptText="Budget utilisé (DH)"/>
+                </HBox>
+
+                <!-- ===== MATERIAUX ===== -->
+                <VBox spacing="14">
+                    <Label text="Matériaux utilisés" styleClass="section-title"/>
+
+                    <VBox fx:id="materialsContainer" spacing="10"/>
+
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button text="+ Ajouter une ligne"
+                                onAction="#onAddMaterial"
+                                styleClass="btn-secondary"/>
+                    </HBox>
+                </VBox>
+
+                <!-- ===== DOCUMENTS / PHOTOS ===== -->
+                <VBox spacing="12">
+                    <Label text="Documents &amp; photos" styleClass="section-title"/>
+
+                    <HBox spacing="16">
+                        <Button text="Ajouter documents"
+                                onAction="#onAddDocuments"
+                                styleClass="btn-secondary"/>
+                        <Button text="Photos Avant"
+                                onAction="#onAddPhotosBefore"
+                                styleClass="btn-secondary"/>
+                        <Button text="Photos Après"
+                                onAction="#onAddPhotosAfter"
+                                styleClass="btn-secondary"/>
+                    </HBox>
+                </VBox>
+
+                <TextArea fx:id="resumeArea"
+                          promptText="Résumé de la tâche"
+                          styleClass="text-area"/>
+
+                <HBox alignment="CENTER_RIGHT">
+                    <Button text="Soumettre le rapport"
+                            onAction="#onSubmit"
+                            styleClass="btn-primary"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

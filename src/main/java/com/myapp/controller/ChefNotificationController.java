@@ -74,7 +74,7 @@ public class ChefNotificationController {
         // ===== Message =====
         Label lblMsg = new Label(message);
         lblMsg.setWrapText(true);
-        lblMsg.setMaxWidth(220); // خلي مساحة للزر
+        lblMsg.setMaxWidth(220);
         lblMsg.setStyle(
                 "-fx-font-size: 16px;" +
                         "-fx-text-fill: white;"

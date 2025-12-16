@@ -3,11 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
-
+<?import java.net.URL?>
 <StackPane xmlns="http://javafx.com/javafx/25"
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.myapp.controller.LoginController">
-
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
     <StackPane maxWidth="900"
                maxHeight="450"
                prefWidth="780"

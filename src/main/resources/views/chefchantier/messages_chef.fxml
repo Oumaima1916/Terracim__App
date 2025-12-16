@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
+<?import java.net.URL?>
 
 <VBox xmlns="http://javafx.com/javafx/25"
       xmlns:fx="http://javafx.com/fxml/1"
@@ -10,7 +11,9 @@
       spacing="20"
       VBox.vgrow="ALWAYS"
       styleClass="settings-wrapper">
-
+    <stylesheets>
+        <URL value="@chef_chantier.css"/>
+    </stylesheets>
     <!-- Titre -->
     <VBox spacing="4">
         <Label text="Messages" styleClass="settings-title"/>

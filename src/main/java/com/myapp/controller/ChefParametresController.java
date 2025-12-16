@@ -36,9 +36,6 @@ public class ChefParametresController {
     // internal state
     private boolean editMode = false;
 
-    /**
-     * Mock current password for demo. Replace with secure storage in real app.
-     */
     private String currentPassword = "123456";
 
     @FXML
@@ -57,15 +54,12 @@ public class ChefParametresController {
         if (themeSombreRadio != null) themeSombreRadio.setToggleGroup(themeGroup);
         if (themeClairRadio != null) themeClairRadio.setSelected(true);
 
-        // Start with user fields non-editable
         setEditable(false);
 
-        // Ensure password fields exist (no hiding logic - they are visible by design)
         if (oldPwdField != null)  oldPwdField.clear();
         if (newPwdField != null)  newPwdField.clear();
         if (confirmPwdField != null) confirmPwdField.clear();
 
-        // remove accidental focus from text fields
         Platform.runLater(() -> {
             if (rootContainer != null) rootContainer.requestFocus();
         });
@@ -77,11 +71,6 @@ public class ChefParametresController {
         if (phoneField != null) phoneField.setEditable(editable);
     }
 
-    /**
-     * Toggle between edit and save for user info.
-     * When entering edit mode: fields become editable and button text -> "Sauvegarder".
-     * When saving: fields become non-editable and data is printed (replace with real save).
-     */
     @FXML
     private void onModifierInfos() {
         if (!editMode) {
@@ -89,13 +78,11 @@ public class ChefParametresController {
             setEditable(true);
             if (modifierInfosButton != null) modifierInfosButton.setText("Sauvegarder");
 
-            // focus end of name field
             if (fullNameField != null) {
                 fullNameField.requestFocus();
                 fullNameField.positionCaret(fullNameField.getText() != null ? fullNameField.getText().length() : 0);
             }
         } else {
-            // perform "save" (stub: print to console). Replace with persist logic.
             String nom  = fullNameField != null ? fullNameField.getText() : "";
             String mail = emailField != null ? emailField.getText() : "";
             String tel  = phoneField != null ? phoneField.getText() : "";
@@ -123,7 +110,6 @@ public class ChefParametresController {
     private void onThemeChange() {
         boolean isClair = themeClairRadio != null && themeClairRadio.isSelected();
         System.out.println("Thème clair ? " + isClair);
-        // Hook: apply theme switching if needed
     }
 
     @FXML
@@ -133,10 +119,6 @@ public class ChefParametresController {
         }
     }
 
-    /**
-     * Change password action (validates old password, new password rules and confirmation).
-     * Displays Alerts for feedback. Updates in-memory currentPassword on success.
-     */
     @FXML
     private void onChangePassword() {
         String oldP = oldPwdField != null ? oldPwdField.getText() : "";
@@ -186,9 +168,6 @@ public class ChefParametresController {
         if (rootContainer != null) rootContainer.requestFocus();
     }
 
-    /**
-     * Utility to show modal alerts.
-     */
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert a = new Alert(type);
         a.setTitle(title);

@@ -20,13 +20,6 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * Merged ChefDashboardController:
- * - embeds add_project.fxml into the center (no new window)
- * - saves/restores the center node
- * - exposes addProjectCard(...) to be called by the form controller
- * - loadIntoCenter(...) used for messages/parametres
- */
 public class ChefDashboardController {
 
     // Optional reference to MainController if you need navigation back
@@ -75,14 +68,6 @@ public class ChefDashboardController {
         // primary path: use mainController if injected
         if (mainController != null) {
             mainController.toggleNotifications();
-
-            // optional: add a sample notification
-            ChefNotificationController nc = mainController.getNotificationController();
-            if (nc != null) {
-                nc.addNotification("Nouvelle facture disponible", "Nouvelle facture disponible pour le chantier X.");
-                nc.addNotification("Nouveau message client", "Client Y: 'Pouvez-vous confirmer le RDV du 10/12 ?'");
-                nc.addNotification("Nouveau rapport", "Rapport chantier #42 a été ajouté.");
-            }
         }
 
         try {
@@ -95,9 +80,6 @@ public class ChefDashboardController {
                     overlay.setManaged(!visible);
                     System.out.println("DEBUG: toggled overlay via scene lookup -> nowVisible=" + !visible);
 
-                    // try also to add a sample notification if controller available
-                    // locate controller via lookup (not ideal but safe fallback)
-                    // if you stored controller reference in MainController that's better
                     return;
                 } else {
                     System.err.println("DEBUG: notificationOverlay not found in scene (fallback lookup)");
@@ -113,12 +95,6 @@ public class ChefDashboardController {
         System.err.println("onNotifIconClicked: mainController missing and fallback failed.");
     }
 
-
-
-    /**
-     * Open add_project.fxml embedded in the dashboard center (no new window).
-     * The form controller should call setParentController(this) so it can call addProjectCard(...)
-     */
     @FXML
     private void openAddProject(ActionEvent event) {
         try {
@@ -146,13 +122,11 @@ public class ChefDashboardController {
             FXMLLoader loader = new FXMLLoader(url);
             Parent form = loader.load();
 
-            // If the form controller supports being given a parent, pass this
             Object controller = loader.getController();
             if (controller instanceof AjouterProjetController apc) {
                 apc.setParentController(this);
             }
 
-            // embed the form in the center (keeps the blue surrounding background)
             rootPane.setCenter(form);
 
         } catch (IOException e) {
@@ -164,10 +138,6 @@ public class ChefDashboardController {
         }
     }
 
-    /**
-     * Add a new project card into projectsGrid and restore original center.
-     * Called by AjouterProjetController after successful register.
-     */
     public void addProjectCard(String title, String client, String city, String description) {
         if (projectsGrid == null) {
             System.err.println("addProjectCard: projectsGrid is null — vérifie fx:id dans chef_dashboard.fxml");
@@ -179,6 +149,10 @@ public class ChefDashboardController {
             VBox card = new VBox();
             card.getStyleClass().add("project-card");
             card.setSpacing(8);
+            card.setOnMouseClicked(e ->
+                    openProjectDetails(title, client, city, description)
+            );
+
 
             Label lblTitle = new Label((title == null || title.isBlank()) ? "Nouveau projet" : title);
             lblTitle.getStyleClass().add("project-title");
@@ -205,13 +179,11 @@ public class ChefDashboardController {
 
             card.getChildren().addAll(lblTitle, clientBox, locBox, lblDesc);
 
-            // calculate grid position (2 columns)
             int count = projectsGrid.getChildren().size();
             int col = (count % 2 == 0) ? 0 : 1;
             int row = count / 2;
             projectsGrid.add(card, col, row);
 
-            // restore the original center so user sees updated cards
             restoreCenter();
 
         } catch (Exception e) {
@@ -220,9 +192,6 @@ public class ChefDashboardController {
         }
     }
 
-    /**
-     * Restore the saved center node (if any).
-     */
     public void restoreCenter() {
         if (rootPane != null && savedCenterNode != null) {
             rootPane.setCenter(savedCenterNode);
@@ -230,9 +199,6 @@ public class ChefDashboardController {
         }
     }
 
-    /**
-     * Helper to load ImageView from resource (returns null if not found).
-     */
     private ImageView loadImageView(String resourcePath, double w, double h) {
         try (InputStream is = getClass().getResourceAsStream(resourcePath)) {
             if (is != null) {
@@ -246,9 +212,6 @@ public class ChefDashboardController {
         return null;
     }
 
-    /**
-     * Load a view into center (used for messages / parametres).
-     */
     @FXML
     private void openParametres(MouseEvent event) {
         loadIntoCenter("/views/chefchantier/chef_parametres.fxml");
@@ -296,9 +259,6 @@ public class ChefDashboardController {
         }
     }
 
-    /**
-     * Show an alert (safely).
-     */
     private void showError(String title, String message) {
         try {
             Alert a = new Alert(Alert.AlertType.ERROR);
@@ -314,10 +274,26 @@ public class ChefDashboardController {
         }
     }
 
-    /**
-     * Optional small interface the children controllers may implement to receive MainController.
-     */
     public interface MainControllerAware {
         void setMainController(MainController mainController);
     }
+
+    private void openProjectDetails(String title, String client, String city, String description) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/chefchantier/project_details.fxml")
+            );
+            Parent view = loader.load();
+
+            ProjectDetailsController controller = loader.getController();
+            controller.setProjectData(title, client, city, description);
+            controller.setMainRoot(rootPane); // 👈 هادي هي المفتاح
+
+            rootPane.setCenter(view);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

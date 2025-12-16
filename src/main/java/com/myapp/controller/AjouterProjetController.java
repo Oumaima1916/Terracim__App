@@ -48,10 +48,7 @@ public class AjouterProjetController {
         if (parentController != null) {
             parentController.addProjectCard(titre, client, location, desc);
 
-            // also add a notification via mainController (optional)
             if (parentController instanceof ChefDashboardController cd && cd != null) {
-                // parentController has reference to MainController via setMainController earlier,
-                // but we don't access it here directly. The chef dashboard can add notifications if needed.
             }
 
         } else {

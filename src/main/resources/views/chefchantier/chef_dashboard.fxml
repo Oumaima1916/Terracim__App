@@ -17,22 +17,22 @@
         <URL value="@chef_chantier.css"/>
     </stylesheets>
 
-    <!-- NAVBAR \ TOPBAR -->
+    <!-- ===== TOP BAR ===== -->
     <top>
         <HBox spacing="40" alignment="CENTER_LEFT" styleClass="dash-topbar">
             <padding>
                 <Insets top="15" right="40" bottom="15" left="40"/>
             </padding>
 
-            <!-- menu -->
             <Label text="Accueil"    styleClass="dash-menu-item" onMouseClicked="#goToHome"/>
             <Label text="Messages"   styleClass="dash-menu-item" onMouseClicked="#openMessages"/>
             <Label text="Paramètres" styleClass="dash-menu-item" onMouseClicked="#openParametres"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
-            <!-- notif icon -->
-            <ImageView fx:id="notifIcon" onMouseClicked="#onNotifIconClicked" fitWidth="30" fitHeight="30">
+            <ImageView fx:id="notifIcon"
+                       onMouseClicked="#onNotifIconClicked"
+                       fitWidth="30" fitHeight="30">
                 <image>
                     <Image url="@../images/notification.png"/>
                 </image>
@@ -40,7 +40,7 @@
         </HBox>
     </top>
 
-    <!-- CONTENU principal -->
+    <!-- ===== CONTENU PRINCIPAL ===== -->
     <center>
         <VBox fx:id="rootContainer" spacing="25">
             <padding>
@@ -58,132 +58,14 @@
                         onAction="#openAddProject"/>
             </HBox>
 
-            <!-- GRID DES PROJETS -->
-            <GridPane fx:id="projectsGrid" hgap="25" vgap="25">
+            <!-- GRID DES PROJETS (VIDE – remplie par Java) -->
+            <GridPane fx:id="projectsGrid"
+                      hgap="25"
+                      vgap="25">
                 <columnConstraints>
                     <ColumnConstraints percentWidth="50"/>
                     <ColumnConstraints percentWidth="50"/>
                 </columnConstraints>
-
-                <!-- PROJECT CARD 1 -->
-                <VBox spacing="8" styleClass="project-card"
-                      GridPane.columnIndex="0" GridPane.rowIndex="0">
-
-                    <Label text="Résidence Atlas" styleClass="project-title"/>
-
-                    <!-- Client -->
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/project.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Client : Société Atlas" styleClass="project-meta"/>
-                    </HBox>
-
-                    <!-- Localisation -->
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/location.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Casablanca, Maroc" styleClass="project-meta"/>
-                    </HBox>
-
-                    <!-- Description -->
-                    <Label wrapText="true"
-                           text="Immeuble résidentiel R+5 en cours de réalisation."
-                           styleClass="project-desc"/>
-                </VBox>
-
-                <!-- PROJECT CARD 2 -->
-                <VBox spacing="8" styleClass="project-card"
-                      GridPane.columnIndex="1" GridPane.rowIndex="0">
-
-                    <Label text="Immeuble Bahia" styleClass="project-title"/>
-
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/project.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Client : Groupe Bahia" styleClass="project-meta"/>
-                    </HBox>
-
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/location.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Rabat, Maroc" styleClass="project-meta"/>
-                    </HBox>
-
-                    <Label wrapText="true"
-                           text="Projet livré et réceptionné par le client."
-                           styleClass="project-desc"/>
-                </VBox>
-
-                <!-- PROJECT CARD 3 -->
-                <VBox spacing="8" styleClass="project-card"
-                      GridPane.columnIndex="0" GridPane.rowIndex="1">
-
-                    <Label text="Villa Nord" styleClass="project-title"/>
-
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/project.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Client : M. El Amrani" styleClass="project-meta"/>
-                    </HBox>
-
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/location.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Tanger, Maroc" styleClass="project-meta"/>
-                    </HBox>
-
-                    <Label wrapText="true"
-                           text="Chantier arrêté pour raisons administratives."
-                           styleClass="project-desc"/>
-                </VBox>
-
-                <!-- CARD 4 -->
-                <VBox spacing="8" styleClass="project-card"
-                      GridPane.columnIndex="1" GridPane.rowIndex="1">
-
-                    <Label text="Lotissement Oasis" styleClass="project-title"/>
-
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/project.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Client : Société Oasis" styleClass="project-meta"/>
-                    </HBox>
-
-                    <HBox spacing="8" alignment="CENTER_LEFT">
-                        <ImageView fitWidth="20" fitHeight="20">
-                            <image>
-                                <Image url="@../images/location.png"/>
-                            </image>
-                        </ImageView>
-                        <Label text="Marrakech, Maroc" styleClass="project-meta"/>
-                    </HBox>
-
-                    <Label wrapText="true"
-                           text="En attente de validation finale du maître d’ouvrage."
-                           styleClass="project-desc"/>
-                </VBox>
-
             </GridPane>
 
         </VBox>

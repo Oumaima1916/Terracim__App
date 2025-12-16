@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import java.net.URL?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.ProjectDetailsController"
+      spacing="40"
+      style="-fx-background-color: #f4f8fb;">
+    <stylesheets>
+        <URL value="@chef_chantier.css"/>
+    </stylesheets>
+    <!-- PAGE PADDING -->
+    <padding>
+        <Insets top="30" right="40" bottom="50" left="40"/>
+    </padding>
+
+    <!-- ================= PROJECT CARD ================= -->
+    <VBox spacing="10" styleClass="project-card">
+
+        <!-- Title -->
+        <Label fx:id="lblTitle"
+               styleClass="project-title"/>
+
+        <!-- Client -->
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <ImageView fitWidth="20" fitHeight="20">
+                <image>
+                    <Image url="@../images/project.png"/>
+                </image>
+            </ImageView>
+            <Label fx:id="lblClient"
+                   styleClass="project-meta"/>
+        </HBox>
+
+        <!-- Localisation -->
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <ImageView fitWidth="20" fitHeight="20">
+                <image>
+                    <Image url="@../images/location.png"/>
+                </image>
+            </ImageView>
+            <Label fx:id="lblLocation"
+                   styleClass="project-meta"/>
+        </HBox>
+
+        <!-- Description -->
+        <Label fx:id="lblDescription"
+               wrapText="true"
+               styleClass="project-desc"/>
+
+    </VBox>
+
+    <!-- ================= TASKS SECTION ================= -->
+    <VBox spacing="15" styleClass="tasks-section">
+
+        <!-- HEADER -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="Toutes les tâches"
+                   styleClass="section-title"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="+ Ajouter une tâche"
+                    onAction="#onAddTask"
+                    styleClass="primary-btn"/>
+        </HBox>
+
+        <!-- LIST -->
+        <StackPane>
+            <VBox fx:id="tasksContainer"
+                  spacing="20"/>
+
+            <Label fx:id="emptyLabel"
+                   text="Aucune tâche pour le moment"
+                   styleClass="empty-text"
+                   visible="false"/>
+        </StackPane>
+
+    </VBox>
+
+</VBox>

@@ -3,11 +3,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
-
+<?import java.net.URL?>
 <AnchorPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.myapp.controller.AjouterProjetController"
             stylesheets="@chef_chantier.css">
+    <stylesheets>
+        <URL value="@chef_chantier.css"/>
+    </stylesheets>
 
     <VBox layoutX="50" layoutY="30" AnchorPane.leftAnchor="40" AnchorPane.rightAnchor="40" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
           styleClass="ajp-container">
@@ -39,10 +42,6 @@
                 <TextField fx:id="clientField" promptText="Nom du client"
                            GridPane.rowIndex="1" GridPane.columnIndex="0"
                            styleClass="ajp-field"/>
-
-                <ComboBox fx:id="etatCombo" promptText="État du projet"
-                          GridPane.rowIndex="1" GridPane.columnIndex="1"
-                          styleClass="ajp-field"/>
 
                 <TextField fx:id="villeField" promptText="Ville"
                            GridPane.rowIndex="2" GridPane.columnIndex="0"
