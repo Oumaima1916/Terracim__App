@@ -1,5 +1,4 @@
 package com.myapp.model;
-
 import javafx.beans.property.*;
 
 public class MaterialRow {

@@ -14,7 +14,6 @@
     <stylesheets>
         <URL value="@chef_chantier.css"/>
     </stylesheets>
-    <!-- Titre -->
     <VBox spacing="4">
         <Label text="Messages" styleClass="settings-title"/>
         <Label text="Discutez avec votre secrétaire, directeur et clients."

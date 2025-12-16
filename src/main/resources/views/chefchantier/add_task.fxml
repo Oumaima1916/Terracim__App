@@ -55,7 +55,7 @@
                     </HBox>
                 </VBox>
 
-                <!-- ===== DOCUMENTS / PHOTOS ===== -->
+                <!-- ===== DOCUMENTS et PHOTOS ===== -->
                 <VBox spacing="12">
                     <Label text="Documents &amp; photos" styleClass="section-title"/>
 

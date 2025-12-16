@@ -793,7 +793,6 @@
 
 /* ================= FIX SCROLLPANE BACKGROUND ================= */
 
-/* ScrollPane نفسه */
 .scroll-pane {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
@@ -806,12 +805,10 @@
     -fx-background-insets: 0;
 }
 
-/* المحتوى الداخلي */
 .scroll-pane > .viewport > * {
     -fx-background-color: transparent;
 }
 
-/* حيد أي effect افتراضي */
 .scroll-pane {
     -fx-effect: null;
 }

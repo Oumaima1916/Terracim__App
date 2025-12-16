@@ -27,8 +27,6 @@ public class ChefNotificationController {
         if (btnClearAll != null) {
             btnClearAll.setOnAction(e -> clearAll());
         }
-
-        // EXAMPLES
         Platform.runLater(() -> {
             addNotification("La réunion avec le client est prévue demain à 09:30.");
             addNotification("Vous avez une nouvelle tâche sur le chantier Marina Bay.");

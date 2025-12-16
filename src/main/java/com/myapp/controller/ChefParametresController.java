@@ -103,7 +103,6 @@ public class ChefParametresController {
     @FXML
     private void onDeconnexion() {
         System.out.println("Déconnexion clicked");
-        // Hook: replace with real logout logic (clear session, change scene...)
     }
 
     @FXML

@@ -24,7 +24,6 @@ public class AddTaskController {
 
     private final List<MaterialRow> materials = new ArrayList<>();
 
-    // 👇 المرجع الرئيسي
     private BorderPane mainRoot;
 
     public void setMainRoot(BorderPane root) {
@@ -37,7 +36,6 @@ public class AddTaskController {
         onAddMaterial();
     }
 
-    // ✅ زر Retour كيخدم صح
     @FXML
     private void onBack() {
         try {

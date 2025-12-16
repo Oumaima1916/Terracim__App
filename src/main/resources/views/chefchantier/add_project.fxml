@@ -17,7 +17,7 @@
 
         <VBox styleClass="ajp-card" spacing="22">
 
-            <!-- Retour button -->
+            <!-- Retour Button -->
             <Button fx:id="retourButton"
                     text="← Retour"
                     onAction="#onRetourClicked"

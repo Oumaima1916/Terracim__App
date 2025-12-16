@@ -16,7 +16,6 @@
     <stylesheets>
         <URL value="@chef_chantier.css"/>
     </stylesheets>
-    <!-- Titre -->
     <VBox fx:id="rootBox"
           AnchorPane.topAnchor="40.0"
           AnchorPane.rightAnchor="24.0"
