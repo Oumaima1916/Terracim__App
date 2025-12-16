@@ -1,4 +1,5 @@
 package com.myapp.controller;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -46,9 +47,6 @@ public class AjouterProjetController {
 
         if (parentController != null) {
             parentController.addProjectCard(titre, client, location, desc);
-
-            if (parentController instanceof ChefDashboardController cd && cd != null) {
-            }
 
         } else {
             System.err.println("AjouterProjetController: parentController is null — cannot add project");

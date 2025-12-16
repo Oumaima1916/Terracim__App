@@ -106,12 +106,6 @@ public class ChefParametresController {
     }
 
     @FXML
-    private void onThemeChange() {
-        boolean isClair = themeClairRadio != null && themeClairRadio.isSelected();
-        System.out.println("Thème clair ? " + isClair);
-    }
-
-    @FXML
     private void onNotificationsToggle() {
         if (notificationsCheck != null) {
             System.out.println("Notifications actives ? " + notificationsCheck.isSelected());
