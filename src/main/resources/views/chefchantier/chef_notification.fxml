@@ -13,13 +13,10 @@
             fx:controller="com.myapp.controller.ChefNotificationController"
             prefWidth="360" prefHeight="600"
             style="-fx-background-color: transparent;">
-<<<<<<< HEAD
-    <!-- Titre -->
-=======
+
     <stylesheets>
         <URL value="@chef_chantier.css"/>
     </stylesheets>
->>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
     <VBox fx:id="rootBox"
           AnchorPane.topAnchor="40.0"
           AnchorPane.rightAnchor="24.0"
