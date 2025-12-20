@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.DocumentsClientController"
+      spacing="20"
+      styleClass="documents-panel">
+
+    <Label text="Documents"
+           styleClass="documents-title"/>
+
+    <VBox fx:id="documentsContainer" spacing="14">
+
+        <HBox spacing="12" styleClass="document-item">
+            <ImageView fitWidth="22" fitHeight="22">
+                <image>
+                    <Image url="@/views/images/pdf.png"/>
+                </image>
+            </ImageView>
+            <Label text="Contrat_Entreprise.pdf"/>
+        </HBox>
+
+        <HBox spacing="12" styleClass="document-item">
+            <ImageView fitWidth="22" fitHeight="22">
+                <image>
+                    <Image url="@/views/images/pdf.png"/>
+                </image>
+            </ImageView>
+            <Label text="Rapport_Chantier_11Nov.pdf"/>
+        </HBox>
+
+        <HBox spacing="12" styleClass="document-item">
+            <ImageView fitWidth="22" fitHeight="22">
+                <image>
+                    <Image url="@/views/images/pdf.png"/>
+                </image>
+            </ImageView>
+            <Label text="Rapport_Chantier_10Nov.pdf"/>
+        </HBox>
+
+        <HBox spacing="12" styleClass="document-item">
+            <ImageView fitWidth="22" fitHeight="22">
+                <image>
+                    <Image url="@/views/images/pdf.png"/>
+                </image>
+            </ImageView>
+            <Label text="Rapport_Chantier_5Nov.pdf"/>
+        </HBox>
+
+    </VBox>
+
+</VBox>

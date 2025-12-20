@@ -1,0 +1,35 @@
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.ClientDashboardController">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox spacing="40" alignment="CENTER_LEFT" styleClass="topbar">
+            <padding>
+                <Insets top="15" left="40" right="40" bottom="15"/>
+            </padding>
+
+            <Label text="Accueil" styleClass="menu-item" onMouseClicked="#openHome"/>
+            <Label text="Messages" styleClass="menu-item" onMouseClicked="#openMessages"/>
+            <Label text="Paramètres" styleClass="menu-item" onMouseClicked="#openParams"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+            <ImageView fitWidth="30" fitHeight="30" styleClass="notif-icon"/>
+            <ImageView fitWidth="30" fitHeight="30" styleClass="user-icon"/>
+        </HBox>
+    </top>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <HBox spacing="20" alignment="TOP_CENTER">
+            <padding><Insets top="20" left="40" right="40"/></padding>
+
+            <!-- LEFT SIDE (Project Overview) -->
+            <VBox fx:id="overviewBox" spacing="20" styleClass="project-overview"/>
+
+            <!-- RIGHT SIDE (Documents + Updates + Tasks) -->
+            <VBox fx:id="rightBox" spacing="20" styleClass="right-sections"/>
+        </HBox>
+    </center>
+
+</BorderPane>

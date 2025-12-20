@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.ClientParametresController"
+      alignment="TOP_CENTER"
+      spacing="30"
+      styleClass="settings-wrapper">
+
+    <HBox spacing="30" alignment="TOP_CENTER">
+
+        <!-- ================= LEFT CARD ================= -->
+        <VBox spacing="16"
+              prefWidth="420"
+              styleClass="settings-card">
+
+            <Label text="Informations personnelles"
+                   styleClass="settings-card-title"/>
+
+            <VBox spacing="4">
+                <Label text="Nom complet :" styleClass="settings-label"/>
+                <TextField fx:id="fullNameField"
+                           editable="false"
+                           styleClass="settings-input"/>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Email :" styleClass="settings-label"/>
+                <TextField fx:id="emailField"
+                           editable="false"
+                           styleClass="settings-input"/>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Téléphone :" styleClass="settings-label"/>
+                <TextField fx:id="phoneField"
+                           editable="false"
+                           styleClass="settings-input"/>
+            </VBox>
+
+            <Button text="Modifier"
+                    onAction="#onModifierInfos"
+                    styleClass="settings-btn-primary"/>
+
+            <Button text="Déconnexion"
+                    onAction="#onDeconnexion"
+                    styleClass="settings-btn-danger"/>
+        </VBox>
+
+        <!-- ================= RIGHT CARD ================= -->
+        <VBox spacing="16"
+              prefWidth="420"
+              styleClass="settings-card">
+
+            <Label text="Préférences du compte"
+                   styleClass="settings-card-title"/>
+
+            <VBox spacing="4">
+                <Label text="Langue :" styleClass="settings-label"/>
+                <ComboBox fx:id="langueCombo"
+                          prefWidth="200"
+                          styleClass="settings-combo"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Thème :" styleClass="settings-label"/>
+                <HBox spacing="16">
+                    <RadioButton fx:id="themeClair" text="Clair"/>
+                    <RadioButton fx:id="themeSombre" text="Sombre"/>
+                </HBox>
+            </VBox>
+
+            <Label text="Mot de passe"
+                   styleClass="settings-section-title"/>
+
+            <PasswordField fx:id="oldPwdField"
+                           promptText="Ancien mot de passe"
+                           styleClass="settings-input"/>
+
+            <PasswordField fx:id="newPwdField"
+                           promptText="Nouveau mot de passe"
+                           styleClass="settings-input"/>
+
+            <PasswordField fx:id="confirmPwdField"
+                           promptText="Confirmer le nouveau mot de passe"
+                           styleClass="settings-input"/>
+
+            <Button text="Changer"
+                    onAction="#onChangePassword"
+                    styleClass="settings-btn-primary"/>
+        </VBox>
+
+    </HBox>
+</VBox>

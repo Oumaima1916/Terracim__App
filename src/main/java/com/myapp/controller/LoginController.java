@@ -7,25 +7,13 @@ import javafx.scene.control.TextField;
 
 public class LoginController {
 
-    // Champs du formulaire
     @FXML private TextField emailField;
     @FXML private PasswordField passwordField;
 
-    // Référence vers MainController (navigation)
     private MainController mainController;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
-    }
-
-    // Bouton "Retour" → accueil
-    @FXML
-    private void goBack(ActionEvent event) {
-        if (mainController != null) {
-            mainController.showHome();
-        } else {
-            System.out.println("mainController == null (setMainController non appelé)");
-        }
     }
 
     @FXML
@@ -34,7 +22,6 @@ public class LoginController {
         String email = emailField.getText().trim();
         String pwd   = passwordField.getText();
 
-        // Vérif champs
         if (email.isEmpty() || pwd.isEmpty()) {
             showAlert(Alert.AlertType.WARNING,
                     "Champs manquants",
@@ -42,24 +29,51 @@ public class LoginController {
             return;
         }
 
-        // Authentification MOCK (à remplacer par vraie logique)
-        boolean authOK = email.equals("chef@demo.com") && pwd.equals("123456");
-        if (!authOK) {
-            showAlert(Alert.AlertType.ERROR,
-                    "Connexion",
-                    "Identifiants incorrects (simulation).");
+        if (mainController == null) {
+            showAlert(Alert.AlertType.ERROR, "Erreur interne",
+                    "MainController n'est pas initialisé.");
             return;
         }
 
-        passwordField.clear();
+        switch (email.toLowerCase()) {
 
-        // Aller vers le dashboard chef
-        if (mainController != null) {
-            mainController.showChefDashboard();
+            case "chef@demo.com":
+                if (pwd.equals("123456")) {
+                    mainController.showChefDashboard();
+                } else showAlert(Alert.AlertType.ERROR,"Erreur","Mot de passe incorrect !");
+                break;
+
+            case "client@demo.com":
+                if (pwd.equals("123456")) {
+                    mainController.showClientDashboard();
+                } else showAlert(Alert.AlertType.ERROR,"Erreur","Mot de passe incorrect !");
+                break;
+
+            case "directeur@demo.com":
+                if (pwd.equals("123456")) {
+                    mainController.showDirecteurDashboard();
+                } else showAlert(Alert.AlertType.ERROR,"Erreur","Mot de passe incorrect !");
+                break;
+
+            default:
+                showAlert(Alert.AlertType.ERROR,
+                        "Connexion",
+                        "Email inconnu (simulation).");
         }
     }
 
-    // Petite méthode utilitaire
+    // ==========================
+    //   MÉTHODE POUR LE RETOUR
+    // ==========================
+    @FXML
+    private void goBack() {
+        if (mainController != null) {
+            mainController.showHome();
+        } else {
+            System.err.println("MainController is NULL in LoginController");
+        }
+    }
+
     private void showAlert(Alert.AlertType type, String title, String msg) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<HBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.MessagesClientController"
+      spacing="0"
+      styleClass="messages-root">
+
+    <!-- ================= LEFT : CONVERSATIONS ================= -->
+    <VBox spacing="12"
+          prefWidth="240"
+          styleClass="messages-left"
+          VBox.vgrow="ALWAYS">
+
+        <Label text="Messages"
+               styleClass="messages-title"/>
+
+        <VBox spacing="6">
+            <Label fx:id="chefItem"
+                   text="Chef de chantier"
+                   onMouseClicked="#selectChef"
+                   styleClass="messages-user-item"/>
+
+            <Label fx:id="secretaireItem"
+                   text="Secrétaire"
+                   onMouseClicked="#selectSecretaire"
+                   styleClass="messages-user-item"/>
+        </VBox>
+    </VBox>
+
+    <!-- ================= CENTER : CHAT ================= -->
+    <VBox spacing="12"
+          HBox.hgrow="ALWAYS"
+          styleClass="messages-center">
+
+        <!-- HEADER -->
+        <VBox spacing="2"
+              styleClass="messages-header">
+
+            <Label fx:id="contactNameLabel"
+                   text="Chef de chantier"
+                   styleClass="messages-header-name"/>
+
+            <Label fx:id="contactStatusLabel"
+                   text="En ligne"
+                   styleClass="messages-header-status"/>
+        </VBox>
+
+        <!-- MESSAGES -->
+        <ScrollPane fx:id="messagesScroll"
+                    fitToWidth="true"
+                    VBox.vgrow="ALWAYS"
+                    styleClass="messages-scroll">
+
+            <content>
+                <VBox fx:id="messagesContainer"
+                      spacing="14"
+                      styleClass="messages-thread"/>
+            </content>
+        </ScrollPane>
+
+        <!-- INPUT BAR -->
+        <HBox spacing="10"
+              alignment="CENTER_LEFT"
+              styleClass="messages-input-bar">
+
+            <Button text="📎"
+                    onAction="#attachFile"
+                    styleClass="file-attach-btn"/>
+
+            <TextField fx:id="messageField"
+                       promptText="Envoyer un message..."
+                       HBox.hgrow="ALWAYS"
+                       styleClass="messages-input"/>
+
+            <Button text="➤"
+                    onAction="#sendMessage"
+                    styleClass="messages-send-btn"/>
+        </HBox>
+    </VBox>
+    <!-- ================= RIGHT : ASSISTANT IA ================= -->
+    <VBox spacing="20"
+          prefWidth="320"
+          styleClass="messages-right">
+
+        <!-- TITLE + ICON -->
+        <HBox spacing="12" alignment="CENTER_LEFT">
+            <Label text="💬"
+                   style="-fx-font-size: 32px; -fx-text-fill: #7fbfd4;" />
+            <Label text="Assistant intelligent"
+                   styleClass="assistant-title"/>
+        </HBox>
+
+        <!-- QUESTIONS -->
+        <VBox spacing="10"
+              styleClass="assistant-questions-box">
+
+            <Label text="Exemples de questions"
+                   styleClass="assistant-subtitle"/>
+
+            <VBox spacing="6"
+                  styleClass="assistant-questions">
+
+                <Label text="• Où en est le chantier ?"
+                       styleClass="assistant-item"/>
+
+                <Label text="• Quand aura lieu la prochaine réunion ?"
+                       styleClass="assistant-item"/>
+
+                <Label text="• Montre-moi les dernières photos"
+                       styleClass="assistant-item"/>
+            </VBox>
+        </VBox>
+
+
+
+
+
+        <!-- 🔽 هاد Spacer هو السر باش يهبط input لتحت -->
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- AI INPUT (نازل لتحت بحال pic 2) -->
+        <HBox spacing="10"
+              alignment="CENTER_LEFT"
+              styleClass="assistant-input-bar">
+
+            <TextField fx:id="aiMessageField"
+                       promptText="Envoyer un message..."
+                       HBox.hgrow="ALWAYS"
+                       styleClass="messages-input"/>
+
+            <Button text="➤"
+                    onAction="#sendAiMessage"
+                    styleClass="messages-send-btn"/>
+        </HBox>
+
+    </VBox>
+
+
+
+</HBox>

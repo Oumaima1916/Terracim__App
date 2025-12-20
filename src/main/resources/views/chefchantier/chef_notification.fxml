@@ -13,6 +13,7 @@
             fx:controller="com.myapp.controller.ChefNotificationController"
             prefWidth="360" prefHeight="600"
             style="-fx-background-color: transparent;">
+
     <stylesheets>
         <URL value="@chef_chantier.css"/>
     </stylesheets>

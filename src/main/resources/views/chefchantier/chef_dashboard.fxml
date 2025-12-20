@@ -17,7 +17,7 @@
         <URL value="@chef_chantier.css"/>
     </stylesheets>
 
-    <!-- ===== TOP BAR ===== -->
+
     <top>
         <HBox spacing="40" alignment="CENTER_LEFT" styleClass="dash-topbar">
             <padding>

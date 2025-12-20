@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:id="rootStack"
+           fx:controller="com.myapp.controller.DashboardClientController"
+           stylesheets="@/views/client/client_dashboard.css">
+
+    <!-- ====== ROOT ====== -->
+    <BorderPane>
+
+        <!-- ================= NAV BAR ================= -->
+        <top>
+            <HBox spacing="30"
+                  alignment="CENTER_LEFT"
+                  styleClass="dash-topbar">
+
+                <padding>
+                    <Insets top="18" bottom="18" left="60" right="60"/>
+                </padding>
+
+                <Label text="Accueil"
+                       styleClass="dash-menu-item"
+                       onMouseClicked="#goToAccueil"/>
+
+                <Label text="Messages"
+                       styleClass="dash-menu-item"
+                       onMouseClicked="#goToMessages"/>
+
+                <Label text="Paramètres"
+                       styleClass="dash-menu-item"
+                       onMouseClicked="#goToParametres"/>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <!-- 🔔 NOTIFICATION ICON -->
+                <StackPane fx:id="notifWrapper"
+                           onMouseClicked="#goToNotifications"
+                           style="-fx-cursor: hand;">
+
+                    <ImageView fx:id="notifIcon"
+                               fitWidth="28"
+                               fitHeight="28"
+                               preserveRatio="true">
+                        <image>
+                            <Image url="@/views/images/notification.png"/>
+                        </image>
+                    </ImageView>
+
+                </StackPane>
+            </HBox>
+        </top>
+
+        <!-- ================= CENTER ================= -->
+        <center>
+
+            <!-- 🔴 هادا هو اللي كيبدّل الصفحات -->
+            <StackPane fx:id="contentArea">
+
+                <!-- ================= DASHBOARD CONTENT ================= -->
+                <HBox spacing="40"
+                      alignment="TOP_CENTER"
+                      styleClass="main-wrapper">
+
+                    <padding>
+                        <Insets top="40" bottom="40" left="50" right="50"/>
+                    </padding>
+                    <VBox styleClass="left-rectangle"
+                          spacing="20"
+                          alignment="TOP_LEFT">
+
+                        <!-- TITLE -->
+                        <Label text="Ecole Al Wifaq"
+                               styleClass="project-title"/>
+
+                        <Label text="Chef de projet - Youssef M."
+                               styleClass="project-subtitle"/>
+
+                        <!-- PROGRESS -->
+                        <!-- PROGRESS -->
+                        <VBox spacing="4"
+                              alignment="TOP_LEFT"
+                              styleClass="progress-wrapper">
+
+                            <!-- TITLE -->
+                            <Label text="Avancement de votre projet"
+                                   styleClass="progress-title"/>
+
+
+
+
+                            <!-- PROGRESS BAR -->
+                            <ProgressBar progress="0.3"
+                                         styleClass="progress-bar"/>
+
+                        </VBox>
+
+
+
+
+
+
+
+                        <!-- DESCRIPTION -->
+                        <Label wrapText="true"
+                               text="L’École El Wifaq, située à Sidi Maârouf – Casablanca, s’étend sur une superficie de 8 500 m² et offrira un établissement scolaire moderne, fonctionnel et conforme aux normes éducatives et environnementales actuelles."
+                               styleClass="project-desc"/>
+                        <HBox spacing="16"
+                              alignment="CENTER"
+                              styleClass="project-images">
+
+                            <!-- LEFT IMAGE -->
+                            <ImageView fitWidth="90" fitHeight="60" preserveRatio="true"
+                                       styleClass="project-img side-img">
+                                <image>
+                                    <Image url="@/views/images/plan.png"/>
+                                </image>
+                            </ImageView>
+
+                            <!-- CENTER IMAGE -->
+                            <ImageView fitWidth="90" fitHeight="60" preserveRatio="true"
+                                       styleClass="project-img center-img">
+                                <image>
+                                    <Image url="@/views/images/excavator.png"/>
+                                </image>
+                            </ImageView>
+
+                            <!-- RIGHT IMAGE -->
+                            <ImageView fitWidth="90" fitHeight="60" preserveRatio="true"
+                                       styleClass="project-img side-img">
+                                <image>
+                                    <Image url="@/views/images/plan.png"/>
+                                </image>
+                            </ImageView>
+
+                        </HBox>
+
+                        <HBox alignment="CENTER"
+                              maxWidth="Infinity">
+                            <Button text="Voir tous les photos"
+                                    onAction="#openPhotosGallery"
+                                    styleClass="project-btn"/>
+
+                        </HBox>
+
+
+
+
+
+                    </VBox>
+                    <!-- RIGHT CARD -->
+                    <VBox styleClass="right-rectangle"
+                          VBox.vgrow="ALWAYS">
+
+
+                        <GridPane hgap="30"
+                                  vgap="20"
+                                  VBox.vgrow="ALWAYS">
+
+
+                        <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <VBox styleClass="inner-card"
+                                  GridPane.columnIndex="0">
+
+                                <Label text="Derniers documents"
+                                       styleClass="card-title"/>
+                                <Label text="Contrat_Entreprise.pdf" styleClass="pdf-item"/>
+                                <Label text="Rapport_Chantier_11Nov.pdf" styleClass="pdf-item"/>
+
+                                <Pane VBox.vgrow="ALWAYS"/>
+                                <Button text="Voir tous les documents"
+                                        onAction="#goToDocuments"
+                                        styleClass="card-btn"/>
+
+                            </VBox>
+
+                            <VBox styleClass="inner-card"
+                                  GridPane.columnIndex="1">
+
+                                <Label text="Dernières mises à jour"
+                                       styleClass="card-title"/>
+                                <Label text="07 Nov — Creuser les fondations"
+                                       styleClass="doc-item"/>
+
+                                <Pane VBox.vgrow="ALWAYS"/>
+
+                                <Button text="Voir toutes les mises à jour"
+                                        onAction="#goToTasks"
+                                        styleClass="card-btn"/>
+
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+
+
+                </HBox>
+
+            </StackPane>
+
+        </center>
+    </BorderPane>
+</StackPane>

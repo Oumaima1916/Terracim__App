@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.TaskDetailsController"
+      spacing="20"
+      styleClass="task-details-root">
+
+    <!-- HEADER -->
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Label fx:id="taskTitleLabel"
+               text="Peinture intérieure – Bloc A"
+               styleClass="task-details-title"/>
+    </HBox>
+
+    <!-- INFO BAR -->
+    <HBox spacing="40" styleClass="task-details-info">
+
+        <VBox>
+            <Label text="Budget prévu"/>
+            <Label fx:id="budgetPrevuLabel"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Budget utilisé"/>
+            <Label fx:id="budgetUtiliseLabel"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Chef du chantier"/>
+            <Label fx:id="chefLabel"/>
+        </VBox>
+
+    </HBox>
+
+    <!-- RESUME -->
+    <VBox spacing="10">
+        <Label text="Résumé de la tâche"
+               styleClass="task-section-title"/>
+        <Label fx:id="resumeLabel"
+               wrapText="true"/>
+    </VBox>
+
+</VBox>

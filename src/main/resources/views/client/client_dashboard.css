@@ -1,0 +1,871 @@
+/* BACKGROUND (اختياري) */
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #0b7fa5, #0aa1c8);
+}
+
+/* WRAPPER */
+.main-wrapper {
+    -fx-alignment: TOP_CENTER;
+}
+.left-rectangle {
+    -fx-background-color: white;   /* ⬅️ هذا هو المهم */
+    -fx-background-radius: 28;
+    -fx-padding: 28;
+
+    -fx-pref-width: 420;
+    -fx-min-width: 380;
+    -fx-max-width: 480;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 30, 0.3, 0, 10);
+}
+
+/* button css */
+
+.project-btn {
+    -fx-background-color: #0784b5;
+    -fx-text-fill: white;
+    -fx-background-radius: 20;
+    -fx-padding: 8 22;
+    -fx-font-size: 13px;
+}
+
+.project-btn:hover {
+    -fx-background-color: #0aa3dc;
+    -fx-translate-y: 0;
+        -fx-effect: dropshadow(gaussian, #0aa3dc, 28, 0.4, 0, 0);
+
+}
+
+/* عام على الصور */
+.project-img {
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 2);
+}
+
+/* الصور اللي فالجناب → هابطين شوية */
+.side-img {
+    -fx-translate-y: 12;
+}
+
+/* الصورة اللي فالوسط → طالعة شوية */
+.center-img {
+    -fx-translate-y: -10;
+}
+
+/* الزر ينزل شوية لتحت */
+.project-btn {
+    -fx-translate-y: 18;
+}
+/* === PROGRESS WRAPPER === */
+.left-rectangle .progress-wrapper {
+    -fx-padding: 0 0 20 0;
+}
+
+/* ================= NAVBAR ================= */
+.dash-topbar {
+    -fx-background-color: transparent;
+}
+
+.dash-menu-item {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+
+.dash-menu-item:hover {
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.35), 12, 0.6, 0, 0);
+}
+
+.topbar-icon {
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.topbar-icon:hover {
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.35), 10, 0.6, 0, 0);
+}
+.nav-notif-icon {
+     -fx-image: url("/notification.png");
+     -fx-cursor: hand;
+     -fx-opacity: 0.9;
+ }
+
+ .nav-notif-icon:hover {
+     -fx-opacity: 1;
+     -fx-translate-y: -2;
+     -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.35), 10, 0.6, 0, 0);
+ }
+/* GRID OF CARDS */
+.cards-grid {
+    -fx-padding: 40;
+}
+
+/* CARD */
+.dash-card {
+    -fx-background-color: #f9fcfd;
+    -fx-background-radius: 22;
+    -fx-padding: 22;
+
+    -fx-pref-width: 400;
+    -fx-min-height: 180;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.14), 18, 0.25, 0, 6);
+}
+
+.dash-card:hover {
+    -fx-effect: dropshadow(gaussian, #6ad9ff, 28, 0.4, 0, 0);
+    -fx-translate-y: -4;
+}
+
+/* TITLES */
+.card-title {
+    -fx-text-fill: #0b5f7a;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+/* BUTTON */
+.card-btn {
+    -fx-background-color: #0784b5;
+    -fx-text-fill: white;
+    -fx-background-radius: 18;
+    -fx-padding: 8 18;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.card-btn:hover {
+    -fx-background-color: #0aa3dc;
+    -fx-effect: dropshadow(gaussian, #7dd9ff, 22, 0.45, 0, 0);
+}
+/* ================= NOTIFICATIONS BOX ================= */
+#rootBox {
+    -fx-background-color: rgba(0,130,172,0.95);
+    -fx-background-radius: 14;
+    -fx-padding: 14;
+
+    -fx-pref-width: 360;
+    -fx-max-width: 360;
+
+    -fx-max-height: 500;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0, 0, 6);
+}
+
+/* خليها scroll إلا كثرات */
+#rootBox > VBox {
+    -fx-max-height: 380;
+}
+
+/* ================= LIST ================= */
+#listContainer {
+    -fx-spacing: 10;
+    -fx-padding: 6;
+}
+
+/* ================= NOTIFICATION ROW ================= */
+.notif-row {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 10;
+    -fx-padding: 12;
+    -fx-alignment: CENTER_LEFT;
+}
+#rootBox {
+    -fx-background-color: rgba(0,130,172,0.95);
+    -fx-background-radius: 14;
+    -fx-padding: 14;
+
+    -fx-pref-width: 360;
+    -fx-max-width: 360;
+    -fx-max-height: 500;
+
+    /* 🔼 طلّعها شوية */
+    -fx-translate-y: -30;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0, 0, 6);
+}
+
+/* النص */
+.notif-row .label {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+/* ================= HEADER ================= */
+#rootBox .label {
+    -fx-text-fill: white;
+}
+
+/* ================= BUTTONS (عام) ================= */
+#rootBox .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e0f7ff;
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+/* ================= CLOSE (✕) ================= */
+#rootBox .notif-close {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-padding: 0 6 0 6;
+
+    -fx-underline: false;      /* مهم */
+    -fx-text-overrun: clip;    /* مهم */
+    -fx-wrap-text: false;      /* مهم */
+    -fx-cursor: hand;
+    -fx-opacity: 0.85;
+}
+
+#rootBox .notif-close:hover {
+    -fx-opacity: 1;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+
+/* ================= ROOT (RECTANGLE الواحد الكبير) ================= */
+.messages-root {
+    -fx-background-color: white;
+    -fx-background-radius: 25;
+    -fx-padding: 30;
+    -fx-spacing: 25;
+}
+
+/* ================= LEFT SIDEBAR ================= */
+.messages-left {
+    -fx-background-color: #f7f9fb;
+    -fx-background-radius: 18;
+    -fx-padding: 25;
+    -fx-spacing: 18;
+}
+
+.messages-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
+
+/* contact item */
+.messages-user-item {
+    -fx-padding: 14 20;
+    -fx-background-radius: 20;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-cursor: hand;
+}
+
+.messages-user-item:hover {
+    -fx-background-color: #e9f6fb;
+}
+
+.messages-user-item.active {
+    -fx-background-color: #e3f4fb;
+    -fx-text-fill: #0b7fa5;
+    -fx-font-weight: bold;
+}
+
+/* ================= CENTER ================= */
+.messages-center {
+    -fx-background-color: transparent;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+}
+
+/* header */
+.messages-header {
+    -fx-padding: 0 0 12 0;
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 0 0 1 0;
+}
+
+.messages-header-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.messages-header-status {
+    -fx-font-size: 12px;
+    -fx-text-fill: #b0b8bd;
+}
+
+/* messages area */
+.messages-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.messages-thread {
+    -fx-spacing: 14;
+    -fx-padding: 30 10;
+}
+}
+
+/* ================= BUBBLES ================= */
+.msg-bubble-right {
+    -fx-background-color: #e3f4fb;
+    -fx-background-radius: 20;
+    -fx-padding: 12 16;
+    -fx-max-width: 320;
+}
+
+.msg-bubble-left {
+    -fx-background-color: #f2f2f2;
+    -fx-background-radius: 20;
+    -fx-padding: 12 16;
+    -fx-max-width: 320;
+}
+
+/* ================= INPUT BAR (Chef / Secrétaire) ================= */
+.messages-input-bar {
+    -fx-padding: 18 0 0 0;
+    -fx-spacing: 14;
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* 📎 FILE */
+.file-attach-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0b7fa5;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+}
+
+.file-attach-btn:hover {
+    -fx-text-fill: #096b8b;
+}
+
+/* input (مكبّر شوية) */
+.messages-input {
+    -fx-background-color: white;
+    -fx-border-color: #9fd4ea;
+    -fx-border-radius: 32;
+    -fx-background-radius: 32;
+    -fx-padding: 14 22;
+    -fx-font-size: 15px;
+}
+
+.messages-input:focused {
+    -fx-border-color: #0b7fa5;
+}
+
+/* send button (مكبّر) */
+.messages-send-btn {
+    -fx-background-color: #0b7fa5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 48;
+    -fx-min-height: 48;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+}
+
+.messages-send-btn:hover {
+    -fx-background-color: #096b8b;
+}
+
+/* ================= RIGHT AI ================= */
+.messages-right {
+    -fx-background-color: transparent;
+    -fx-padding: 20;
+    -fx-spacing: 18;
+
+    /* خط رمادي خفيف بين AI و chat */
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 0 0 0 1;
+}
+
+.assistant-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
+
+.assistant-subtitle {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.assistant-item {
+    -fx-font-size: 13px;
+    -fx-text-fill: #444;
+}
+
+/* ================= AI SPACER (كيهبط bar لتحت) ================= */
+.ai-spacer {
+    -fx-vgrow: ALWAYS;
+}
+
+/* ================= AI INPUT BAR (بحال chat) ================= */
+.assistant-input-bar {
+    -fx-padding: 18 0 0 0;
+    -fx-spacing: 14;
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 1 0 0 0;
+}
+
+.assistant-input-bar .messages-input {
+    -fx-background-color: white;
+    -fx-border-color: #9fd4ea;
+    -fx-border-radius: 32;
+    -fx-background-radius: 32;
+    -fx-padding: 14 22;
+    -fx-font-size: 15px;
+}
+
+.assistant-input-bar .messages-send-btn {
+    -fx-background-color: #0b7fa5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 48;
+    -fx-min-height: 48;
+}
+
+.assistant-input-bar .file-attach-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0b7fa5;
+    -fx-font-size: 20px;
+}
+.assistant-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
+
+.assistant-subtitle {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 4 0;
+}
+
+.assistant-item {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333;
+}
+/* questions وسطين شوية */
+.assistant-questions {
+    -fx-padding: 30 0 0 0;  /* هبطهم شوية */
+}
+/* ================= REMOVE GREY RECTANGLE (MESSAGES) ================= */
+
+/* ScrollPane ديال messages */
+.messages-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+/* الداخل ديال ScrollPane (هاد هو اللي كيبان gris) */
+.messages-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* VBox ديال messages */
+.messages-thread {
+    -fx-background-color: transparent;
+}
+
+/* ================= PARAMETRES ================= */
+
+/* wrapper العام */
+.settings-wrapper {
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+    -fx-padding: 40;
+    -fx-spacing: 30;
+}
+
+/* العناوين */
+.settings-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
+
+.settings-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7b8a93;
+}
+
+/* الكروت */
+.settings-card {
+    -fx-background-color: #fffaf3;
+    -fx-background-radius: 22;
+    -fx-padding: 26;
+    -fx-spacing: 16;
+}
+
+.settings-card-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
+
+/* labels */
+.settings-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #4a4a4a;
+}
+
+.settings-section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* inputs */
+.settings-input {
+    -fx-background-color: white;
+    -fx-border-color: #9fd4ea;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-padding: 12 18;
+    -fx-font-size: 14px;
+}
+
+.settings-input:focused {
+    -fx-border-color: #0b7fa5;
+}
+
+/* combo */
+.settings-combo {
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+}
+
+/* buttons */
+.settings-btn-primary {
+    -fx-background-color: #0b7fa5;
+    -fx-text-fill: white;
+    -fx-background-radius: 26;
+    -fx-padding: 10 26;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.settings-btn-primary:hover {
+    -fx-background-color: #096b8b;
+}
+
+.settings-btn-danger {
+    -fx-background-color: #0b7fa5;
+    -fx-text-fill: white;
+    -fx-background-radius: 26;
+    -fx-padding: 10 24;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.settings-btn-danger:hover {
+    -fx-background-color: #095f82;
+}
+
+/* ================= RIGHT RECTANGLE FIX ================= */
+.right-rectangle {
+    -fx-padding: 30;
+}
+
+/* GRID داخل rectangle الأبيض */
+.right-rectangle .grid-pane {
+    -fx-pref-height: 100%;
+}
+
+/* ================= TALL CARDS ================= */
+.inner-card {
+    -fx-background-color: #f9fcfd;
+    -fx-background-radius: 22;
+    -fx-padding: 26;
+
+    -fx-pref-height: 420;   /* 🔥 هذا هو السر */
+    -fx-min-height: 420;
+
+    -fx-spacing: 14;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.14), 18, 0.25, 0, 6);
+}
+
+/* خلّي الزر دايماً لتحت */
+.inner-card > .pane {
+    -fx-vgrow: ALWAYS;
+}
+/* ================= PDF ITEM ================= */
+.pdf-item {
+    -fx-padding: 0 0 0 26; /* بلاصة للإيقونة */
+    -fx-background-image: url("/views/images/img.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+    -fx-background-size: 16 16;
+
+    -fx-text-fill: #0b5f7a;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.pdf-item:hover {
+    -fx-underline: true;
+}
+/* الكارت كامل يكون RTL */
+.dash-card {
+    -fx-node-orientation: RIGHT_TO_LEFT;
+    -fx-alignment: TOP_RIGHT;
+}
+
+/* العنوان */
+.dash-card .card-title {
+    -fx-text-alignment: RIGHT;
+}
+
+/* كل النصوص داخل الكارت */
+.dash-card .label {
+    -fx-text-alignment: RIGHT;
+}
+
+/* الزر يكون فاليمين */
+.dash-card .button {
+    -fx-alignment: CENTER_RIGHT;
+}
+/* ================= LEFT PROJECT CARD ================= */
+
+.project-title {
+-fx-text-fill: #0b5f7a;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;}
+
+.project-subtitle {
+    -fx-text-fill: #4a6f80;
+       -fx-font-size: 14px;
+   }
+
+
+
+
+
+
+/* description */
+.project-desc {
+    -fx-text-fill: #333;
+       -fx-font-size: 13px;
+
+}
+
+.project-desc {
+    -fx-text-fill: #0b5f7a;   /* ← هنا بدّل اللون */
+    -fx-font-size: 13px;
+    -fx-line-spacing: 4px;
+}
+
+/* images */
+.project-images ImageView {
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 2);
+}
+.doc-item {
+    -fx-text-fill: #0b5f7a;   /* نفس لون PDFs */
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+/* ProgressBar كامل */
+.progress-bar {
+    -fx-pref-width: 340;      /* العرض */
+    -fx-pref-height: 20;      /* الارتفاع العام */
+    -fx-background-radius: 20;
+    -fx-padding: 0;           /* مهم بزاف */
+}
+
+/* الإطار (الخلفية) */
+.progress-bar .track {
+    -fx-background-color: rgba(11, 95, 122, 0.25);
+    -fx-background-radius: 20;
+    -fx-pref-height: 20;
+}
+
+/* الجزء المعمّر */
+.progress-bar .bar {
+    -fx-background-color: #0aa3dc;
+    -fx-background-radius: 20;
+    -fx-pref-height: 20;      /* نفس الارتفاع */
+}
+
+.progress-title {
+    -fx-text-fill: #0b5f7a;   /* بدّل اللون اللي بغيتي */
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+/* ================= PHOTOS GALLERY ================= */
+
+.gallery-root {
+    -fx-background-color: white;
+    -fx-padding: 30;
+}
+
+.gallery-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b5f7a;
+}
+
+.gallery-scroll {
+    -fx-background-color: transparent;
+}
+
+.gallery-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.gallery-img {
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.3, 0, 4);
+}
+
+.gallery-back-btn {
+    -fx-background-color: #0784b5;
+    -fx-text-fill: white;
+    -fx-background-radius: 20;
+    -fx-padding: 8 26;
+}
+
+.photo-thumb {
+    -fx-cursor: hand;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 2);
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: all 0.2s ease;
+}
+
+.photo-thumb:hover {
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+}
+<Button text="Voir tous les documents"
+        onAction="#goToDocuments"
+        styleClass="card-btn"/>
+
+/* PANEL DOCUMENTS (RIGHT SIDE) */
+.documents-panel {
+    -fx-background-color: #f9fcfd;
+    -fx-background-radius: 28;
+    -fx-padding: 30;
+
+    -fx-pref-width: 520;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 22, 0.3, 0, 8);
+}
+
+.documents-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e9f6fb;
+}
+
+.document-item {
+    -fx-padding: 10 14;
+    -fx-background-radius: 14;
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}
+
+.document-item:hover {
+    -fx-background-color: #e9f6fb;
+}
+
+.document-item Label {
+    -fx-text-fill: #0b5f7a;
+    -fx-font-size: 14px;
+}
+.document-item {
+    -fx-padding: 12 16;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+
+    -fx-border-width: 1.5;
+    -fx-border-color: transparent;
+
+    -fx-cursor: hand;
+}
+
+/* 🤍 BORDER GLOW */
+.document-item:hover {
+    -fx-border-color: rgba(255, 255, 255, 0.9);
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(255, 255, 255, 0.85), /* glow أبيض */
+        18,
+        0.6,
+        0,
+        0
+    );
+}
+/* ===== PAGE ===== */
+.tasks-page {
+    -fx-padding: 40;
+}
+
+/* ===== CARD ===== */
+.tasks-card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 26;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.12),
+        20,
+        0.25,
+        0,
+        6
+    );
+}
+
+/* ===== TITLE ===== */
+.tasks-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b5f7a;
+    -fx-padding: 0 0 12 0;
+    -fx-border-color: #e6e6e6;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ===== ROW ===== */
+.task-row {
+    -fx-padding: 14 0;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: #ededed;
+    -fx-border-width: 0 0 1 0;
+    -fx-cursor: hand;
+}
+
+/* DATE */
+.task-date {
+    -fx-font-size: 12px;
+    -fx-text-fill: #7a7a7a;
+    -fx-min-width: 70;
+}
+
+/* TEXT */
+.task-text {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333;
+}
+
+/* 🤍 HOVER GLOW خفيف */
+.task-row:hover {
+    -fx-background-color: rgba(11, 127, 165, 0.04);
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(255,255,255,0.9),
+        12,
+        0.4,
+        0,
+        0
+    );
+}
