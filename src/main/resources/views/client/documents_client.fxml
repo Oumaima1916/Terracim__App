@@ -1,55 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
 
 <VBox xmlns="http://javafx.com/javafx/25"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.myapp.controller.DocumentsClientController"
-      spacing="20"
-      styleClass="documents-panel">
+      alignment="TOP_CENTER"
+      spacing="30"
+      style="-fx-padding: 40;">
 
-    <Label text="Documents"
-           styleClass="documents-title"/>
+    <!-- TITLE -->
+    <Label text="Tous les documents"
+           style="-fx-font-size: 22px;
+                  -fx-font-weight: bold;
+                  -fx-text-fill: #0A5C7D;" />
 
-    <VBox fx:id="documentsContainer" spacing="14">
+    <!-- DOCUMENTS CARD -->
+    <VBox spacing="14"
+          alignment="TOP_LEFT"
+          prefWidth="420"
+          styleClass="documents-card">
 
-        <HBox spacing="12" styleClass="document-item">
-            <ImageView fitWidth="22" fitHeight="22">
-                <image>
-                    <Image url="@/views/images/pdf.png"/>
-                </image>
-            </ImageView>
-            <Label text="Contrat_Entreprise.pdf"/>
-        </HBox>
+        <Label text="Documents"
+               styleClass="documents-card-title"/>
 
-        <HBox spacing="12" styleClass="document-item">
-            <ImageView fitWidth="22" fitHeight="22">
-                <image>
-                    <Image url="@/views/images/pdf.png"/>
-                </image>
-            </ImageView>
-            <Label text="Rapport_Chantier_11Nov.pdf"/>
-        </HBox>
-
-        <HBox spacing="12" styleClass="document-item">
-            <ImageView fitWidth="22" fitHeight="22">
-                <image>
-                    <Image url="@/views/images/pdf.png"/>
-                </image>
-            </ImageView>
-            <Label text="Rapport_Chantier_10Nov.pdf"/>
-        </HBox>
-
-        <HBox spacing="12" styleClass="document-item">
-            <ImageView fitWidth="22" fitHeight="22">
-                <image>
-                    <Image url="@/views/images/pdf.png"/>
-                </image>
-            </ImageView>
-            <Label text="Rapport_Chantier_5Nov.pdf"/>
-        </HBox>
+        <ListView fx:id="documentsList"
+                  prefHeight="260"
+                  styleClass="documents-mini-list"/>
 
     </VBox>
 

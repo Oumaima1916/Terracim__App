@@ -194,7 +194,7 @@
                                 <Pane VBox.vgrow="ALWAYS"/>
 
                                 <Button text="Voir toutes les mises à jour"
-                                        onAction="#goToTasks"
+                                        onAction="#openAllUpdates"
                                         styleClass="card-btn"/>
 
                             </VBox>

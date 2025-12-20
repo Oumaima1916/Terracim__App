@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class DashboardClientController {
@@ -48,6 +48,7 @@ public class DashboardClientController {
     private void goToMessages() {
         loadIntoContent("/views/client/messages_client.fxml");
     }
+
     @FXML
     private void goToTasks() {
         loadIntoContent("/views/client/tasks_client.fxml");
@@ -62,6 +63,18 @@ public class DashboardClientController {
     @FXML
     private void openPhotosGallery() {
         loadIntoContent("/views/client/photos_gallery.fxml");
+    }
+
+    // ================= UPDATES (⭐ الجديد) =================
+    @FXML
+    private void openAllUpdates() {
+        loadIntoContent("/views/client/updates_client.fxml");
+    }
+
+    // ================= DOCUMENTS =================
+    @FXML
+    private void goToDocuments() {
+        loadIntoContent("/views/client/documents_client.fxml");
     }
 
     // ================= NOTIFICATIONS =================
@@ -91,12 +104,6 @@ public class DashboardClientController {
             e.printStackTrace();
         }
     }
-    // ================= DOCUMENTS =================
-    @FXML
-    private void goToDocuments() {
-        loadIntoContent("/views/client/documents_client.fxml");
-    }
-
 
     // ================= UTILITY =================
     private void loadIntoContent(String fxmlPath) {
