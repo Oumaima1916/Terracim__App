@@ -27,8 +27,11 @@ public class ChefNotificationController {
         if (btnClearAll != null) {
             btnClearAll.setOnAction(e -> clearAll());
         }
+<<<<<<< HEAD
 
         // EXAMPLES
+=======
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
         Platform.runLater(() -> {
             addNotification("La réunion avec le client est prévue demain à 09:30.");
             addNotification("Vous avez une nouvelle tâche sur le chantier Marina Bay.");
@@ -74,7 +77,11 @@ public class ChefNotificationController {
         // ===== Message =====
         Label lblMsg = new Label(message);
         lblMsg.setWrapText(true);
+<<<<<<< HEAD
         lblMsg.setMaxWidth(220); // خلي مساحة للزر
+=======
+        lblMsg.setMaxWidth(220);
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
         lblMsg.setStyle(
                 "-fx-font-size: 16px;" +
                         "-fx-text-fill: white;"
@@ -117,4 +124,8 @@ public class ChefNotificationController {
     }
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2

@@ -2,16 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+<<<<<<< HEAD
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.myapp</groupId>
     <artifactId>Terracim_app</artifactId>
+=======
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.myapp</groupId>
+    <artifactId>terracim-app</artifactId>
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<<<<<<< HEAD
 
         <!-- compile for JDK 17 (change to 23 if you use JDK 23) -->
         <maven.compiler.source>17</maven.compiler.source>
@@ -23,6 +34,8 @@
 
         <!-- default classifier (overridden by os-maven-plugin at build time) -->
         <os.detected.classifier>win</os.detected.classifier>
+=======
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
     </properties>
 
     <dependencies>
@@ -30,16 +43,14 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
-            <classifier>${os.detected.classifier}</classifier>
+            <version>21.0.2</version>
         </dependency>
 
         <!-- JavaFX FXML -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>${javafx.version}</version>
-            <classifier>${os.detected.classifier}</classifier>
+            <version>21.0.2</version>
         </dependency>
 
         <!-- MySQL Connector (official coordinate) -->
@@ -58,6 +69,7 @@
     </dependencies>
 
     <build>
+<<<<<<< HEAD
         <plugins>
             <!-- Detect OS classifier -->
             <plugin>
@@ -74,15 +86,51 @@
             </plugin>
 
             <!-- Compiler plugin -->
+=======
+        <!-- CRITICAL: Include ALL resources -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.jpeg</include>
+                    <include>**/*.png</include>
+                    <include>**/*.gif</include>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <release>${maven.compiler.release}</release>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
 
+<<<<<<< HEAD
             <!-- JavaFX Maven plugin -->
+=======
+            <!-- Maven Resources Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- JavaFX Plugin -->
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -93,5 +141,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

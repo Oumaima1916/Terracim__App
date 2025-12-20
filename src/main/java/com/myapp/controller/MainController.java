@@ -1,5 +1,4 @@
 package com.myapp.controller;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -190,6 +189,7 @@ public class MainController {
         return notificationController;
     }
 
+<<<<<<< HEAD
     // ==========================
     //      HELPER METHODS
     // ==========================
@@ -198,6 +198,17 @@ public class MainController {
         while (n != null) {
             if (n == parent) return true;
             n = n.getParent();
+=======
+    /* ========== Navigation ========= */
+
+    public void showHome() {
+        if (rootStack == null || homeContent == null) return;
+        rootStack.getChildren().setAll(homeContent);
+        if (notificationNode != null) {
+            rootStack.getChildren().add(notificationNode);
+            notificationNode.setVisible(notificationsVisible);
+            notificationNode.setManaged(notificationsVisible);
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
         }
         return false;
     }

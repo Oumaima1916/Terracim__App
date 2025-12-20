@@ -44,7 +44,12 @@ public class AddTaskController {
             );
             Parent view = loader.load();
 
+<<<<<<< HEAD
 
+=======
+            ProjectDetailsController controller = loader.getController();
+            controller.setMainRoot(mainRoot); // 👈 رجعنا المرجع
+>>>>>>> d3c69ce5bc81dea8cd61372004d704d6eb03d9d2
 
             mainRoot.setCenter(view);
 
