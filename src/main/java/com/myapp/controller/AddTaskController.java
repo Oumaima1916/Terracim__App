@@ -318,13 +318,11 @@ public class AddTaskController {
     @FXML
     private void onSubmit() {
 
-        // 👁️‍🗨️ إذا كان عرض فقط
         if (readOnly) {
             onBack();
             return;
         }
 
-        // 🔴 تحقق من الاسم
         if (taskNameField.getText().isBlank()) {
             System.err.println("Nom de tâche obligatoire");
             return;
@@ -336,7 +334,7 @@ public class AddTaskController {
         /* ================= NEW or EDIT ================= */
 
         if (editingTaskId == null) {
-            // 🆕 NEW TASK
+            // NEW TASK
             Task task = new Task();
             task.setProjectId(projectId);
             task.setName(taskNameField.getText());
@@ -352,7 +350,7 @@ public class AddTaskController {
             }
 
         } else {
-            // ✏️ EDIT TASK
+            // EDIT TASK
             taskId = editingTaskId;
 
             taskDAO.update(
@@ -363,7 +361,6 @@ public class AddTaskController {
                     resumeArea.getText()
             );
 
-            // 🧹 نحيد القديم
             new MaterialDAO().deleteByTaskId(taskId);
             new DocumentDAO().deleteByTaskId(taskId);
             new PhotoDAO().deleteByTaskId(taskId);

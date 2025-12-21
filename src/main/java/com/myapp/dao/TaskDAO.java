@@ -73,7 +73,7 @@ public class TaskDAO {
         }
     }
 
-    /* ========== SELECT BY PROJECT ========== */
+    /* ========= SELECT BY PROJECT ========= */
     public List<Task> getTasksByProject(int projectId) {
 
         List<Task> list = new ArrayList<>();

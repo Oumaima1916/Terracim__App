@@ -73,7 +73,6 @@ public class AjouterProjetController {
         project.setLocation(location);
         project.setDescription(description);
 
-        // ⚠️ temporaire
         project.setChefId(1);
 
         ProjectDAO dao = new ProjectDAO();
@@ -99,13 +98,11 @@ public class AjouterProjetController {
     @FXML
     private void onRetourClicked() {
 
-        // 🔁 رجوع داخل نفس BorderPane
         if (parentController != null) {
             parentController.restoreCenter();
             return;
         }
 
-        // 🧯 fallback (إغلاق window)
         try {
             Stage stage = (Stage) retourButton.getScene().getWindow();
             stage.close();

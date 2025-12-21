@@ -10,6 +10,7 @@ public class Task {
     private String resume;
 
     // getters & setters
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

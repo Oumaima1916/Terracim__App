@@ -9,7 +9,6 @@ public class Material {
     private double quantity;
     private double unitPrice;
 
-    // ===== GETTERS & SETTERS =====
 
     public int getId() {
         return id;

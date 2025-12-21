@@ -37,7 +37,7 @@ public class MainController {
         loadNotificationOverlay();
     }
 
-    /* ================= NOTIFICATIONS ================= */
+    /* ================ NOTIFICATIONS ================ */
 
     private void loadNotificationOverlay() {
         try {

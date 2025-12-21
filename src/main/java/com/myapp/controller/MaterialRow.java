@@ -39,7 +39,7 @@ public class MaterialRow {
         );
     }
 
-    /* ================= GETTERS ================= */
+    /* ================ GETTERS================= */
 
     public StringProperty materialProperty() {
         return material;

@@ -163,7 +163,7 @@ public class MessagesChefController {
         Platform.runLater(() -> messagesScroll.setVvalue(1.0));
     }
 
-    /* ================= HELPERS ================= */
+    /* ================ HELPERS ================ */
 
     private int getReceiverId() {
         return switch (currentContact) {

@@ -60,7 +60,7 @@ public class ChefDashboardController {
 
         ProjectDAO dao = new ProjectDAO();
 
-        int chefId = 1; // 🔜 user connecté plus tard
+        int chefId = 1;
         List<Project> projects = dao.getProjectsByChef(chefId);
 
         for (Project p : projects) {
@@ -135,7 +135,7 @@ public class ChefDashboardController {
         if (savedCenterNode != null) {
             rootPane.setCenter(savedCenterNode);
             savedCenterNode = null;
-            loadProjectsFromDatabase(); // 🔄 refresh
+            loadProjectsFromDatabase();
         }
     }
 

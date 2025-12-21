@@ -15,7 +15,7 @@ public class Notification {
 
     public Notification() {}
 
-    // ===== GETTERS =====
+
     public int getId() { return id; }
     public int getUserId() { return userId; }
     public String getTitle() { return title; }

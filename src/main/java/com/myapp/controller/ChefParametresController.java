@@ -80,7 +80,7 @@ public class ChefParametresController {
         phoneField.setEditable(editable);
     }
 
-    /* ================= CHANGE PASSWORD ================= */
+    /* ================= CHANGE PASSWORD ================ */
 
     @FXML
     private void onChangePassword() {

@@ -25,4 +25,5 @@ public class Project {
 
     public int getChefId() { return chefId; }
     public void setChefId(int chefId) { this.chefId = chefId; }
+
 }

@@ -15,7 +15,6 @@
     -fx-font-size: 19px;
     -fx-font-weight: 600;
 
-    /* pour les boutons Login / Register : enlever le fond par défaut */
     -fx-background-color: transparent;
     -fx-padding: 0 8 0 8;
     -fx-cursor: hand;

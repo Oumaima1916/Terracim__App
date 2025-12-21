@@ -8,8 +8,8 @@ public class Message {
     private int senderId;
     private int receiverId;
     private String content;
-    private String type;      // TEXT | FILE
-    private String filePath;  // null إلا TEXT
+    private String type;
+    private String filePath;
     private LocalDateTime createdAt;
 
     public int getId() { return id; }

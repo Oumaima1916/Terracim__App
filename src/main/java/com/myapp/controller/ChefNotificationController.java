@@ -29,7 +29,6 @@ public class ChefNotificationController {
     private final Map<Integer, VBox> uiMap = new LinkedHashMap<>();
     private final NotificationDAO notificationDAO = new NotificationDAO();
 
-    // ⚠️ مؤقتاً، من بعد تربطها بالـ logged user
     private final int chefUserId = 1;
 
     /* ================= INIT ================= */
@@ -37,14 +36,13 @@ public class ChefNotificationController {
     @FXML
     private void initialize() {
 
-        // 🔥 ربط الواجهة مع NotificationService (هذا هو السر)
         NotificationService.register(this);
 
         if (btnClearAll != null) {
             btnClearAll.setOnAction(e -> clearAll());
         }
 
-        // تحميل notifications من DB
+
         Platform.runLater(this::loadNotificationsFromDB);
     }
 
@@ -69,10 +67,10 @@ public class ChefNotificationController {
 
     /* ================= API ================= */
 
-    // تُستدعى من NotificationService
+
     public void pushNotification(Notification n) {
 
-        // نخزنو فـ DB
+
         notificationDAO.insert(n);
 
         Platform.runLater(() -> {
@@ -89,7 +87,7 @@ public class ChefNotificationController {
             VBox v = uiMap.remove(id);
             if (v != null) {
                 listContainer.getChildren().remove(v);
-                notificationDAO.markAsRead(id); // ✅ DB
+                notificationDAO.markAsRead(id);
             }
         });
     }
@@ -97,7 +95,7 @@ public class ChefNotificationController {
     public void clearAll() {
 
         Platform.runLater(() -> {
-            notificationDAO.markAllAsRead(chefUserId); // ✅ DB
+            notificationDAO.markAllAsRead(chefUserId);
             uiMap.clear();
             listContainer.getChildren().clear();
         });

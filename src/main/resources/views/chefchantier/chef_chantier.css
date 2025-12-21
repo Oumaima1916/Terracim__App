@@ -800,7 +800,6 @@
     -fx-padding: 0;
 }
 
-/* viewport (هاد هو اللي كيطلع grey غالباً) */
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
     -fx-background-insets: 0;

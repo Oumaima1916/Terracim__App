@@ -34,7 +34,6 @@ public class LoginController {
             return;
         }
 
-        // مؤقت: مباشرة للداشبورد
         if (mainController != null) {
             mainController.showChefDashboard();
         }

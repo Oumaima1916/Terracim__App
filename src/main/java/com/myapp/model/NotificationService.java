@@ -11,6 +11,7 @@ public class NotificationService {
         controller = c;
     }
 
+
     public static void notify(Notification n) {
         if (controller != null) {
             controller.pushNotification(n);

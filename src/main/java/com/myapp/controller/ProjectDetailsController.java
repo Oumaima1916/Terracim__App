@@ -56,7 +56,6 @@ public class ProjectDetailsController {
     @FXML
     private void initialize() {
 
-        // نخزنو controller فـ root باش AddTaskController يرجع ليه
         tasksContainer.sceneProperty().addListener((obs, oldScene, newScene) -> {
             if (newScene != null) {
                 newScene.getRoot().getProperties().put("controller", this);
