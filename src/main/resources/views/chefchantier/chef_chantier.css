@@ -132,143 +132,158 @@
 }
 
 /* =========================================================
-   PARAMÈTRES – wrapper général
+   PARAMÈTRES — CLEAN & FINAL
    ========================================================= */
-/* big white wrapper */
+
+/* ================= WRAPPER ================= */
 .settings-wrapper {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 24;
-    -fx-padding: 26 34 30 34;
-    -fx-spacing: 26;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0.15, 0, 4);
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+    -fx-padding: 40;
+    -fx-spacing: 30;
 }
 
-/* settings cards */
+/* ================= TITLES ================= */
+.settings-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
+
+.settings-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7b8a93;
+}
+
+/* ================= CARDS ================= */
 .settings-card {
-    -fx-background-color: #fffbf7;
-    -fx-background-radius: 18;
-    -fx-padding: 22 24 22 24;
-    -fx-spacing: 14;
+    -fx-background-color: #fffaf3;
+    -fx-background-radius: 22;
+    -fx-padding: 26;
+    -fx-spacing: 16;
 }
 
-.settings-title { -fx-text-fill: #0082AC; -fx-font-size: 30px; -fx-font-weight: 700; }
-.settings-subtitle { -fx-text-fill: #00A5D1; -fx-font-size: 18px; }
-.settings-card-title { -fx-text-fill: #0082AC; -fx-font-size: 18px; -fx-font-weight: 700; }
-.settings-label { -fx-text-fill: #555555; -fx-font-size: 15px; }
-.settings-mini-label { -fx-text-fill: #666666; -fx-font-size: 14px; }
-.settings-section-title { -fx-text-fill: #0082AC; -fx-font-size: 16px; -fx-font-weight: 700; }
+.settings-card-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
 
-/* inputs */
-.text-field, .password-field, .combo-box, .settings-input, .settings-password, .settings-combo {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #333333;
-    -fx-background-radius: 14;
-    -fx-border-radius: 14;
-    -fx-border-color: #0082AC;
-    -fx-border-width: 1.2;
-    -fx-padding: 10 14;
+/* ================= LABELS ================= */
+.settings-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #4a4a4a;
+}
+
+.settings-section-title {
     -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
 }
-.text-field:focused, .password-field:focused, .combo-box:focused, .settings-input:focused, .settings-password:focused, .settings-combo:focused {
-    -fx-border-color: #00A5D1;
-    -fx-effect: dropshadow(gaussian, rgba(0,165,209,0.18), 8, 0.18, 0, 0);
+
+/* ================= INPUTS ================= */
+.settings-input {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-padding: 12 18;
+    -fx-font-size: 14px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-highlight-fill: transparent;
+    -fx-highlight-text-fill: -fx-text-inner-color;
 }
-.password-field { -fx-prompt-text-fill: derive(#333333, 40%); }
 
-/* small visual tweaks */
-.text-input { -fx-highlight-fill: rgba(0,165,209,0.08); -fx-highlight-text-fill: -fx-text-inner-color; }
-.radio-button, .radio-button .text { -fx-font-size: 15px; }
-.radio .mark { -fx-pref-width: 18px; -fx-pref-height: 18px; -fx-background-radius: 999px; -fx-border-color: rgba(0,137,160,0.45); -fx-border-width: 1.6; -fx-padding: 2px; }
-.radio:selected .mark { -fx-background-color: #0082AC; -fx-border-color: #0082AC; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 4, 0.1, 0, 1); }
-.combo-box .arrow-button { -fx-background-color: transparent; -fx-padding: 0 10 0 0; }
-.combo-box .arrow {
-    -fx-shape: "M0 0 L8 0 L4 6 Z";
-    -fx-background-color: #0082AC;
-    -fx-background-insets: 0;
-    -fx-pref-width: 10;
-    -fx-pref-height: 8;
-    -fx-padding: 3 4 3 4;
+/* focus */
+.settings-input:focused {
+    -fx-border-color: #0b7fa5;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
-.combo-box:focused .arrow { -fx-background-color: #006b8c; }
-.combo-box .text, .combo-box .list-cell { -fx-font-size: 15px; }
 
-/* buttons */
-.settings-btn-primary { -fx-background-color: #0082AC; -fx-text-fill: #ffffff; -fx-font-size: 15px; -fx-font-weight: 600; -fx-background-radius: 14; -fx-padding: 10 20; -fx-cursor: hand; }
-.settings-btn-primary:hover { -fx-background-color: #006b8c; }
-.settings-btn-danger { -fx-background-color: #ffffff; -fx-text-fill: #E03B3B; -fx-font-size: 15px; -fx-font-weight: 600; -fx-border-color: #E03B3B; -fx-border-width: 1; -fx-border-radius: 14; -fx-background-radius: 14; -fx-padding: 10 20; -fx-cursor: hand; }
-.settings-btn-danger:hover { -fx-background-color: #ffecec; }
+/* readonly / disabled look */
+.settings-input:disabled,
+.settings-input[editable="false"] {
+    -fx-background-color: #f7f9fb;
+    -fx-opacity: 0.9;
+}
 
-/* switches */
-.check-box, .toggle-button { -fx-cursor: hand; -fx-font-size: 14px; }
-.settings-switch .box { -fx-background-color: #d9e6ea; -fx-background-radius: 999px; -fx-padding: 0.12em 0.7em 0.12em 0.12em; -fx-pref-width: 50; -fx-pref-height: 26; }
-.settings-switch .mark { -fx-background-color: #ffffff; -fx-background-radius: 999px; -fx-padding: 0.22em; }
-.settings-switch:selected .box { -fx-background-color: #0082AC; -fx-padding: 0.12em 0.12em 0.12em 0.9em; }
+/* ================= PASSWORD ================= */
+.settings-password {
+    -fx-letter-spacing: 1px;
+}
 
-/* helpers */
-.settings-card-title { -fx-padding: 0 0 8 0; }
-.settings-label { -fx-padding: 8 0 4 0; }
-.region { -fx-background-color: transparent; }
+/* ================= COMBOBOX ================= */
+.settings-combo {
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-padding: 4 10;
+}
+
+/* ================= BUTTONS ================= */
+.settings-btn-primary {
+    -fx-background-color: #0b7fa5;
+    -fx-text-fill: white;
+    -fx-background-radius: 26;
+    -fx-padding: 10 26;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.settings-btn-primary:hover {
+    -fx-background-color: #096b8b;
+}
+
+/* danger (déconnexion) */
+.settings-btn-danger {
+    -fx-background-color: #0b7fa5;
+    -fx-text-fill: white;
+    -fx-background-radius: 26;
+    -fx-padding: 10 24;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.settings-btn-danger:hover {
+    -fx-background-color: #095f82;
+}
 
 /* =========================================================
-   SCROLLBAR STYLING (for ScrollPane)
+   AJOUT PROJET — FINAL FIXED VERSION
    ========================================================= */
-.scroll-pane .scroll-bar:vertical { -fx-pref-width: 12; -fx-background-color: transparent; -fx-padding: 6 6 6 6; }
-.scroll-pane .scroll-bar .track { -fx-background-color: transparent; }
-.scroll-pane .scroll-bar .thumb {
-    -fx-background-color: rgba(255,255,255,0.18);
-    -fx-background-radius: 8;
-    -fx-padding: 2;
-    -fx-border-color: rgba(255,255,255,0.12);
-    -fx-border-width: 1;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 4, 0.08, 0, 1);
-}
-.scroll-pane .scroll-bar .thumb:hover { -fx-background-color: rgba(255,255,255,0.28); }
-.scroll-pane .scroll-bar .thumb:pressed { -fx-background-color: rgba(255,255,255,0.36); }
-.scroll-pane .scroll-bar .increment-button, .scroll-pane .scroll-bar .decrement-button {
-    -fx-padding: 0; -fx-background-color: transparent; -fx-shape: ""; -fx-pref-height: 0; -fx-pref-width: 0;
-}
-.scroll-pane:focused .scroll-bar .thumb { -fx-background-color: rgba(255,255,255,0.32); }
-.scroll-pane .scroll-bar .thumb { -fx-padding: 6; -fx-min-height: 24; }
 
-.scroll-pane {
+/* ===== ROOT (important) ===== */
+.anchor-pane {
     -fx-background-color: transparent;
-    -fx-background: transparent;
 }
 
-/* =========================================================
-   AJOUT PROJET — styles officiels
-   Adapté pour matcher le design du formulaire client/login
-   ========================================================= */
-
-/* ====== CONTAINER BLEU ====== */
+/* ===== CONTAINER BLEU ===== */
 .ajp-container {
     -fx-background-color: #0082AC;
-    -fx-background-radius: 22;
-    -fx-border-radius: 22;
+    -fx-background-radius: 26;
     -fx-padding: 32;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 16, 0, 0, 6);
 }
 
-/* ====== CARTE BLANCHE ====== */
+/* ===== CARTE BLANCHE ===== */
 .ajp-card {
     -fx-background-color: white;
-    -fx-background-radius: 20;
-    -fx-border-radius: 20;
+    -fx-background-radius: 22;
 
     -fx-padding: 36 46 40 46;
     -fx-spacing: 24;
 
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 20, 0.15, 0, 8);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0.2, 0, 6);
 }
 
-/* ====== TITRE ====== */
+/* ===== TITRE ===== */
 .ajp-title {
     -fx-text-fill: #0082AC;
     -fx-font-size: 28px;
     -fx-font-weight: 800;
 }
 
-/* ====== CHAMPS (TextField / Combo) ====== */
+/* ===== INPUTS ===== */
 .ajp-field {
     -fx-background-color: white;
     -fx-text-fill: #0082AC;
@@ -284,7 +299,7 @@
     -fx-pref-height: 46;
 }
 
-/* ====== TEXTAREA ====== */
+/* ===== TEXTAREA ===== */
 .ajp-textarea {
     -fx-background-color: white;
     -fx-control-inner-background: white;
@@ -301,14 +316,13 @@
     -fx-padding: 12 14;
 }
 
-/* Remove scrollpane background inside TextArea */
 .ajp-textarea .scroll-pane,
-.ajp-textarea .scroll-pane .viewport,
+.ajp-textarea .viewport,
 .ajp-textarea .content {
     -fx-background-color: transparent;
 }
 
-/* ====== BOUTON ENREGISTRER ====== */
+/* ===== BUTTON MAIN ===== */
 .ajp-btn-main {
     -fx-background-color: #0082AC;
     -fx-text-fill: white;
@@ -326,7 +340,7 @@
     -fx-background-color: #0097c7;
 }
 
-/* ====== BOUTON RETOUR ====== */
+/* ===== BUTTON RETOUR ===== */
 .ajp-btn-retour {
     -fx-background-color: white;
     -fx-text-fill: #0082AC;
@@ -336,7 +350,7 @@
 
     -fx-background-radius: 999px;
     -fx-border-radius: 999px;
-    -fx-border-width: 2;
+
 
     -fx-padding: 6 20;
     -fx-cursor: hand;
@@ -347,207 +361,190 @@
 .ajp-btn-retour:hover {
     -fx-background-color: #f4fbff;
 }
-/* =========================================================
-   MESSAGES CHEF — Layout principal
-   ========================================================= */
 
-.messages-layout {
-    -fx-background-color: transparent;
-    -fx-spacing: 0;
-    -fx-fill-height: true;
-}
+/* ================= TASK CARD ================= */
 
-/* =========================================================
-   COLONNE GAUCHE
-   ========================================================= */
+.task-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
 
-.messages-conv-list {
-    -fx-background-color: #f5f6f8;
-    -fx-padding: 18 20;
-    -fx-spacing: 10;
-    -fx-background-radius: 18 0 0 18;
-    -fx-min-width: 230;
-    -fx-max-width: 230;
-}
+    -fx-padding: 14 18;
+    -fx-spacing: 6;
 
-.messages-conv-title {
-    -fx-text-fill: #7b8a96;
-    -fx-font-size: 13px;
-    -fx-font-weight: 600;
-    -fx-padding: 0 0 8 2;
-}
+    -fx-border-color: #e6eef4;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
 
-.messages-conv-item {
-    -fx-padding: 10 14;
-    -fx-background-radius: 999px;
-    -fx-text-fill: #1e3b4e;
-    -fx-font-size: 15px;
-}
-
-.messages-conv-item:hover {
-    -fx-background-color: rgba(0,130,172,0.06);
     -fx-cursor: hand;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.08),
+        8, 0.15,
+        0, 3
+    );
+}
+
+.task-card:hover {
+    -fx-background-color: #f7fbff;
+    -fx-border-color: #0082AC;
+}
+
+/* ===== TASK TITLE ===== */
+.task-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0082AC;
+}
+
+/* ===== TASK BUDGET ===== */
+.task-budget {
+    -fx-font-size: 14px;
+    -fx-text-fill: #4b6b7c;
+}
+
+/* =========================================================
+   MESSAGES CHEF — FINAL CLEAN VERSION (FIXED)
+   ========================================================= */
+/* ================= ROOT ================= */
+.messages-root {
+    -fx-background-color: white;
+    -fx-background-radius: 25;
+    -fx-padding: 30;
+    -fx-spacing: 25;
+}
+
+/* ================= LEFT ================= */
+.messages-left {
+    -fx-background-color: #f7f9fb;
+    -fx-background-radius: 18;
+    -fx-padding: 25;
+    -fx-spacing: 18;
+}
+
+.messages-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0b7fa5;
+}
+
+.messages-user-item {
+    -fx-padding: 14 20;
+    -fx-background-radius: 20;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-cursor: hand;
+}
+
+.messages-user-item:hover {
+    -fx-background-color: #e9f6fb;
 }
 
 .messages-conv-item-selected {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #0082AC;
-    -fx-font-weight: 600;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0.2, 0, 1);
+    -fx-background-color: #e3f4fb;
+    -fx-text-fill: #0b7fa5;
+    -fx-font-weight: bold;
 }
 
-/* =========================================================
-   CENTRE
-   ========================================================= */
-
+/* ================= CENTER ================= */
 .messages-center {
-    -fx-background-color: #ffffff;
-    -fx-padding: 18 20;
+    -fx-padding: 20;
+    -fx-spacing: 15;
 }
 
 .messages-header {
-    -fx-padding: 0 0 6 0;
+    -fx-padding: 0 0 12 0;
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 0 0 1 0;
 }
 
 .messages-header-name {
-    -fx-text-fill: #0082AC;
     -fx-font-size: 18px;
-    -fx-font-weight: 700;
+    -fx-font-weight: bold;
 }
 
 .messages-header-status {
-    -fx-text-fill: #8ea2b0;
     -fx-font-size: 12px;
-    -fx-padding: 4 0 0 8;
+    -fx-text-fill: #b0b8bd;
 }
 
-/* ScrollPane invisible */
+/* ================= MESSAGES ================= */
 .messages-scroll {
     -fx-background-color: transparent;
-}
-.messages-scroll .viewport {
-    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 .messages-thread {
-    -fx-padding: 10 4 10 4;
-    -fx-spacing: 10;
+    -fx-spacing: 14;
+    -fx-padding: 30 10;
 }
 
-/* =========================================================
-   BULLES DE MESSAGES
-   ========================================================= */
+.messages-empty {
+    -fx-text-fill: #999;
+    -fx-font-size: 14px;
+}
 
-.msg-bubble-left,
+/* ================= BUBBLES ================= */
 .msg-bubble-right {
-    -fx-padding: 8 14;
+    -fx-background-color: #e3f4fb;
     -fx-background-radius: 20;
-    -fx-font-size: 14px;
-    -fx-wrap-text: true;
+    -fx-padding: 12 16;
+    -fx-max-width: 420;
 }
 
-/* Réception */
-.msg-bubble-left {
-    -fx-background-color: #f0f3f7;
-    -fx-text-fill: #1f2e3b;
-}
-
-/* Envoi */
-.msg-bubble-right {
-    -fx-background-color: #0082AC;
-    -fx-text-fill: #ffffff;
-}
-
-/* Timestamps */
-.msg-time-left,
-.msg-time-right {
-    -fx-font-size: 11px;
-    -fx-text-fill: #9ba9b5;
-}
-
-.msg-time-left {
-    -fx-padding: 0 0 4 12;
-}
-
-.msg-time-right {
-    -fx-alignment: center-right;
-    -fx-padding: 0 12 4 0;
-}
-
-/* =========================================================
-   BARRE D'ENVOI
-   ========================================================= */
-
+/* ================= INPUT BAR ================= */
 .messages-input-bar {
-    -fx-padding: 8 0 0 0;
-    -fx-spacing: 10;
+    -fx-padding: 20 0 0 0;
+    -fx-spacing: 12;
 }
 
-.messages-input {
-    -fx-font-size: 14px;
-}
-
-.messages-send-btn {
-    -fx-background-color: #0082AC;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: 600;
-    -fx-background-radius: 999px;
-    -fx-padding: 8 18;
+/* attach */
+.chat-attach-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0b7fa5;
+    -fx-font-size: 20px;
     -fx-cursor: hand;
 }
 
-.messages-send-btn:hover {
-    -fx-background-color: #006b8c;
+/* pill */
+.chat-pill {
+    -fx-background-color: white;
+    -fx-border-color: #9fd4ea;
+    -fx-border-radius: 40;
+    -fx-background-radius: 40;
+    -fx-padding: 6 18;
 }
 
-/* =========================================================
-   COLONNE DROITE (au cas كنتي بغاها)
-   ========================================================= */
-
-.messages-right {
-    -fx-background-color: #fbfcff;
-    -fx-padding: 18 20;
-    -fx-background-radius: 0 18 18 0;
-    -fx-spacing: 6;
+/* input */
+.chat-pill-input {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 15px;
+    -fx-padding: 10 0;
 }
 
-.messages-right-title {
-    -fx-text-fill: #7b8a96;
-    -fx-font-size: 13px;
-    -fx-font-weight: 600;
+.chat-pill-input:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
-.messages-right-name {
-    -fx-text-fill: #0082AC;
-    -fx-font-size: 18px;
-    -fx-font-weight: 700;
-}
-
-.messages-right-subtitle {
-    -fx-text-fill: #4e5f6b;
+/* send */
+.chat-pill-send {
+    -fx-background-color: #0b7fa5;
+    -fx-background-radius: 50%;
+    -fx-min-width: 44;
+    -fx-min-height: 44;
+    -fx-text-fill: white;
     -fx-font-size: 14px;
-    -fx-font-weight: 600;
-    -fx-padding: 10 0 0 0;
+    -fx-cursor: hand;
 }
 
-.messages-right-info {
-    -fx-text-fill: #6b7a86;
-    -fx-font-size: 13px;
+.chat-pill-send:hover {
+    -fx-background-color: #096b8b;
 }
 
-/* =========================================================
-   PLACEHOLDER QUAND LA CONVERSATION EST VIDE
-   ========================================================= */
-
-.messages-empty {
-    -fx-text-fill: #9ba9b5;
-    -fx-font-size: 14px;
-    -fx-alignment: center;
-    -fx-wrap-text: true;
-    -fx-opacity: 0.95;
-    -fx-padding: 20 10;
-}
 /* ---------------- Notification tweaks ---------------- */
 /* notif box background use hex #0082AC with 93% opacity */
 #rootBox {
@@ -803,7 +800,6 @@
     -fx-padding: 0;
 }
 
-/* viewport (هاد هو اللي كيطلع grey غالباً) */
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
     -fx-background-insets: 0;

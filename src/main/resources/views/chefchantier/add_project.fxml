@@ -2,58 +2,74 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
 <?import java.net.URL?>
+
 <AnchorPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.myapp.controller.AjouterProjetController"
             stylesheets="@chef_chantier.css">
-    <stylesheets>
-        <URL value="@chef_chantier.css"/>
-    </stylesheets>
 
-    <VBox layoutX="50" layoutY="30" AnchorPane.leftAnchor="40" AnchorPane.rightAnchor="40" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+    <VBox AnchorPane.leftAnchor="40"
+          AnchorPane.rightAnchor="40"
+          AnchorPane.topAnchor="20"
+          AnchorPane.bottomAnchor="20"
           styleClass="ajp-container">
 
-        <VBox styleClass="ajp-card" spacing="22">
+        <VBox styleClass="ajp-card">
 
-            <!-- Retour Button -->
+            <!-- Retour -->
             <Button fx:id="retourButton"
                     text="← Retour"
                     onAction="#onRetourClicked"
                     styleClass="ajp-btn-retour"/>
 
-            <Label text="Ajouter un nouveau projet" styleClass="ajp-title"/>
+            <Label text="Ajouter un nouveau projet"
+                   styleClass="ajp-title"/>
 
+            <!-- FORM -->
             <GridPane hgap="20" vgap="18">
+
                 <columnConstraints>
                     <ColumnConstraints percentWidth="50"/>
                     <ColumnConstraints percentWidth="50"/>
                 </columnConstraints>
 
-                <TextField fx:id="nomProjetField" promptText="Nom du projet"
-                           GridPane.rowIndex="0" GridPane.columnIndex="0"
+                <TextField fx:id="nomProjetField"
+                           promptText="Nom du projet"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="0"
                            styleClass="ajp-field"/>
 
-                <TextField fx:id="adresseField" promptText="Adresse du chantier"
-                           GridPane.rowIndex="0" GridPane.columnIndex="1"
+                <TextField fx:id="adresseField"
+                           promptText="Adresse du chantier"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"
                            styleClass="ajp-field"/>
 
-                <TextField fx:id="clientField" promptText="Nom du client"
-                           GridPane.rowIndex="1" GridPane.columnIndex="0"
+                <TextField fx:id="clientField"
+                           promptText="Nom du client"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="0"
                            styleClass="ajp-field"/>
 
-                <TextField fx:id="villeField" promptText="Ville"
-                           GridPane.rowIndex="2" GridPane.columnIndex="0"
+                <TextField fx:id="villeField"
+                           promptText="Ville"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="0"
                            styleClass="ajp-field"/>
+
+                <!-- DESCRIPTION (2 colonnes) -->
+                <TextArea fx:id="descriptionArea"
+                          promptText="Description générale du projet"
+                          GridPane.rowIndex="1"
+                          GridPane.columnIndex="1"
+                          GridPane.rowSpan="2"
+                          prefHeight="120"
+                          wrapText="true"
+                          styleClass="ajp-textarea"/>
             </GridPane>
 
-            <TextArea fx:id="descriptionArea"
-                      promptText="Description générale du projet"
-                      styleClass="ajp-textarea"
-                      prefRowCount="4"
-                      wrapText="true"/>
-
+            <!-- BUTTONS -->
             <HBox alignment="CENTER_RIGHT" spacing="14">
                 <Button text="Annuler"
                         onAction="#onRetourClicked"
@@ -67,4 +83,5 @@
 
         </VBox>
     </VBox>
+
 </AnchorPane>

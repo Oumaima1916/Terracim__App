@@ -1,87 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 <?import java.net.URL?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.myapp.controller.ChefParametresController"
-            fitToWidth="true"
-            pannable="true"
-            vbarPolicy="AS_NEEDED"
-            hbarPolicy="NEVER"
-            styleClass="scroll-pane">
+<VBox fx:id="rootContainer"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.ChefParametresController"
+      alignment="TOP_CENTER"
+      spacing="30"
+      styleClass="settings-wrapper">
+
     <stylesheets>
         <URL value="@chef_chantier.css"/>
     </stylesheets>
-    <content>
-        <VBox spacing="30" styleClass="settings-wrapper">
 
-            <!-- title -->
-            <VBox spacing="6">
-                <Label text="Paramètres du compte" styleClass="settings-title"/>
-                <Label text="Gérez vos informations, préférences et notifications." styleClass="settings-subtitle"/>
+    <HBox spacing="30" alignment="TOP_CENTER">
+
+        <!-- ================= LEFT CARD ================= -->
+        <VBox spacing="16"
+              prefWidth="420"
+              styleClass="settings-card">
+
+            <Label text="Informations personnelles"
+                   styleClass="settings-card-title"/>
+
+            <VBox spacing="4">
+                <Label text="Nom complet :" styleClass="settings-label"/>
+                <TextField fx:id="fullNameField"
+                           editable="false"
+                           styleClass="settings-input"/>
             </VBox>
 
-            <!-- content:: put inside HBox so it matches the layout from the dashboard -->
-            <HBox spacing="26" HBox.hgrow="ALWAYS">
-                <!-- left card -->
-                <VBox spacing="18" styleClass="settings-card" HBox.hgrow="ALWAYS">
-                    <Label text="Informations personnelles" styleClass="settings-card-title"/>
-                    <VBox spacing="4">
-                        <Label text="Nom complet :" styleClass="settings-label"/>
-                        <TextField fx:id="fullNameField" text="Youssef El Amrani" editable="false" styleClass="settings-input"/>
-                    </VBox>
-                    <VBox spacing="4">
-                        <Label text="Email :" styleClass="settings-label"/>
-                        <TextField fx:id="emailField" text="y.elamrani@terracim.com" editable="false" styleClass="settings-input"/>
-                    </VBox>
-                    <VBox spacing="4">
-                        <Label text="Téléphone :" styleClass="settings-label"/>
-                        <TextField fx:id="phoneField" text="+212 6 78 45 32 10" editable="false" styleClass="settings-input"/>
-                    </VBox>
-                    <HBox alignment="CENTER_LEFT">
-                        <Button fx:id="modifierInfosButton" text="Modifier" styleClass="settings-btn-primary" onAction="#onModifierInfos"/>
-                    </HBox>
-                    <HBox alignment="CENTER_LEFT">
-                        <padding><Insets top="10" right="0" bottom="0" left="0"/></padding>
-                        <Button fx:id="deconnexionButton" text="Déconnexion" styleClass="settings-btn-danger" onAction="#onDeconnexion"/>
-                    </HBox>
-                </VBox>
+            <VBox spacing="4">
+                <Label text="Email :" styleClass="settings-label"/>
+                <TextField fx:id="emailField"
+                           editable="false"
+                           styleClass="settings-input"/>
+            </VBox>
 
-                <!-- right card -->
-                <VBox spacing="18" styleClass="settings-card" HBox.hgrow="ALWAYS">
-                    <Label text="Préférences du compte" styleClass="settings-card-title"/>
+            <VBox spacing="4">
+                <Label text="Téléphone :" styleClass="settings-label"/>
+                <TextField fx:id="phoneField"
+                           editable="false"
+                           styleClass="settings-input"/>
+            </VBox>
 
-                    <VBox spacing="4">
-                        <Label text="Langue :" styleClass="settings-label"/>
-                        <ComboBox fx:id="langueCombo" styleClass="settings-combo" prefWidth="190" maxWidth="190"/>
-                    </VBox>
+            <Button fx:id="modifierInfosButton"
+                    text="Modifier"
+                    onAction="#onModifierInfos"
+                    styleClass="settings-btn-primary"/>
 
-                    <VBox spacing="6">
-                        <Label text="Mot de passe" styleClass="settings-section-title"/>
-                        <VBox spacing="8">
-                            <VBox spacing="4">
-                                <Label text="Ancien mot de passe :" styleClass="settings-label"/>
-                                <PasswordField fx:id="oldPwdField" promptText="Entrez votre ancien mot de passe" styleClass="settings-input settings-password"/>
-                            </VBox>
-                            <VBox spacing="4">
-                                <Label text="Nouveau mot de passe :" styleClass="settings-label"/>
-                                <PasswordField fx:id="newPwdField" promptText="Entrez le nouveau mot de passe" styleClass="settings-input settings-password"/>
-                            </VBox>
-                            <VBox spacing="4">
-                                <Label text="Confirmer le nouveau mot de passe :" styleClass="settings-label"/>
-                                <PasswordField fx:id="confirmPwdField" promptText="Confirmez le nouveau mot de passe" styleClass="settings-input settings-password"/>
-                            </VBox>
-                            <HBox alignment="CENTER_LEFT" spacing="10">
-                                <Button fx:id="changePwdButton" text="Changer" styleClass="settings-btn-primary" onAction="#onChangePassword"/>
-                            </HBox>
-                        </VBox>
-                    </VBox>
-                </VBox>
-            </HBox>
-
+            <Button fx:id="deconnexionButton"
+                    text="Déconnexion"
+                    onAction="#onDeconnexion"
+                    styleClass="settings-btn-danger"/>
         </VBox>
-    </content>
-</ScrollPane>
+
+        <!-- ================= RIGHT CARD ================= -->
+        <VBox spacing="16"
+              prefWidth="420"
+              styleClass="settings-card">
+
+            <Label text="Préférences du compte"
+                   styleClass="settings-card-title"/>
+
+            <VBox spacing="4">
+                <Label text="Langue :" styleClass="settings-label"/>
+                <ComboBox fx:id="langueCombo"
+                          prefWidth="200"
+                          styleClass="settings-combo"/>
+            </VBox>
+
+            <Label text="Mot de passe"
+                   styleClass="settings-section-title"/>
+
+            <PasswordField fx:id="oldPwdField"
+                           promptText="Ancien mot de passe"
+                           styleClass="settings-input"/>
+
+            <PasswordField fx:id="newPwdField"
+                           promptText="Nouveau mot de passe"
+                           styleClass="settings-input"/>
+
+            <PasswordField fx:id="confirmPwdField"
+                           promptText="Confirmer le mot de passe"
+                           styleClass="settings-input"/>
+
+            <Button text="Changer"
+                    onAction="#onChangePassword"
+                    styleClass="settings-btn-primary"/>
+        </VBox>
+
+    </HBox>
+
+</VBox>
