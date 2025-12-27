@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/javafx-mvc.iml" filepath="$PROJECT_DIR$/javafx-mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Teracim_app.iml" filepath="$PROJECT_DIR$/Teracim_app.iml" />
     </modules>
   </component>
 </project>
