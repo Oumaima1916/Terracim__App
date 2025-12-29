@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.BureauController"
+
+             fitToWidth="true"
+            styleClass="dashboard-scroll"
+            stylesheets="@dashboard.css">
+
+    <content>
+
+        <VBox
+              spacing="25"
+              styleClass="page-container">
+
+            <!-- HEADER -->
+            <VBox spacing="5">
+                <Label text="Bureau du Directeur" styleClass="page-title"/>
+                <Label text="Vue opérationnelle – Aujourd’hui"
+                       styleClass="page-subtitle"/>
+            </VBox>
+
+            <!-- KPI STATS -->
+            <HBox spacing="20">
+                <VBox styleClass="stat-card">
+                    <Label text="🏗 Chantiers actifs"/>
+                    <Label text="6" styleClass="stat-number"/>
+                </VBox>
+
+                <VBox styleClass="stat-card">
+                    <Label text="👷 Employés présents"/>
+                    <Label text="42" styleClass="stat-number"/>
+                </VBox>
+
+                <VBox styleClass="stat-card">
+                    <Label text="📑 Rapports à valider"/>
+                    <Label text="3" styleClass="stat-number"/>
+                </VBox>
+
+
+
+
+
+
+            </HBox>
+
+            <!-- CONTENT -->
+            <HBox spacing="20">
+
+                <!-- ACTIVITÉ -->
+                <VBox spacing="15" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Activité récente"
+                           styleClass="card-title"/>
+
+                    <VBox spacing="12" styleClass="timeline">
+
+                        <HBox spacing="10">
+                            <Label text="●" styleClass="timeline-dot"/>
+                            <Label text="Rapport validé – Chantier Corniche"/>
+                            <Pane HBox.hgrow="ALWAYS"/>
+                            <Label text="09:20" styleClass="timeline-time"/>
+                        </HBox>
+
+                        <HBox spacing="10">
+                            <Label text="●" styleClass="timeline-dot warning"/>
+                            <Label text="Retard signalé – Chantier B"/>
+                            <Pane HBox.hgrow="ALWAYS"/>
+                            <Label text="Hier 16:45" styleClass="timeline-time"/>
+                        </HBox>
+
+                        <HBox spacing="10">
+                            <Label text="●" styleClass="timeline-dot success"/>
+                            <Label text="Budget mis à jour – Chantier Prestige"/>
+                            <Pane HBox.hgrow="ALWAYS"/>
+                            <Label text="Hier 11:10" styleClass="timeline-time"/>
+                        </HBox>
+
+                    </VBox>
+                </VBox>
+
+                <!-- FINANCES + STRATÉGIE -->
+                <VBox spacing="20" prefWidth="320">
+
+                    <VBox spacing="12" styleClass="card">
+                        <Label text="Aperçu financier"
+                               styleClass="card-title"/>
+
+                        <HBox spacing="15">
+                            <VBox styleClass="stat-box">
+                                <Label text="Budget total"/>
+                                <Label text="12 500 000 DH"
+                                       styleClass="stat-value"/>
+                            </VBox>
+
+                            <VBox styleClass="stat-box">
+                                <Label text="Dépenses"/>
+                                <Label text="8 200 000 DH"
+                                       styleClass="stat-value"/>
+                            </VBox>
+                        </HBox>
+
+                        <HBox spacing="15">
+                            <VBox styleClass="stat-box">
+                                <Label text="Salaires mensuels"/>
+                                <Label text="1 150 000 DH"
+                                       styleClass="stat-value"/>
+                            </VBox>
+
+                            <VBox styleClass="stat-box">
+                                <Label text="Marge estimée"/>
+                                <Label text="+18 %"
+                                       styleClass="stat-value positive"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="card">
+                        <Label text="Indicateurs stratégiques"
+                               styleClass="card-title"/>
+
+                        <Label text="• Chantiers conformes : 5"/>
+                        <Label text="• Chantiers en retard : 1"/>
+                        <Label text="• Avancement moyen : 76 %"/>
+                        <Label text="• Productivité équipes : Élevée"/>
+                    </VBox>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </content>
+</ScrollPane>

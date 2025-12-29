@@ -194,3 +194,25 @@
 .form-back:hover {
     -fx-background-color: #f4fbff;
 }
+
+
+/* =========================================================
+   LOGIN BUTTON
+   ========================================================= */
+.btn-login {
+    -fx-background-color: #0082AC;
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+
+    -fx-background-radius: 999px;
+    -fx-padding: 10 40;
+    -fx-cursor: hand;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 10, 0, 0, 3);
+}
+
+.btn-login:hover {
+    -fx-background-color: #0097c7;
+}
+

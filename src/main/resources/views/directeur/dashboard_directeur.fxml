@@ -2,35 +2,135 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<BorderPane fx:controller="com.myapp.controller.DashboardDirecteurController"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml">
+<StackPane xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.myapp.controller.DashboardDirecteurController"
+           stylesheets="@/views/directeur/dashboard.css">
 
-    <top>
-        <HBox alignment="CENTER" style="-fx-padding: 15;">
-            <Label text="Espace Directeur"
-                   style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <!-- ================= MAIN DASHBOARD ================= -->
+    <BorderPane fx:id="mainLayout">
+
+        <!-- ================= TOP BAR ================= -->
+        <top>
+            <HBox styleClass="top-bar"
+                  spacing="30"
+                  alignment="CENTER_LEFT">
+
+                <Button text="Accueil"
+                        styleClass="top-link"
+                        onAction="#showAccueil"/>
+
+                <Button text="Messages"
+                        styleClass="top-link"
+                        onAction="#showMessages"/>
+
+                <Button text="Paramètres"
+                        styleClass="top-link"
+                        onAction="#showParametres"/>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <!-- NOTIFICATION -->
+                <Button styleClass="top-icon">
+                    <graphic>
+                        <ImageView fitWidth="20"
+                                   fitHeight="20"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="/views/images/notification.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+            </HBox>
+        </top>
+
+        <!-- ================= SIDEBAR ================= -->
+        <left>
+            <VBox styleClass="sidebar"
+                  spacing="15">
+
+                <Button text="🏗 Chantiers"
+                        onAction="#showChantiers"
+                        styleClass="menu-btn"/>
+
+                <Button text="➕ Ajouter chantier"
+                        onAction="#showAjouterChantier"
+                        styleClass="menu-btn"/>
+
+                <Button text="👷 Employés"
+                        onAction="#showEmployes"
+                        styleClass="menu-btn"/>
+
+                <Button text="📑 Rapports"
+                        onAction="#showRapports"
+                        styleClass="menu-btn"/>
+
+                <Button text="🏢 Bureau"
+                        onAction="#showBureau"
+                        styleClass="menu-btn"/>
+
+            </VBox>
+        </left>
+
+        <!-- ================= CONTENT ================= -->
+        <center>
+            <StackPane fx:id="contentArea"/>
+        </center>
+
+    </BorderPane>
+
+    <!-- ================= OVERLAY BACKDROP ================= -->
+    <Pane fx:id="overlayBackdrop"
+          visible="false"
+          managed="false"
+          style="-fx-background-color: rgba(0,0,0,0.35);"
+          onMouseClicked="#closeOverlay"/>
+
+    <!-- ================= NOTIFICATION PANEL ================= -->
+    <VBox fx:id="overlay"
+          visible="false"
+          managed="false"
+          spacing="15"
+          prefWidth="360"
+          maxWidth="360"
+          styleClass="notification-panel-vertical"
+          StackPane.alignment="CENTER_RIGHT">
+
+        <!-- HEADER -->
+        <HBox alignment="CENTER_LEFT"
+              styleClass="notif-header">
+
+            <Label fx:id="overlayTitle"
+                   text="Notifications"
+                   styleClass="overlay-title"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Button text="✕"
+                    onAction="#closeOverlay"
+                    styleClass="btn-close-icon"/>
         </HBox>
-    </top>
 
-    <center>
-        <VBox spacing="20" alignment="CENTER"
-              style="-fx-padding: 30;">
+        <Separator/>
 
-            <Button text="Gérer les employés"
-                    fx:id="btnEmployees"
-                    style="-fx-min-width: 200px; -fx-min-height: 40px;" />
+        <!-- LIST -->
+        <VBox fx:id="notificationList"
+              spacing="12"
+              VBox.vgrow="ALWAYS"/>
 
-            <Button text="Consulter les rapports"
-                    fx:id="btnRapports"
-                    style="-fx-min-width: 200px; -fx-min-height: 40px;" />
+        <Separator/>
 
-            <Button text="Ajouter un chantier"
-                    fx:id="btnAddChantier"
-                    style="-fx-min-width: 200px; -fx-min-height: 40px;" />
+        <!-- FOOTER -->
+        <Button text="🧹 Effacer tout"
+                onAction="#clearNotifications"
+                styleClass="btn-clear"/>
 
-        </VBox>
-    </center>
+    </VBox>
 
-</BorderPane>
+</StackPane>

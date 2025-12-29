@@ -1,0 +1,43 @@
+/* ===== FORM CONTAINER ===== */
+.form-container {
+    -fx-padding: 30;
+    -fx-background-color: transparent;
+}
+
+/* TITLES */
+.form-title {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0082AC;
+}
+
+.form-subtitle {
+    -fx-text-fill: #666;
+}
+
+/* INPUTS */
+.text-field, .combo-box, .date-picker {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 8;
+}
+
+/* BUTTONS */
+.btn-save {
+    -fx-background-color: linear-gradient(to right, #0082AC, #0AA1D9);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 10 18;
+}
+
+.btn-save:hover {
+    -fx-background-color: linear-gradient(to right, #0AA1D9, #0082AC);
+}
+
+.btn-cancel {
+    -fx-background-color: #E0E0E0;
+    -fx-text-fill: #333;
+    -fx-background-radius: 10;
+    -fx-padding: 10 18;
+}

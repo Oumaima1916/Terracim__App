@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.DrcParametreController"
+            stylesheets="/views/directeur/parametre.css">
+
+    <!-- LEFT MENU -->
+    <left>
+
+        <VBox prefWidth="260"
+              spacing="12"
+              alignment="TOP_LEFT"
+              styleClass="settings-menu">
+
+
+        <Label text="⚙ Paramètres"
+                   styleClass="settings-title"/>
+
+            <Button text="⚙ Paramètres Généraux"
+                    onAction="#openGeneraux"
+                    styleClass="settings-btn"/>
+
+            <Button text="🏢 Organisation"
+                    onAction="#openOrganisation"
+                    styleClass="settings-btn"/>
+
+            <Button text="🔐 Accès &amp; Rôles"
+                    onAction="#openAccesRoles"
+                    styleClass="settings-btn"/>
+
+            <Button text="⚙ Configuration Métier"
+                    onAction="#openConfiguration"
+                    styleClass="settings-btn"/>
+
+            <Button text="ℹ À propos"
+                    onAction="#openAbout"
+                    styleClass="settings-btn"/>
+        </VBox>
+    </left>
+
+    <!-- CENTER CONTENT -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    styleClass="content-scroll">
+
+            <VBox alignment="TOP_CENTER"
+                  spacing="30"
+                  styleClass="content-wrapper">
+
+                <!-- CONTENT INJECTED HERE -->
+                <StackPane fx:id="contentArea"
+                           styleClass="settings-content"/>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

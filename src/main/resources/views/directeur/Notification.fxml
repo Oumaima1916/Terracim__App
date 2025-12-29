@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.myapp.controller.NotificationsController"
+            stylesheets="@../styles/directeur.css">
+
+    <top>
+        <HBox alignment="CENTER" styleClass="header">
+            <Label text="Notifications"
+                   styleClass="header-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Marquer tout comme lu" fx:id="btnMarquerToutLu"
+                    styleClass="btn-secondary" />
+            <Button text="Supprimer tout" fx:id="btnSupprimerTout"
+                    styleClass="btn-danger" />
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 15; -fx-min-width: 200;">
+            <Label text="Filtres" styleClass="section-title" />
+            <Separator />
+            <ToggleGroup fx:id="toggleGroupFiltres" />
+            <RadioButton text="Toutes" fx:id="radioToutes" toggleGroup="$toggleGroupFiltres" selected="true" />
+            <RadioButton text="Non lues" fx:id="radioNonLues" toggleGroup="$toggleGroupFiltres" />
+            <RadioButton text="Urgentes" fx:id="radioUrgentes" toggleGroup="$toggleGroupFiltres" />
+            <RadioButton text="Chantiers" fx:id="radioChantiers" toggleGroup="$toggleGroupFiltres" />
+            <RadioButton text="Employés" fx:id="radioEmployes" toggleGroup="$toggleGroupFiltres" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <ListView fx:id="listNotifications" VBox.vgrow="ALWAYS" styleClass="notification-list" />
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="10" style="-fx-padding: 15; -fx-min-width: 300;" fx:id="boxDetailNotification">
+            <Label text="Détails de la notification" styleClass="section-title" />
+            <Separator />
+            <VBox spacing="10">
+                <Label text="Type:" style="-fx-font-weight: bold;" />
+                <Label fx:id="lblTypeNotification" />
+                <Separator />
+                <Label text="Date:" style="-fx-font-weight: bold;" />
+                <Label fx:id="lblDateNotification" />
+                <Separator />
+                <Label text="Message:" style="-fx-font-weight: bold;" />
+                <TextArea fx:id="txtMessageNotification" editable="false" wrapText="true"
+                          prefRowCount="8" VBox.vgrow="ALWAYS" />
+                <HBox spacing="10">
+                    <Button text="Marquer comme lu" fx:id="btnMarquerLu"
+                            styleClass="btn-secondary" />
+                    <Button text="Supprimer" fx:id="btnSupprimer"
+                            styleClass="btn-danger" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </right>
+
+</BorderPane>

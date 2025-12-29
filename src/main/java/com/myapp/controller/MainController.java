@@ -20,7 +20,7 @@ public class MainController {
 
     // notification overlay
     private Parent notificationNode;
-    private ChefNotificationController notificationController;
+    private DrcNotificationController notificationController;
     private boolean notificationsVisible = false;
 
     @FXML
@@ -52,7 +52,7 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(resource);
             notificationNode = loader.load();
             Object ctrl = loader.getController();
-            if (ctrl instanceof ChefNotificationController cnc) {
+            if (ctrl instanceof DrcNotificationController cnc) {
                 notificationController = cnc;
             }
 
@@ -118,7 +118,7 @@ public class MainController {
         notificationNode.setManaged(false);
     }
 
-    public ChefNotificationController getNotificationController() {
+    public DrcNotificationController getNotificationController() {
         return notificationController;
     }
 
@@ -153,6 +153,22 @@ public class MainController {
         loadViewIntoStack("/views/chefchantier/chef_dashboard.fxml",
                 "Impossible d'ouvrir le tableau de bord du chef de chantier");
     }
+
+
+    public void showDashboardDirecteur() {
+        loadViewIntoStack(
+                "/views/directeur/dashboard_directeur.fxml",
+                "Impossible d'ouvrir l'espace directeur"
+        );
+    }
+
+    public void showEmployeDashboard() {
+        loadViewIntoStack(
+                "/views/employe/employes.fxml",
+                "Impossible d'ouvrir l'espace employé"
+        );
+    }
+
 
     private void loadViewIntoStack(String resourcePath, String errTitle) {
         try {
@@ -199,4 +215,13 @@ public class MainController {
         alert.setContentText(e == null ? "" : e.getMessage());
         alert.show();
     }
+    @FXML
+    private void goToDirecteur(ActionEvent event) {
+        loadViewIntoStack(
+                "/views/directeur/dashboard_directeur.fxml",
+                "Impossible d'ouvrir l'espace directeur"
+        );
+    }
+
 }
+

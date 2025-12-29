@@ -1,0 +1,132 @@
+/* ===== ROOT ===== */
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #F4F7FA;
+}
+
+/* ===== CONTENT WRAPPER ===== */
+.settings-content {
+    -fx-padding: 60;
+    -fx-alignment: TOP_CENTER;
+}
+
+/* ===== CARD ===== */
+.settings-card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-padding: 40;
+    -fx-max-width: 700;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 25, 0, 0, 6);
+}
+
+/* ===== TITLE ===== */
+.settings-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0E7AA6;
+    -fx-padding: 0 0 25 0;
+}
+
+/* ===== LABELS ===== */
+.settings-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #374151;
+    -fx-font-weight: bold;
+}
+
+/* ===== INPUTS ===== */
+.text-field,
+.combo-box {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #D1D5DB;
+    -fx-padding: 10 12;
+    -fx-font-size: 13px;
+    -fx-background-color: white;
+}
+
+.text-field:focused,
+.combo-box:focused {
+    -fx-border-color: #0E7AA6;
+    -fx-border-width: 1.5;
+}
+
+/* ===== BUTTON ===== */
+.btn-primary {
+    -fx-background-color: #0E7AA6;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 26;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #096184;
+}
+
+/* ===== SPACING ===== */
+.form-group {
+    -fx-spacing: 6;
+}
+.settings-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-padding: 35;
+    -fx-max-width: 620;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 20, 0, 0, 6);
+}
+.settings-content {
+    -fx-padding: 40 60;
+    -fx-background-color: transparent;
+}
+.settings-card {
+    -fx-background-color: white;
+    -fx-padding: 30;
+    -fx-spacing: 15;
+    -fx-max-width: 520;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 18, 0, 0, 6);
+}
+
+.card-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0E7AA6;
+}
+
+.card-text {
+    -fx-text-fill: #4B5563;
+    -fx-font-size: 14px;
+}
+
+.btn-primary {
+    -fx-background-color: #0E7AA6;
+    -fx-text-fill: white;
+    -fx-padding: 10 22;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+}
+.settings-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 20 0;
+}
+.settings-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.30);
+}
+.settings-btn {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-alignment: CENTER_LEFT;
+
+    -fx-padding: 12 18;
+    -fx-background-radius: 8;
+
+    -fx-max-width: Infinity;
+    -fx-cursor: hand;
+}

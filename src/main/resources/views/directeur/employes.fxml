@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.myapp.controller.DrcEmployesController"
+            stylesheets="@employes.css">
+
+    <top>
+        <VBox spacing="10" styleClass="header">
+            <HBox alignment="CENTER">
+                <Label text="Gestion des Employés"
+                       styleClass="header-title" />
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+                <Button text="➕ Ajouter Employé" fx:id="btnAjouterEmploye"
+                        styleClass="btn-add" />
+                <Button text="✏️ Modifier" fx:id="btnModifierEmploye"
+                        styleClass="btn-edit" />
+                <Button text="🗑️ Supprimer" fx:id="btnSupprimerEmploye"
+                        styleClass="btn-delete" />
+                <Separator orientation="VERTICAL" />
+                <TextField fx:id="txtRecherche" promptText="🔍 Rechercher un employé.."
+                           prefWidth="250" />
+                <ComboBox fx:id="comboFiltre" promptText="Filtrer par poste" prefWidth="150" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableEmployes" styleClass="data-table">
+            <columns>
+                <TableColumn text="ID" fx:id="colId" prefWidth="60" />
+                <TableColumn text="Nom" fx:id="colNom" prefWidth="150" />
+                <TableColumn text="Prénom" fx:id="colPrenom" prefWidth="150" />
+                <TableColumn text="Email" fx:id="colEmail" prefWidth="200" />
+                <TableColumn text="Téléphone" fx:id="colTelephone" prefWidth="120" />
+                <TableColumn text="Poste" fx:id="colPoste" prefWidth="150" />
+                <TableColumn text="Chantier Assigné" fx:id="colChantier" prefWidth="200" />
+                <TableColumn text="Date d'Embauche" fx:id="colDateEmbauche" prefWidth="120" />
+                <TableColumn text="Statut" fx:id="colStatut" prefWidth="100" />
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+            <Label fx:id="lblTotalEmployes" text="Total: 0 employés" styleClass="info-label" />
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

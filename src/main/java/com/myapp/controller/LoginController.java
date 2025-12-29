@@ -6,6 +6,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.myapp.db.DBConnection;
+import com.myapp.session.UserSession; // ✅ إضافة فقط
+
 public class LoginController {
 
     // Champs du formulaire
@@ -37,30 +44,80 @@ public class LoginController {
 
         // Vérif champs
         if (email.isEmpty() || pwd.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING,
+            showAlert(
+                    Alert.AlertType.WARNING,
                     "Champs manquants",
-                    "Veuillez remplir l’adresse e-mail et le mot de passe.");
+                    "Veuillez remplir l’adresse e-mail et le mot de passe."
+            );
             return;
         }
 
-        // Authentification MOCK (à remplacer par vraie logique)
-        boolean authOK = email.equals("chef@demo.com") && pwd.equals("123456");
-        if (!authOK) {
-            showAlert(Alert.AlertType.ERROR,
-                    "Connexion",
-                    "Identifiants incorrects (simulation).");
-            return;
+        // 🔹 SQL (تزادت id فقط)
+        String sql = """
+                SELECT id, role FROM users
+                WHERE email = ? AND password = ?
+                """;
+
+        try (Connection cn = DBConnection.getConnection();
+             PreparedStatement ps = cn.prepareStatement(sql)) {
+
+            ps.setString(1, email);
+            ps.setString(2, pwd); // لاحقاً hash
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                int userId = rs.getInt("id");
+                String role = rs.getString("role");
+
+                // ✅ START SESSION (زيادة فقط)
+                UserSession.start(userId, role, email);
+
+                passwordField.clear();
+
+                // توجيه حسب الدور
+                if (mainController != null) {
+                    switch (role) {
+                        case "DIRECTEUR" ->
+                                mainController.showDashboardDirecteur();
+
+                        case "CHEF_CHANTIER" ->
+                                mainController.showChefDashboard();
+
+                        case "EMPLOYE" ->
+                                mainController.showEmployeDashboard();
+
+                        default ->
+                                showAlert(
+                                        Alert.AlertType.ERROR,
+                                        "Erreur",
+                                        "Rôle inconnu"
+                                );
+                    }
+                }
+
+            } else {
+                showAlert(
+                        Alert.AlertType.ERROR,
+                        "Connexion",
+                        "Identifiants incorrects"
+                );
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert(
+                    Alert.AlertType.ERROR,
+                    "Erreur",
+                    "Problème de connexion à la base de données"
+            );
         }
 
         passwordField.clear();
-
-        // Aller vers le dashboard chef
-        if (mainController != null) {
-            mainController.showChefDashboard();
-        }
     }
 
-    // Petite méthode utilitaire
+    // Méthode utilitaire
     private void showAlert(Alert.AlertType type, String title, String msg) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

@@ -6,7 +6,8 @@
 
 <StackPane xmlns="http://javafx.com/javafx/25"
            xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.myapp.controller.LoginController">
+           fx:controller="com.myapp.controller.LoginController"
+           stylesheets="/views/style.css">
 
     <StackPane maxWidth="900"
                maxHeight="450"
@@ -46,8 +47,9 @@
 
             <HBox alignment="CENTER">
                 <Button text="Se connecter"
-                        styleClass="form-submit"
-                        onAction="#handleLogin"/>
+                        styleClass="btn-login"
+                        onAction="#handleLogin"
+                />
             </HBox>
 
         </VBox>

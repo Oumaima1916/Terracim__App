@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.myapp.controller.DrcChantiersController"
+      spacing="20"
+      styleClass="page-container"
+      stylesheets="@chantiers.css">
+
+
+
+
+    <!-- HEADER -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Chantiers"
+               styleClass="page-title"/>
+
+        <Pane HBox.hgrow="ALWAYS"/>
+
+        <TextField promptText="🔍 Rechercher chantier"
+                   prefWidth="220"/>
+
+        <ComboBox promptText="Statut"
+                  prefWidth="150">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Tous"/>
+                    <String fx:value="Actif"/>
+                    <String fx:value="En retard"/>
+                    <String fx:value="Terminé"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <!-- TABLE -->
+    <TableView fx:id="tableChantiers"
+               styleClass="data-table"
+               VBox.vgrow="ALWAYS">
+
+        <columns>
+            <TableColumn fx:id="colNom" text="Chantier" prefWidth="180"/>
+            <TableColumn fx:id="colChef" text="Chef de chantier" prefWidth="160"/>
+            <TableColumn fx:id="colAvancement" text="Avancement" prefWidth="160"/>
+            <TableColumn fx:id="colBudget" text="Budget" prefWidth="120"/>
+            <TableColumn fx:id="colStatut" text="Statut" prefWidth="120"/>
+            <TableColumn fx:id="colAction" text="Action" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+</VBox>

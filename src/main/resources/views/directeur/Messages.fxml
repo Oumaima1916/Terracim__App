@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.ColorAdjust?>
+
+
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.DrcMessagesController"
+            stylesheets="@message.css" >
+
+    <!-- LEFT : CONVERSATIONS -->
+    <left>
+        <VBox prefWidth="300" styleClass="chat-sidebar">
+
+            <!-- APP NAME -->
+            <Label text="TERRACIM"
+                   styleClass="app-title"/>
+
+            <TextField fx:id="searchField"
+                       promptText="Rechercher..."
+                       styleClass="search-field"/>
+
+            <!-- Conversations -->
+            <VBox spacing="8" styleClass="conversation-list">
+
+                <HBox styleClass="conversation-item "
+                    onMouseClicked="#openConversation">
+                    <Label text=" Ahmed"/>
+                </HBox>
+
+                <HBox styleClass="conversation-item"
+                     onMouseClicked="#openConversation">
+                    <Label text=" Youssef"/>
+                </HBox>
+
+                <HBox styleClass="conversation-item"
+                     onMouseClicked="#openConversation">
+                    <Label text=" Karim"/>
+                </HBox>
+
+                <HBox styleClass="conversation-item"
+                    onMouseClicked="#openConversation">
+                    <Label text="Sara"/>
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- CENTER : CHAT -->
+    <center>
+        <BorderPane styleClass="chat-area">
+
+            <!-- HEADER -->
+            <top>
+                <HBox styleClass="chat-header">
+                    <Label fx:id="chatUser"
+                           styleClass="chat-title"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="chatStatus"
+
+                           styleClass="status-online"/>
+                </HBox>
+            </top>
+
+            <!-- MESSAGES -->
+            <center>
+                <StackPane fx:id="chatbg" styleClass="chat-background">
+
+                    <!-- LOGO فالنص -->
+                    <ImageView
+                            fitWidth="420"
+                            preserveRatio="true"
+                            opacity="0.08"
+                            mouseTransparent="true"
+                            smooth="true">
+
+                        <image>
+                            <Image url="@/views/images/logo.png"/>
+                        </image>
+
+                        <effect>
+                            <ColorAdjust
+                                    saturation="-1.0"
+                                    brightness="0.1"
+                                    contrast="-0.2"/>
+                        </effect>
+
+                    </ImageView>
+
+
+
+
+                    <!-- MESSAGES -->
+                    <ScrollPane fitToWidth="true" styleClass="chat-scroll">
+                        <VBox fx:id="messageList"
+                              spacing="12"
+                              styleClass="message-list">
+                            <padding>
+                                <Insets top="20" right="20" bottom="20" left="20"/>
+                            </padding>
+                        </VBox>
+                    </ScrollPane>
+
+                </StackPane>
+            </center>
+
+
+            <!-- INPUT -->
+            <bottom>
+                <HBox fx:id="inputBar"
+                      spacing="10"
+                      visible="false"
+                      managed="false"
+                      styleClass="chat-input">
+                    <TextField fx:id="messageInput"
+                               promptText="Écrire un message..."
+                               HBox.hgrow="ALWAYS"
+                               styleClass="message-field"/>
+                    <Button text="➤"
+                            onAction="#sendMessage"
+                            styleClass="send-btn"/>
+                </HBox>
+            </bottom>
+
+        </BorderPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane styleClass="rapport-root"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.myapp.controller.DrcRapportsController"
+           stylesheets="/views/directeur/rappors.css">
+
+    <VBox alignment="CENTER" spacing="30">
+
+        <!-- CARD -->
+        <VBox styleClass="rapport-card" spacing="20">
+
+            <Label text="RAPPORT DE TÂCHE" styleClass="rapport-title"/>
+
+            <HBox spacing="40">
+                <VBox>
+                    <Label text="Tâche" styleClass="label-muted"/>
+                    <Label fx:id="lblTitreTache" styleClass="label-main"/>
+                </VBox>
+
+                <VBox>
+                    <Label text="Budget prévu" styleClass="label-muted"/>
+                    <Label fx:id="lblBudgetPrevu" styleClass="label-main"/>
+                </VBox>
+
+                <VBox>
+                    <Label text="Budget utilisé" styleClass="label-muted"/>
+                    <Label fx:id="lblBudgetUtilise" styleClass="label-main"/>
+                </VBox>
+
+                <VBox>
+                    <Label text="Chef du chantier" styleClass="label-muted"/>
+                    <Label fx:id="lblChefChantier" styleClass="label-main"/>
+                </VBox>
+            </HBox>
+
+            <Separator/>
+
+            <!-- ===== RESUME ===== -->
+            <Label text="Résumé" styleClass="section-title"/>
+            <TextArea fx:id="txtResume"
+                      editable="false"
+                      wrapText="true"
+                      styleClass="resume-area"/>
+
+            <Separator/>
+
+            <!-- ===== DIRECTEUR COMMENT SECTION ===== -->
+            <VBox spacing="15" styleClass="comment-section">
+
+                <Label text="Commentaire du directeur"
+                       styleClass="section-title"/>
+
+                <TextArea fx:id="txtCommentaire"
+                          promptText="Écrire un commentaire ou une décision..."
+                          wrapText="true"
+                          styleClass="comment-area"/>
+
+                <HBox spacing="15" alignment="CENTER_RIGHT">
+                    <Button text="Refuser"
+                            onAction="#onRefuser"
+                            styleClass="btn-refuser"/>
+
+                    <Button text="Valider"
+                            onAction="#onValider"
+                            styleClass="btn-valider"/>
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+
+    </VBox>
+</StackPane>

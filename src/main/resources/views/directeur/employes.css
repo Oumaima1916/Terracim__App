@@ -1,0 +1,175 @@
+/* HEADER */
+.header {
+    -fx-background-color: linear-gradient(to right, #0b7fab, #10a4c9);
+    -fx-padding: 15;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* BUTTONS */
+.btn-primary {
+    -fx-background-color: #0b7fab;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+}
+
+.btn-secondary {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+    -fx-background-radius: 6;
+}
+
+.btn-danger {
+    -fx-background-color: #d9534f;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+}
+
+/* TABLE */
+.data-table {
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f2f2f2;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+}
+
+/* INFO */
+.info-label {
+    -fx-text-fill: #555;
+}
+/* ===== TOOLBAR BUTTONS ===== */
+.btn-add {
+    -fx-background-color: #2E7D32;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 14;
+    -fx-font-weight: bold;
+}
+
+.btn-edit {
+    -fx-background-color: #1565C0;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 14;
+}
+
+.btn-delete {
+    -fx-background-color: #D32F2F;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 14;
+}
+
+.btn-add:hover { -fx-background-color: #388E3C; }
+.btn-edit:hover { -fx-background-color: #1976D2; }
+.btn-delete:hover { -fx-background-color: #E53935; }
+
+/* ===== TABLE VIEW ===== */
+.table-view {
+    -fx-background-radius: 14;
+    -fx-background-color: white;
+    -fx-border-radius: 14;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #ECEFF1, #CFD8DC);
+    -fx-background-radius: 14 14 0 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #37474F;
+}
+
+/* Rows */
+.table-row-cell {
+    -fx-background-color: white;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #F7F9FB;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #E3F2FD;
+}
+
+/* Cell text */
+.table-cell {
+    -fx-padding: 10;
+    -fx-text-fill: #263238;
+}
+.text-field, .combo-box {
+    -fx-background-radius: 8;
+    -fx-padding: 6 10;
+}
+/* ===== COMBOBOX PRO ===== */
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(0,0,0,0.2);
+    -fx-padding: 4 8;
+    -fx-font-size: 13;
+}
+
+/* الزر اللي فيه السهم */
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 8 0 6;
+}
+
+/* السهم */
+.combo-box .arrow {
+    -fx-background-color: #0082AC; /* نفس لون التطبيق */
+    -fx-shape: "M 0 0 L 5 5 L 10 0 Z"; /* سهم أنيق */
+}
+
+/* hover */
+.combo-box:hover {
+    -fx-border-color: #0082AC;
+}
+
+/* focus */
+.combo-box:focused {
+    -fx-border-color: #0AA1D9;
+    -fx-effect: dropshadow(gaussian, rgba(0,130,172,0.25), 8, 0, 0, 2);
+}
+
+/* ===== DROPDOWN LIST ===== */
+
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(0,0,0,0.15);
+}
+
+/* عناصر اللائحة */
+.combo-box-popup .list-cell {
+    -fx-padding: 8 12;
+    -fx-font-size: 13;
+}
+
+/* hover عنصر */
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #E6F4FA;
+}
+
+/* العنصر المختار */
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #D6EEF8;
+    -fx-text-fill: #004D66;
+}
+
+

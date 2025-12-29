@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.DrcAjouterChantierController"
+            fitToWidth="true"
+            styleClass="page-bg">
+
+    <content>
+        <VBox alignment="CENTER" spacing="30">
+
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <!-- CARD -->
+            <VBox spacing="25" styleClass="card">
+
+                <!-- TITLE -->
+                <VBox spacing="5">
+                    <Label text="Nouveau Chantier" styleClass="form-title"/>
+                    <Label text="Créer et configurer un nouveau chantier"
+                           styleClass="form-subtitle"/>
+                </VBox>
+
+                <!-- FORM -->
+                <GridPane hgap="15" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="160"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="Nom du chantier"/>
+                    <TextField fx:id="txtNomChantier"/>
+
+                    <Label text="Adresse"/>
+                    <TextField fx:id="txtAdresse"/>
+
+                    <Label text="Chef de chantier"/>
+                    <ComboBox fx:id="comboChefChantier"/>
+
+                    <Label text="Date de début"/>
+                    <DatePicker fx:id="dateDebut"/>
+
+                    <Label text="Date de fin prévue"/>
+                    <DatePicker fx:id="dateFinPrevue"/>
+
+                    <Label text="Budget (DH)"/>
+                    <TextField fx:id="txtBudget"/>
+
+                    <Label text="Statut"/>
+                    <ComboBox fx:id="comboStatut"/>
+
+                    <Label text="Description"/>
+                    <TextArea fx:id="txtDescription" prefRowCount="3"/>
+                </GridPane>
+
+                <!-- ACTIONS -->
+                <HBox spacing="15" alignment="CENTER_RIGHT">
+                    <Button text="Annuler"
+                            styleClass="btn-cancel"
+                            onAction="#annuler"/>
+                    <Button text="Enregistrer"
+                            styleClass="btn-save"
+                            onAction="#enregistrer"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

@@ -1,0 +1,86 @@
+/* CARD */
+.rapport-root .rapport-card {
+    -fx-background-color: white;
+    -fx-background-radius: 26;
+    -fx-padding: 35;
+    -fx-pref-width: 900;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 8);
+}
+
+/* TITRE PRINCIPAL */
+.rapport-root .rapport-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 26px;
+    -fx-font-weight: 900;
+}
+
+/* TITRES DE SECTIONS */
+.rapport-root .section-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+}
+
+/* LABEL GRIS */
+.rapport-root .label-muted {
+    -fx-text-fill: #7a9aa9;
+    -fx-font-size: 13px;
+}
+
+/* LABEL PRINCIPAL */
+.rapport-root .label-main {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+}
+
+/* RESUME */
+.rapport-root .resume-area {
+    -fx-background-color: #f1f8fb;
+    -fx-border-color: #0082AC;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-text-fill: #375b69;
+}
+/* ===== COMMENT SECTION ===== */
+.comment-section {
+    -fx-background-color: #f9fbfd;
+    -fx-padding: 20;
+    -fx-background-radius: 12;
+    -fx-border-color: #dce6ef;
+    -fx-border-radius: 12;
+}
+
+/* textarea */
+.comment-area {
+    -fx-pref-height: 120;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #1ba3c6;
+}
+
+/* ===== BUTTONS ===== */
+.btn-valider {
+    -fx-background-color: #388E3C;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20;
+}
+
+.btn-valider:hover {
+    -fx-background-color: #27ae60;
+}
+
+.btn-refuser {
+    -fx-background-color: #E53935;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20;
+}
+
+.btn-refuser:hover {
+    -fx-background-color: #c0392b;
+}
+
